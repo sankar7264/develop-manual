@@ -18,7 +18,8 @@
     "install:dev-from-lock": "yarn install --production=false --frozen-lockfile --cache-folder .yarn-cache",
     "lint": "echo LINT TBD",
     "test": "echo TEST TBD",
-    "typescript:global": "npm install -g typescript@$npm_package_dependencies_typescript"
+    "typescript:global": "npm install -g typescript@$npm_package_dependencies_typescript",
+    "version-set": "echo DEPRECATED; yarn policies set-version $npm_package_config_yarnVersion; yarn set version $npm_package_config_yarnVersion"
   },
   "dependencies": {
     "@types/node": "^18.13.0",

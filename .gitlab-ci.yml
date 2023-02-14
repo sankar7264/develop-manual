@@ -65,4 +65,4 @@ yarn-test:
     - yarn lint
     - yarn audit
     - yarn test
-  dependencies: [yarn-install]
+  dependencies: [pre-config, yarn-install]

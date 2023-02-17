@@ -19,7 +19,10 @@
     "test": "jest",
     "prettier": "prettier --write .",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "analyze": "ANALYZE=true next build",
+    "analyze:server": "BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "BUNDLE_ANALYZE=browser next build"
   },
   "dependencies": {
     "@emotion/react": "11.10.5",
@@ -41,6 +44,7 @@
     "@commitlint/cli": "17.4.0",
     "@commitlint/config-conventional": "17.4.0",
     "@emotion/server": "11.10.0",
+    "@next/bundle-analyzer": "13.1.6",
     "@next/eslint-plugin-next": "13.1.0",
     "@storybook/addon-actions": "6.5.16",
     "@storybook/addon-essentials": "6.5.16",

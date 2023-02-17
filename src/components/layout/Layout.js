@@ -8,6 +8,8 @@ function Layout(props) {
       {/* Push down rest of the app if required here */}
 
       {children}
+
+      {/* Place footer here */}
     </div>
   )
 }

@@ -1,5 +1,12 @@
 import { createTheme } from '@mui/material/styles'
 
+const FONTS = {
+  MANDREL: 'Mandrel',
+  ROC_GROTESK: 'Roc Grotesk',
+  TABLET_GOTHIC: 'Table Gothic',
+  FALLBACK: 'sans-serif',
+}
+
 export const COLOR = {
   BLACK: '#191816',
   DARK_GRAY: '#3D3B38',
@@ -62,7 +69,175 @@ export const SECONDARY_COLOR = {
 
 const theme = createTheme({
   components: {},
-  typography: {},
+  typography: {
+    fontSize: 16,
+    h1: {
+      fontFamily: `"${FONTS.MANDREL}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 600,
+      lineHeight: '105%', // depends on user agent. should use custom values
+      fontSize: '3.5rem',
+      letterSpacing: '-0.02em',
+    },
+    h2: {
+      fontFamily: `"${FONTS.ROC_GROTESK}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 500,
+      lineHeight: '90%',
+      fontSize: '2.5rem',
+      textTransform: 'uppercase',
+    },
+    h3: {
+      fontFamily: `"${FONTS.MANDREL}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 600,
+      lineHeight: '105%',
+      fontSize: '2rem',
+      letterSpacing: '-0.02em',
+    },
+    h4: {
+      fontFamily: `"${FONTS.ROC_GROTESK}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 500,
+      lineHeight: '111%',
+      fontSize: '1.125rem',
+      letterSpacing: '0.02em',
+      textTransform: 'uppercase',
+    },
+    h5: {
+      fontFamily: `"${FONTS.MANDREL}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 600,
+      lineHeight: '117%',
+      fontSize: '0.75rem',
+      letterSpacing: '0.02em',
+    },
+    largeBody: {
+      default: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 400,
+        fontSize: '1.125rem',
+        lineHeight: '130%',
+      },
+      inlineLink: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 400,
+        fontSize: '1.125rem',
+        lineHeight: '130%',
+        textDecorationLine: 'underline',
+      },
+      bold: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 700,
+        fontSize: '1.125rem',
+        lineHeight: '130%',
+      },
+    },
+    body: {
+      default: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 400,
+        fontSize: '1rem',
+        lineHeight: '130%',
+      },
+      inlineLink: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 400,
+        fontSize: '1rem',
+        lineHeight: '130%',
+        textDecorationLine: 'underline',
+      },
+      bold: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 700,
+        fontSize: '1rem',
+        lineHeight: '130%',
+      },
+    },
+    smallBody: {
+      default: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 400,
+        fontSize: '0.875rem',
+        lineHeight: '130%',
+      },
+      inlineLink: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 400,
+        fontSize: '0.875rem',
+        lineHeight: '130%',
+        textDecorationLine: 'underline',
+      },
+      bold: {
+        fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+        fontStyle: 'normal',
+        fontWeight: 700,
+        fontSize: '0.875rem',
+        lineHeight: '130%',
+      },
+    },
+    cardTitle: {
+      fontFamily: `"${FONTS.MANDREL}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 600,
+      fontSize: '1.25rem',
+      lineHeight: '110%',
+    },
+    quote: {
+      fontFamily: `"${FONTS.MANDREL}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 600,
+      fontSize: '1.5rem',
+      lineHeight: '146%',
+      letterSpacing: '-0.02em',
+    },
+    label: {
+      fontFamily: `"${FONTS.ROC_GROTESK}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '1.125rem',
+      lineHeight: '100%',
+      textTransform: 'uppercase',
+    },
+    formLabel: {
+      fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '0.875rem',
+      lineHeight: '114%',
+      letterSpacing: '0.02em',
+    },
+    button: {
+      fontFamily: `"${FONTS.ROC_GROTESK}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '1.125rem',
+      lineHeight: '100%',
+      textTransform: 'uppercase',
+    },
+    caption: {
+      fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 600,
+      fontSize: '0.875rem',
+      lineHeight: '100%',
+    },
+    helperText: {
+      fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '0.75rem',
+      lineHeight: '117%',
+    },
+  },
   palette: {
     primary: {
       light: PRIMARY_COLOR.LIGHT,
@@ -113,5 +288,45 @@ const theme = createTheme({
     },
   },
 })
+
+theme.typography.h1 = {
+  ...theme.typography.h1,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '4rem',
+  },
+}
+
+theme.typography.h2 = {
+  ...theme.typography.h2,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '3rem',
+    fontWeight: 400,
+    lineHeight: '92%',
+  },
+}
+
+theme.typography.h3 = {
+  ...theme.typography.h3,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '2rem',
+  },
+}
+
+theme.typography.h4 = {
+  ...theme.typography.h4,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1.5rem',
+    fontWeight: 400,
+    lineHeight: '92%',
+  },
+}
+
+theme.typography.h5 = {
+  ...theme.typography.h5,
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1.125rem',
+    lineHeight: '111%',
+  },
+}
 
 export default theme

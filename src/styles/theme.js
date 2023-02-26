@@ -68,8 +68,17 @@ export const SECONDARY_COLOR = {
 }
 
 const theme = createTheme({
-  components: {},
+  components: {
+    MuiToolbar: {
+      styleOverrides: {
+        gutters: {
+          // padding: '1rem 1.5rem',
+        },
+      },
+    },
+  },
   typography: {
+    htmlFontSize: 16,
     fontSize: 16,
     h1: {
       fontFamily: `"${FONTS.MANDREL}", ${FONTS.FALLBACK}`,

@@ -44,7 +44,7 @@ const customViewports = Object.fromEntries(
       {
         name: key,
         styles: {
-          width: `${val}px`,
+          width: `${val - 1}px`,
           height: `${(idx + 5) * 10}vh`,
         },
       },

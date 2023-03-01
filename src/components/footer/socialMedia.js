@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import { makeStyles } from 'tss-react/mui'
-import v1 from 'public/Vector-1.png'
+import Twitter from 'public/assets/icons/twitter.svg'
 import theme from 'src/styles/theme'
-import v2 from 'public/Vector.png'
-import v3 from 'public/Vector-2.png'
-import v4 from 'public/Vector-3.png'
-import v5 from 'public/yt.png'
+import Fb from 'public/assets/icons/fb.svg'
+import Ig from 'public/assets/icons/ig.svg'
+import In from 'public/assets/icons/in.svg'
+import Yt from 'public/assets/icons/yt.svg'
 
 const useStyles = makeStyles(theme)((props) => ({
   socialMedia: {
@@ -26,19 +26,29 @@ const SocialMedia = (props) => {
     <div style={{ marginTop: '35px' }}>
       <div style={{}}>
         <div className={classes.socialMedia}>
-          <Image src={v1} />
+          <a href="#">
+            <Twitter />
+          </a>
         </div>
         <div className={classes.socialMedia}>
-          <Image src={v2} />
+          <a href="#">
+            <Fb />
+          </a>
         </div>
         <div className={classes.socialMedia}>
-          <Image src={v3} />
+          <a href="#">
+            <Ig />
+          </a>
         </div>
         <div className={classes.socialMedia}>
-          <Image src={v4} />
+          <a href="#">
+            <In />
+          </a>
         </div>
         <div className={classes.socialMedia}>
-          <Image src={v5} />
+          <a href="#">
+            <Yt />
+          </a>
         </div>
       </div>
       <div className={classes.copyRight}>

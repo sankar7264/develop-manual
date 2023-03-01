@@ -1,10 +1,8 @@
 import { Grid } from '@mui/material'
-import Image from 'next/image'
 import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
-import presideoLogo from 'public/Full Logo.png'
-import { object } from 'prop-types'
 import { useState } from 'react'
+import PresideoLogo from 'public/assets/icons/logo2.svg'
 
 const useStyles = makeStyles(theme)((props) => ({
   root: {
@@ -31,12 +29,11 @@ const useStyles = makeStyles(theme)((props) => ({
 const BottomMenu = (props) => {
   const [menu, setMenu] = useState(Object.values(props.data.menu_items))
   const { classes } = useStyles(props)
-  // eslint-disable-next-line react/destructuring-assignment
-  console.log('------>', menu)
   return (
     <>
       <div>
-        <Image src={presideoLogo} />
+        {/* <Image src={presideoLogo} /> */}
+        <PresideoLogo width="200" height="45" />
       </div>
       <div className={classes.root}>
         <Grid container>

@@ -1,22 +1,15 @@
-import {
-  Grid,
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  Container,
-} from '@mui/material'
 import React from 'react'
 import { makeStyles } from 'tss-react/mui'
-import NewsLetter from './newsLetter'
-import BottomMenu from './bottomMenu'
-import SocialMedia from './socialMedia'
-import Sponsors from './sponsors'
-import theme from '../../styles/theme'
+import Sponsors from 'src/components/footer/sponsors'
+import theme from 'src/styles/theme'
+import NewsLetter from 'src/components/footer/newsLetter'
+import BottomMenu from 'src/components/footer/bottomMenu'
+import SocialMedia from 'src/components/footer/socialMedia'
+import data from 'src/common/footerData.json'
 
 const useStyles = makeStyles(theme)((props) => ({
   footer: {
-    backgroundColor: '#1F4D25',
+    backgroundColor: theme.palette.primary.dark,
     padding: '15px',
     width: '100%',
   },
@@ -32,7 +25,7 @@ function Footer(props) {
       <NewsLetter />
       <div className={classes.footer}>
         <div className={classes.footerContainer}>
-          <BottomMenu />
+          <BottomMenu data={data.footer.footer_menu} />
           <Sponsors />
           <hr />
           <SocialMedia />

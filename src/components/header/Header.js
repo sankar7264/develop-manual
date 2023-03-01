@@ -1,17 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { makeStyles } from 'tss-react/mui'
-import Image from 'next/image'
 import { Grid } from '@mui/material'
-import theme from '../../styles/theme'
-import PresideoLogo from '../../../public/Presidio Logo.svg'
+import PresideoLogo from 'public/assets/icons/Full-Logo.svg'
+import theme from 'src/styles/theme'
 
 const useStyles = makeStyles(theme)((props) => ({
   headWraper: {
     backgroundColor: theme.palette.presidio.color.LIGHT_BACKGROUND,
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
+      display: 'none',
+    },
   },
   headInner: {
-    minWidth: '1000px',
+    minWidth: '800px',
     maxWidth: '1124px',
     margin: '0 auto',
     height: '208px',

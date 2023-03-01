@@ -4,11 +4,10 @@ import {
   Button,
   Card,
   CardContent,
-  Container,
   ThemeProvider,
 } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
-import theme from '../../styles/theme'
+import theme from 'src/styles/theme'
 
 const useStyles = makeStyles(theme)((props) => ({
   newsLetter: {
@@ -20,17 +19,17 @@ const useStyles = makeStyles(theme)((props) => ({
     position: 'relative',
     marginLeft: 'auto',
     marginRight: 'auto',
-    [theme.breakpoints.down(1200)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.xl)]: {
       maxWidth: '782px',
       minHeight: '174px',
       marginBottom: '-87px',
     },
-    [theme.breakpoints.down(1024)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.lg)]: {
       maxWidth: '640px',
       minHeight: '248px',
       marginBottom: '-124px',
     },
-    [theme.breakpoints.down(720)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
       maxWidth: '327px',
       minHeight: '275px',
       marginBottom: '-137px',
@@ -50,42 +49,42 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   emailDiv: {
     width: '80%',
-    marginTop: '5% !important',
-    [theme.breakpoints.down(1024)]: {
-      marginTop: '0 !important',
+    margin: '5% auto',
+    [theme.breakpoints.down(theme.breakpoints.values.lg)]: {
+      margin: '0 auto',
       width: '95%',
     },
-    [theme.breakpoints.down(720)]: {
-      marginTop: '0 !important',
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
+      margin: '0 auto',
     },
   },
   gridItem: {
-    margin: '0 auto',
+    // margin: '0 auto',
     transform: 'translate(0, 12%)',
   },
   firstGrid: {
     minHeight: '178px',
-    [theme.breakpoints.down(1024)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.lg)]: {
       minHeight: 'auto',
     },
-    [theme.breakpoints.down(720)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
       // minHeight: "auto"
     },
   },
   cardContent: {
     minHeight: '178px',
-    [theme.breakpoints.down(1024)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.lg)]: {
       minHeight: 'auto',
     },
-    [theme.breakpoints.down(720)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
       // minHeight: 'auto'
     },
   },
   bgImageHolder: {
     display: 'block',
-    backgroundImage: 'url("http://localhost:3000/newsbg.png")',
+    backgroundImage: 'url(/newsbg.png)',
     backgroundSize: '100% auto',
-    [theme.breakpoints.down(1024)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.lg)]: {
       display: 'none',
     },
   },
@@ -97,10 +96,10 @@ const useStyles = makeStyles(theme)((props) => ({
     marginBottom: '5px',
     marginTop: '5%',
     lineHeight: 1,
-    [theme.breakpoints.down(1200)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.xl)]: {
       marginLeft: '5%',
     },
-    [theme.breakpoints.down(720)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
       fontSize: '24px',
       marginTop: '2%',
     },
@@ -111,12 +110,12 @@ const useStyles = makeStyles(theme)((props) => ({
     color: theme.palette.presidio.color.BLACK,
     fontWeight: 400,
     width: '80%',
-    [theme.breakpoints.down(1200)]: {
+    [theme.breakpoints.down(theme.breakpoints.values.xl)]: {
       marginLeft: '5%',
       width: '100%',
       marginTop: '10px',
     },
-    [theme.breakpoints.down(720)]: {},
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {},
   },
 }))
 

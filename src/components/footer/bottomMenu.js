@@ -1,23 +1,17 @@
-import {
-  Grid,
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  Container,
-  ThemeProvider,
-} from '@mui/material'
+import { Grid } from '@mui/material'
 import Image from 'next/image'
 import { makeStyles } from 'tss-react/mui'
-import theme from '../../styles/theme'
-import presideoLogo from '../../../public/Full Logo.png'
+import theme from 'src/styles/theme'
+import presideoLogo from 'public/Full Logo.png'
+import { object } from 'prop-types'
+import { useState } from 'react'
 
 const useStyles = makeStyles(theme)((props) => ({
   root: {
     '& h4': {
       marginBottom: '0px',
       fontSize: '18px',
-      color: '#F9F1DB',
+      color: theme.palette.presidio.color.BAKER_BEACH_WHITE,
       fontFamily: 'serif',
     },
     '& ul': {
@@ -26,7 +20,7 @@ const useStyles = makeStyles(theme)((props) => ({
       margin: 0,
     },
     '& a': {
-      color: '#FEFCF8',
+      color: theme.palette.presidio.color.NEAR_WHITE,
     },
     '& li': {
       padding: '5px 0',
@@ -35,7 +29,10 @@ const useStyles = makeStyles(theme)((props) => ({
 }))
 
 const BottomMenu = (props) => {
+  const [menu, setMenu] = useState(Object.values(props.data.menu_items))
   const { classes } = useStyles(props)
+  // eslint-disable-next-line react/destructuring-assignment
+  console.log('------>', menu)
   return (
     <>
       <div>
@@ -43,126 +40,20 @@ const BottomMenu = (props) => {
       </div>
       <div className={classes.root}>
         <Grid container>
-          <Grid item xs={12} sm={4}>
-            <ul>
-              <li>
-                <h4>Visit</h4>
-              </li>
-              <li>
-                <a href="#">Contact & Feedback</a>
-              </li>
-              <li>
-                <a href="#">Getting Here</a>
-              </li>
-              <li>
-                <a href="#">Maps</a>
-              </li>
-              <li>
-                <a href="#">Visitor Center</a>
-              </li>
-            </ul>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <ul>
-              <li>
-                <h4>Explore</h4>
-              </li>
-              <li>
-                <a href="#">Park Attractions</a>
-              </li>
-              <li>
-                <a href="#">Presidio Tunnel Tops</a>
-              </li>
-              <li>
-                <a href="#">Golf</a>
-              </li>
-              <li>
-                <a href="#">Trails</a>
-              </li>
-              <li>
-                <a href="#">Education & Youth Programs</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-            </ul>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <ul>
-              <li>
-                <h4>Leasing</h4>
-              </li>
-              <li>
-                <a href="#">Commercial Tenant Portal</a>
-              </li>
-            </ul>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <ul>
-              <li>
-                <h4>Weddings & Events</h4>
-              </li>
-              <li>
-                <a href="#">Contact & Feedback</a>
-              </li>
-              <li>
-                <a href="#">Getting Here</a>
-              </li>
-              <li>
-                <a href="#">Maps</a>
-              </li>
-              <li>
-                <a href="#">Visitor Center</a>
-              </li>
-            </ul>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <ul>
-              <li>
-                <h4>About the Presidio</h4>
-              </li>
-              <li>
-                <a href="#">Park Attractions</a>
-              </li>
-              <li>
-                <a href="#">Presidio Tunnel Tops</a>
-              </li>
-              <li>
-                <a href="#">Golf</a>
-              </li>
-              <li>
-                <a href="#">Trails</a>
-              </li>
-              <li>
-                <a href="#">Education & Youth Programs</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-            </ul>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <ul>
-              <li>
-                <h4>Legal Links</h4>
-              </li>
-              <li>
-                <a href="#">Commercial Tenant Portal</a>
-              </li>
-              <li>
-                <a href="#">Golf</a>
-              </li>
-              <li>
-                <a href="#">Trails</a>
-              </li>
-              <li>
-                <a href="#">Education & Youth Programs</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-            </ul>
-          </Grid>
+          {menu.map((i) => (
+            <Grid item xs={12} sm={4}>
+              <ul>
+                <li>
+                  <h4>{i.title}</h4>
+                </li>
+                {Object.values(i.menuitem).map((j) => (
+                  <li>
+                    <a href="#">{j.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </Grid>
+          ))}
         </Grid>
       </div>
     </>

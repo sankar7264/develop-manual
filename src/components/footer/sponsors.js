@@ -1,17 +1,9 @@
-import {
-  Grid,
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  Container,
-  ThemeProvider,
-} from '@mui/material'
+import { Grid } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 import Image from 'next/image'
-import theme from '../../styles/theme'
-import bLogo from '../../../public/BLOGO_Footer.png'
-import sLogo from '../../../public/SLOGO_footer.png'
+import theme from 'src/styles/theme'
+import bLogo from 'public/BLOGO_Footer.png'
+import sLogo from 'public/SLOGO_footer.png'
 
 const useStyles = makeStyles(theme)((props) => ({
   footerLogoBlock: {

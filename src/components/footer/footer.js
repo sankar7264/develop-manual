@@ -25,7 +25,7 @@ function Footer(props) {
       <NewsLetter />
       <div className={classes.footer}>
         <div className={classes.footerContainer}>
-          <BottomMenu data={data.footer.footer_menu} />
+          <BottomMenu data={data.footer.footer_menu.menu_items} />
           <Sponsors />
           <hr />
           <SocialMedia />

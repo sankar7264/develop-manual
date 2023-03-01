@@ -1,0 +1,67 @@
+{
+    "header": {
+      "weather_latitude": "28.7041° N",
+      "weather_longitude": "77.1025° E",
+      "open_time": "open daily: 9:00 a.m. - 5:00 p.m.",
+      "logo": {
+        "ID": 454,
+        "id": 454,
+        "title": "presidio-logo",
+        "filename": "presidio-logo.webp",
+        "filesize": 4992,
+        "url": "http://localhost:8888/presidio/wp-content/uploads/2023/02/presidio-logo.webp",
+        "link": "http://localhost:8888/presidio/presidio-logo/",
+        "alt": "",
+        "author": "1",
+        "description": "",
+        "caption": "",
+        "name": "presidio-logo",
+        "status": "inherit",
+        "uploaded_to": 0,
+        "date": "2023-02-22 11:04:04",
+        "modified": "2023-02-22 11:04:04",
+        "menu_order": 0,
+        "mime_type": "image/webp",
+        "type": "image",
+        "subtype": "webp",
+        "icon": "http://localhost:8888/presidio/wp-includes/images/media/default.png",
+        "width": 607,
+        "height": 134,
+        "sizes": {
+          "thumbnail": "http://localhost:8888/presidio/wp-content/uploads/2023/02/presidio-logo-150x134.webp",
+          "thumbnail-width": 150,
+          "thumbnail-height": 134,
+          "medium": "http://localhost:8888/presidio/wp-content/uploads/2023/02/presidio-logo-300x66.webp",
+          "medium-width": 300,
+          "medium-height": 66,
+          "medium_large": "http://localhost:8888/presidio/wp-content/uploads/2023/02/presidio-logo.webp",
+          "medium_large-width": 607,
+          "medium_large-height": 134,
+          "large": "http://localhost:8888/presidio/wp-content/uploads/2023/02/presidio-logo.webp",
+          "large-width": 607,
+          "large-height": 134,
+          "1536x1536": "http://localhost:8888/presidio/wp-content/uploads/2023/02/presidio-logo.webp",
+          "1536x1536-width": 607,
+          "1536x1536-height": 134,
+          "2048x2048": "http://localhost:8888/presidio/wp-content/uploads/2023/02/presidio-logo.webp",
+          "2048x2048-width": 607,
+          "2048x2048-height": 134
+        }
+      },
+      "header_link_1": {
+        "title": "Rent a home",
+        "url": "#",
+        "target": "0"
+      },
+      "header_link_2": {
+        "title": "Lease an office",
+        "url": "#",
+        "target": "0"
+      },
+      "header_link_3": {
+        "title": "Plan an Event",
+        "url": "#",
+        "target": "0"
+      }
+    }
+  }

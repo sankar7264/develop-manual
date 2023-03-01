@@ -6,6 +6,7 @@ import theme from 'src/styles/theme'
 import SunIcon from 'public/assets/icons/sun.svg'
 import GloabIcon from 'public/assets/icons/Globe-Icon.svg'
 import CloabIcon from 'public/assets/icons/clock.svg'
+import headerData from 'src/common/headerData.json'
 
 const useStyles = makeStyles(theme)((props) => ({
   headWraper: {
@@ -94,7 +95,9 @@ const header = (props) => {
               <a className={classes.linkLanguage} href="#">
                 Visitor Center
               </a>
-              <span className={classes.spanText}>Open daily 10 am - 5 pm</span>
+              <span className={classes.spanText}>
+                {headerData.header.open_time}
+              </span>
             </div>
           </Grid>
           <Grid
@@ -114,7 +117,9 @@ const header = (props) => {
             item
             md={4}
           >
-            <PresideoLogo width="200" height="45" fill="#1F4D25" />
+            <a href="#">
+              <PresideoLogo width="200" height="45" fill="#1F4D25" />
+            </a>
           </Grid>
           <Grid
             className={[classes.gitem, classes.secondRow].join(' ')}
@@ -122,14 +127,23 @@ const header = (props) => {
             md={8}
           >
             <div style={{ float: 'right' }}>
-              <a className={classes.link} href="#">
-                Rent a Home
+              <a
+                className={classes.link}
+                href={headerData.header.header_link_1.url}
+              >
+                {headerData.header.header_link_1.title}
               </a>
-              <a className={classes.link} href="#">
-                Lease an office
+              <a
+                className={classes.link}
+                href={headerData.header.header_link_1.url}
+              >
+                {headerData.header.header_link_2.title}
               </a>
-              <a className={classes.link} href="#">
-                Plan An Event
+              <a
+                className={classes.link}
+                href={headerData.header.header_link_3.url}
+              >
+                {headerData.header.header_link_3.title}
               </a>
             </div>
           </Grid>

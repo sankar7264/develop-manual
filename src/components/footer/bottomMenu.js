@@ -27,7 +27,8 @@ const useStyles = makeStyles(theme)((props) => ({
 }))
 
 const BottomMenu = (props) => {
-  const [menu, setMenu] = useState(Object.values(props.data.menu_items))
+  const { data } = props
+  const [menu, setMenu] = useState(Object.values(data))
   const { classes } = useStyles(props)
   return (
     <>

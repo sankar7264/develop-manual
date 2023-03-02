@@ -4,9 +4,10 @@
     "plugin:storybook/recommended",
     "plugin:react/jsx-runtime",
     "prettier",
+    "plugin:jest/recommended",
     "plugin:@next/next/recommended"
   ],
-  "plugins": ["prettier"],
+  "plugins": ["prettier, jest"],
   "settings": {
     "import/resolver": {
       "node": {

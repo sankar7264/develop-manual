@@ -13,7 +13,7 @@ Presidio's front end React application.
 - [i18n](https://nextjs.org/docs/advanced-features/i18n-routing)
 - [Google Maps](https://react-google-maps-api-docs.netlify.app/)
 
-#### Architecture diagram and stack details [here](<(https://t3thinktank.atlassian.net/wiki/spaces/PT/pages/3056009378/Architecture+Diagram+for+Presidio+Frontend)>)
+#### Architecture diagram and stack details [here](https://t3thinktank.atlassian.net/wiki/spaces/PT/pages/3056009378/Architecture+Diagram+for+Presidio+Frontend)
 
 #### Coding guidelines and editor setup
 

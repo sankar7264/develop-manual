@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-const FONTS = {
+export const FONTS = {
   MANDREL: 'Mandrel',
   ROC_GROTESK: 'Roc Grotesk',
   TABLET_GOTHIC: 'Table Gothic',
@@ -19,7 +19,7 @@ export const COLOR = {
   NEAR_WHITE: '#FEFCF8',
 }
 
-const SERVICE_COLOR = {
+export const SERVICE_COLOR = {
   SUCCESS: {
     PRIMARY: '#377158',
     SECONDARY: '#377158',
@@ -51,19 +51,19 @@ const PRIMARY_COLOR = {
 
 export const SECONDARY_COLOR = {
   LIGHT: {
-    40: '#7bab46',
-    60: '#7bab46',
-    80: '#7bab46',
+    40: '#D8E5C5',
+    60: '#BFD89E',
+    80: '#A5CC7A',
   },
   MAIN: {
-    40: '#cd4f30',
-    60: '#cd4f30',
-    80: '#cd4f30',
+    40: '#EDC7B8',
+    60: '#E0997E',
+    80: '#D57150',
   },
   DARK: {
-    40: '#1f4d25',
-    60: '#1f4d25',
-    80: '#1f4d25',
+    40: '#A7C49D',
+    60: '#79996C',
+    80: '#517843',
   },
 }
 
@@ -73,6 +73,13 @@ const theme = createTheme({
       styleOverrides: {
         gutters: {
           // padding: '1rem 1.5rem',
+        },
+      },
+    },
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          padding: '0',
         },
       },
     },
@@ -300,14 +307,14 @@ const theme = createTheme({
 
 theme.typography.h1 = {
   ...theme.typography.h1,
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     fontSize: '4rem',
   },
 }
 
 theme.typography.h2 = {
   ...theme.typography.h2,
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     fontSize: '3rem',
     fontWeight: 400,
     lineHeight: '92%',
@@ -316,14 +323,14 @@ theme.typography.h2 = {
 
 theme.typography.h3 = {
   ...theme.typography.h3,
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     fontSize: '2rem',
   },
 }
 
 theme.typography.h4 = {
   ...theme.typography.h4,
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     fontSize: '1.5rem',
     fontWeight: 400,
     lineHeight: '92%',
@@ -332,7 +339,7 @@ theme.typography.h4 = {
 
 theme.typography.h5 = {
   ...theme.typography.h5,
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     fontSize: '1.125rem',
     lineHeight: '111%',
   },

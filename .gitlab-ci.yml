@@ -1,0 +1,68 @@
+workflow:
+  rules:
+    # Fixes running the CI on "detached" HEAD issue due to using "rules"
+    - if: $CI_MERGE_REQUEST_ID
+      when: never
+    # Default always run
+    - when: always
+
+.yarn-base:
+  image:
+    name: node:${NODE_VERSION}
+    entrypoint: [ "" ]
+  tags: [cloud-dind]
+
+
+##########################
+stages:
+  - install
+  - test
+
+pre-config:
+  stage: .pre  # pre-existing stage in gitlab
+  extends: .yarn-base
+  image: node:latest
+  variables:
+    DOTENV_FILE: yarn.env
+  script:
+    - echo "NODE_VERSION=$(npm run env | grep npm_package_config_nodeVersion | cut -d '=' -f 2)" >> $DOTENV_FILE
+    - echo "YARN_VERSION=$(npm run env | grep npm_package_config_yarnVersion | cut -d '=' -f 2)" >> $DOTENV_FILE
+    # Install the version of yarn specified in package.json
+    - yarn version-set
+    - yarn config set cache-folder .yarn-cache
+  cache:
+    policy: pull-push
+    paths:
+      - "{,**/}.yarn"
+      - "{,**/}.yarnrc"
+  artifacts:
+    reports:
+      dotenv: $DOTENV_FILE
+    expire_in: 1 day
+  rules:
+    - if: $CI_COMMIT_REF_SLUG != null
+      when: on_success
+    - when: never
+
+yarn-install:
+  stage: install
+  extends: .yarn-base
+  script:
+    - yarn version-set
+    - yarn install:from-lock
+  cache:
+    policy: pull-push
+    paths:
+      - "{,**/}.yarn-cache"
+      - "{,**/}node_modules"
+  dependencies: [pre-config]
+
+yarn-test:
+  stage: test
+  extends: .yarn-base
+  script:
+    - yarn install:dev-from-lock
+    - yarn lint
+    - yarn audit
+    - yarn test
+  dependencies: [pre-config, yarn-install]

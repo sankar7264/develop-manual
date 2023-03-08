@@ -1,9 +1,9 @@
 import { createTheme } from '@mui/material/styles'
 
 export const FONTS = {
-  MANDREL: 'Mandrel',
-  ROC_GROTESK: 'Roc Grotesk',
-  TABLET_GOTHIC: 'Table Gothic',
+  MANDREL: 'mandrel-normal',
+  ROC_GROTESK: 'roc-grotesk',
+  TABLET_GOTHIC: 'tablet-gothic',
   FALLBACK: 'sans-serif',
 }
 

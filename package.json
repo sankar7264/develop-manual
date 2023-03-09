@@ -47,6 +47,7 @@
     "@emotion/server": "11.10.0",
     "@next/bundle-analyzer": "13.1.6",
     "@next/eslint-plugin-next": "13.1.0",
+    "@storybook/addon-a11y": "6.5.16",
     "@storybook/addon-actions": "6.5.16",
     "@storybook/addon-essentials": "6.5.16",
     "@storybook/addon-interactions": "6.5.16",

@@ -8,10 +8,6 @@ function FullLogo(props) {
       height={height || 44}
       viewBox="0 0 200 44"
       fill="none"
-      // style={{
-      //   width,
-      //   height,
-      // }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_443_1754)">

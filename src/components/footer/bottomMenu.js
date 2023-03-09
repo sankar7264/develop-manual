@@ -2,7 +2,8 @@ import { Grid } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
 import { useState } from 'react'
-import PresideoLogo from 'public/assets/icons/logo2.svg'
+import PresidioLogo from 'public/assets/icons/logo2.svg'
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme)((props) => ({
   root: {
@@ -33,8 +34,8 @@ const BottomMenu = (props) => {
   return (
     <>
       <div>
-        {/* <Image src={presideoLogo} /> */}
-        <PresideoLogo width="200" height="45" />
+        {/* <Image src={PresidioLogo} /> */}
+        <PresidioLogo width="200" height="45" />
       </div>
       <div className={classes.root}>
         <Grid container>
@@ -46,7 +47,7 @@ const BottomMenu = (props) => {
                 </li>
                 {Object.values(i.menuitem).map((j) => (
                   <li>
-                    <a href="#">{j.title}</a>
+                    <Link href="#">{j.title}</Link>
                   </li>
                 ))}
               </ul>

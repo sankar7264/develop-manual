@@ -6,6 +6,7 @@ import Fb from 'public/assets/icons/fb.svg'
 import Ig from 'public/assets/icons/ig.svg'
 import In from 'public/assets/icons/in.svg'
 import Yt from 'public/assets/icons/yt.svg'
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme)((props) => ({
   socialMedia: {
@@ -13,10 +14,10 @@ const useStyles = makeStyles(theme)((props) => ({
     padding: '15px',
   },
   copyRight: {
-    float: 'right',
+    float: 'left',
     color: theme.palette.presidio.color.NEAR_WHITE,
-    [theme.breakpoints.down(720)]: {
-      float: 'left',
+    [theme.breakpoints.up('md')]: {
+      float: 'right',
     },
   },
 }))
@@ -26,29 +27,29 @@ const SocialMedia = (props) => {
     <div style={{ marginTop: '35px' }}>
       <div style={{}}>
         <div className={classes.socialMedia}>
-          <a href="#">
+          <Link href="#">
             <Twitter />
-          </a>
+          </Link>
         </div>
         <div className={classes.socialMedia}>
-          <a href="#">
+          <Link href="#">
             <Fb />
-          </a>
+          </Link>
         </div>
         <div className={classes.socialMedia}>
-          <a href="#">
+          <Link href="#">
             <Ig />
-          </a>
+          </Link>
         </div>
         <div className={classes.socialMedia}>
-          <a href="#">
+          <Link href="#">
             <In />
-          </a>
+          </Link>
         </div>
         <div className={classes.socialMedia}>
-          <a href="#">
+          <Link href="#">
             <Yt />
-          </a>
+          </Link>
         </div>
       </div>
       <div className={classes.copyRight}>

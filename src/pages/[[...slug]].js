@@ -1,4 +1,5 @@
 import Typography from '@mui/material/Typography'
+import Layout from 'src/components/layout/Layout'
 import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
 
@@ -16,9 +17,11 @@ const Home = (props) => {
   console.log(theme)
 
   return (
-    <Typography variant="h1" className={classes.test}>
-      Hello World!
-    </Typography>
+    <Layout>
+      <Typography variant="h1" className={classes.test}>
+        Hello World!
+      </Typography>
+    </Layout>
   )
 }
 

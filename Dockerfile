@@ -1,12 +1,12 @@
-ARG NODE_VERSION=16.13
+ARG NODE_VERSION=16.14.0
 
 
-FROM node:${NODE_VERSION}-alpine as builder
+FROM node:${NODE_VERSION}-slim as builder
 WORKDIR /app
 COPY . .
 
 
-FROM node:${NODE_VERSION}-alpine as runner
+FROM node:${NODE_VERSION}-slim as runner
 # Node ENV
 ARG NODE_ENV
 ENV NODE_ENV ${NODE_ENV:-production}

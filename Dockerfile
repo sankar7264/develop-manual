@@ -12,10 +12,10 @@ ARG NODE_ENV
 ENV NODE_ENV ${NODE_ENV:-production}
 
 WORKDIR /app
-COPY --from=builder /app/${MYAPP}/package.json      ./
-#COPY --from=builder /app/${MYAPP}/build             ./build
-COPY --from=builder /app/${MYAPP}/node_modules      ./node_modules
-#COPY --from=builder /app/${MYAPP}/public            ./public
+COPY --from=builder /app/package.json      ./
+#COPY --from=builder /app/build             ./build
+COPY --from=builder /app/node_modules      ./node_modules
+#COPY --from=builder /app/public            ./public
 
 EXPOSE 3000
 CMD ["yarn", "start"]

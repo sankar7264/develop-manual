@@ -9,9 +9,8 @@
     "npm":  ">=7.0.0"
   },
   "scripts": {
-    "install:from-lock": "yarn install --production --frozen-lockfile --cache-folder .yarn-cache",
-    "install:dev": "yarn install --production=false --no-lockfile --cache-folder .yarn-cache",
-    "install:dev-from-lock": "yarn install --production=false --frozen-lockfile --cache-folder .yarn-cache",
+    "install:from-lock": "npm install --only=prod",
+    "install:dev-from-lock": "npm ci",
     "dev": "next dev",
     "dev:debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",

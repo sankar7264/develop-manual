@@ -25,7 +25,7 @@ install:
   stage: install
   <<: *npm_docker
   script:
-    - npm install:from-lock
+    - npm run install:from-lock
 #    - npm audit
   artifacts:
     paths:
@@ -39,7 +39,7 @@ test:
   stage: test
   <<: *npm_docker
   script:
-    - npm install:dev-from-lock
+    - npm run install:dev-from-lock
     - npm run lint
     - npm run test
   needs: [install]

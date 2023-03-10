@@ -9,8 +9,8 @@
     "npm":  ">=7.0.0"
   },
   "scripts": {
-    "install:from-lock": "npm run prepare && npm install --only=prod",
-    "install:dev-from-lock": "npm run prepare && npm ci",
+    "install:from-lock": "npm install husky@$npm_package_devDependencies_husky && npm install --only=prod",
+    "install:dev-from-lock": "npm install husky@$npm_package_devDependencies_husky && npm ci",
     "dev": "next dev",
     "dev:debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",

@@ -82,7 +82,10 @@
     "util": "0.12.5"
   },
   "resolutions": {
-    "webpack": "^5"
+    "webpack": "^5",
+    "**/**/trim": "^0.0.3",
+    "@storybook/react/**/trim-newlines": "^3.0.1",
+    "@storybook/react/**/glob-parent": "^5.1.2"
   },
   "browserslist": {
     "production": [

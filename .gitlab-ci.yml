@@ -52,3 +52,7 @@ build:
   <<: *npm_docker
   script:
     - npm build
+  rules:
+    - if: $CI_COMMIT_REF_PROTECTED == "true" && $CI_COMMIT_REF_SLUG =~ /^(devops|stage|main)$/
+      when: on_success
+    - when: never

@@ -33,8 +33,8 @@ All dependencies are listed in the [package.json](https://gitlab.t-3.com/presidi
 ## Setup
 
 - Clone this repository inside the code editor (VS Code recommended)
-- Checkout the development branch
-- Run this command to install necessary prod and dev dependencies - **yarn install** (Make sure you have yarn installed globally in your system)
+- Checkout the development/develop branch
+- Run this command to install necessary prod and dev dependencies - **npm install** (Make sure you have npm installed globally in your system)
 
 ## Environment Variables
 
@@ -50,12 +50,12 @@ All dependencies are listed in the [package.json](https://gitlab.t-3.com/presidi
 
 ## Running application for development
 
-- Run this command inside the terminal to start dev server - **yarn dev**
+- Run this command inside the terminal to start dev server - **npm run dev**
 - Create a branch from development when working on a new feature of a bug
 
 ## Running production build
 
-Run this command inside the terminal to start production build - **yarn start**
+Run this command inside the terminal to start production build - **npm run build** and then, **npm start**
 
 ## Code Review Instructions
 

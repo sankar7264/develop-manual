@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from 'tss-react/mui'
 import { Grid } from '@mui/material'
-import PresidioLogo from 'public/assets/icons/Full-Logo.svg'
+import PresidioLogo from 'src/components/icons/presidioLogo'
 import theme from 'src/styles/theme'
-import SunIcon from 'public/assets/icons/sun.svg'
-import GlobeIcon from 'public/assets/icons/Globe-Icon.svg'
-import ClockIcon from 'public/assets/icons/clock.svg'
-import headerData from 'src/common/headerData.json'
+import SunIcon from 'src/components/icons/SunIcon'
+import GlobeIcon from 'src/components/icons/GlobeIcon'
+import ClockIcon from 'src/components/icons/ClockIcon'
 import Link from 'next/link'
 
 const useStyles = makeStyles(theme)((props) => ({
@@ -83,6 +82,7 @@ const useStyles = makeStyles(theme)((props) => ({
 
 const header = (props) => {
   const { classes } = useStyles(props)
+  const [headerData, setHeaderData] = useState(props.data)
   return (
     <div className={classes.headWrapper}>
       <div>

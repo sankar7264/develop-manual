@@ -5,7 +5,6 @@ import theme from 'src/styles/theme'
 import NewsLetter from 'src/components/footer/newsLetter'
 import BottomMenu from 'src/components/footer/bottomMenu'
 import SocialMedia from 'src/components/footer/socialMedia'
-import data from 'src/common/footerData.json'
 
 const useStyles = makeStyles(theme)((props) => ({
   footer: {
@@ -20,6 +19,7 @@ const useStyles = makeStyles(theme)((props) => ({
 }))
 function Footer(props) {
   const { classes } = useStyles(props)
+  const { data } = props
   return (
     <div className={classes.footerParent}>
       <NewsLetter />

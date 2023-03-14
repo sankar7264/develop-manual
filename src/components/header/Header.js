@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { makeStyles } from 'tss-react/mui'
 import { Grid } from '@mui/material'
-import PresidioLogo from 'src/components/icons/presidioLogo'
+import PresidioLogo from 'src/components/icons/FullLogo'
 import theme from 'src/styles/theme'
 import SunIcon from 'src/components/icons/SunIcon'
 import GlobeIcon from 'src/components/icons/GlobeIcon'

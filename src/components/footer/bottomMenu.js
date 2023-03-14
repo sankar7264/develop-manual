@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
 import { useState } from 'react'
-import PresidioLogo from 'public/assets/icons/logo2.svg'
+import PresidioLogo from 'src/components/icons/FullLogo'
 import Link from 'next/link'
 
 const useStyles = makeStyles(theme)((props) => ({
@@ -34,8 +34,7 @@ const BottomMenu = (props) => {
   return (
     <>
       <div>
-        {/* <Image src={PresidioLogo} /> */}
-        <PresidioLogo width="200" height="45" />
+        <PresidioLogo color={theme.palette.presidio.color.NEAR_WHITE} />
       </div>
       <div className={classes.root}>
         <Grid container>

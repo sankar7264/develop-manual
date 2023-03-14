@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "engines": {
     "node": ">=16.14.0",
-    "npm":  ">=7.0.0"
+    "npm": ">=7.0.0"
   },
   "scripts": {
     "install:from-lock": "npm install --only=prod",
@@ -82,14 +82,15 @@
     "jest-environment-jsdom": "29.4.3",
     "lint-staged": "13.1.0",
     "prettier": "2.8.1",
-    "storybook-addon-material-ui5": "1.0.0",
     "util": "0.12.5"
   },
-  "resolutions": {
-    "webpack": "^5",
-    "**/**/trim": "^0.0.3",
-    "@storybook/react/**/trim-newlines": "^3.0.1",
-    "@storybook/react/**/glob-parent": "^5.1.2"
+  "overrides": {
+    "@storybook/react": {
+      "trim-newlines": "^3.0.1",
+      "glob-parent": "^5.1.2"
+    },
+    "trim": "^0.0.3",
+    "webpack": "^5"
   },
   "browserslist": {
     "production": [

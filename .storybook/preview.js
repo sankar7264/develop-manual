@@ -1,7 +1,6 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 import theme from 'src/styles/theme'
-import { muiTheme } from 'storybook-addon-material-ui5'
 import * as NextImage from 'next/image'
 
 // De-optimise next/image to avoid image not found / blur palceholder errors
@@ -26,7 +25,7 @@ const withMuiTheme = (Story) => (
   </ThemeProvider>
 )
 
-export const decorators = [muiTheme([withMuiTheme])]
+export const decorators = [withMuiTheme]
 
 // Custom Breakpoints
 const BREAKPOINTS_INT = {

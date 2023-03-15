@@ -16,7 +16,7 @@ export async function getFooter() {
   return res.data
 }
 
-export async function getMegaMenu() {
+export async function getMainNavigation() {
   const res = await axios(
     `${process.env.NEXT_PUBLIC_WORDPRESS_ENDPOINT}/wp-json/wp/v1/mega-menu`
   )

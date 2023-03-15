@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography'
 import Layout from 'src/components/layout/Layout'
 import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
-import { getHeader, getFooter, getMegaMenu } from 'src/common/services'
+import { getHeader, getFooter, getMainNavigation } from 'src/common/services'
 
 const useStyles = makeStyles()((props) => ({
   test: {
@@ -12,14 +12,34 @@ const useStyles = makeStyles()((props) => ({
     height: '30vh',
   },
 }))
+
+const Home = (props) => {
+  const { classes } = useStyles(props)
+  const { headerData, footerData, mainNavigationData } = props
+
+  return (
+    <Layout
+      headerData={headerData}
+      footerData={footerData}
+      mainNavigationData={mainNavigationData}
+    >
+      <Typography variant="h1" className={classes.test}>
+        Hello World!
+      </Typography>
+    </Layout>
+  )
+}
+
+export default Home
+
 export async function getServerSideProps(context) {
   let headerData = null
   let footerData = null
-  let megaMenuData = null
+  let mainNavigationData = null
 
   try {
-    const [getHeaderRes, getFooterRes, getMegaMenuRes] =
-      await Promise.allSettled([getHeader(), getFooter(), getMegaMenu()])
+    const [getHeaderRes, getFooterRes, getMainNavigationRes] =
+      await Promise.allSettled([getHeader(), getFooter(), getMainNavigation()])
 
     if (getHeaderRes.status === 'fulfilled') {
       headerData = getHeaderRes.value
@@ -33,10 +53,10 @@ export async function getServerSideProps(context) {
       console.error(getFooterRes)
     }
 
-    if (getMegaMenuRes.status === 'fulfilled') {
-      megaMenuData = getMegaMenuRes.value
+    if (getMainNavigationRes.status === 'fulfilled') {
+      mainNavigationData = getMainNavigationRes.value
     } else {
-      console.error(getMegaMenuRes)
+      console.error(getMainNavigationRes)
     }
   } catch (error) {
     console.error(error)
@@ -46,22 +66,7 @@ export async function getServerSideProps(context) {
     props: {
       headerData: headerData,
       footerData: footerData,
-      megaMenu: megaMenuData,
+      mainNavigationData: mainNavigationData,
     },
   }
 }
-
-const Home = (props) => {
-  const { classes } = useStyles(props)
-  const { headerData, footerData } = props
-
-  return (
-    <Layout headerData={headerData} footerData={footerData}>
-      <Typography variant="h1" className={classes.test}>
-        Hello World!
-      </Typography>
-    </Layout>
-  )
-}
-
-export default Home

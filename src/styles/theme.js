@@ -166,7 +166,7 @@ const theme = createTheme({
         fontWeight: 400,
         fontSize: '1rem',
         lineHeight: '130%',
-        textDecorationLine: 'underline',
+        textDecoration: 'underline',
       },
       bold: {
         fontFamily: `"${FONTS.TABLET_GOTHIC}", ${FONTS.FALLBACK}`,

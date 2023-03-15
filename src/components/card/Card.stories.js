@@ -8,7 +8,7 @@ export default {
     maxWidth: {
       name: 'Max Width',
       type: { name: 'string', required: false },
-      defaultValue: '250px',
+      defaultValue: '240px',
       control: {
         type: 'text',
       },
@@ -20,54 +20,89 @@ const Template = (args) => <Card {...args} />
 
 export const Standard = Template.bind({})
 Standard.args = {
-  cardTitle: 'Event or Activity Card Title',
-  cardContent: 'Card content here',
-  cardMedia: {
-    imgUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-    altText: 'Hat Image',
-  },
-  cardAction: {
-    name: 'Learn More',
-    ariaLabel: 'Card Action Button',
-    onClick: () => {},
+  cardData: {
+    title: 'Event or Activity Card Example',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacini scelerisque',
+    image: {
+      ID: 362,
+      id: 362,
+      title: 'image 1',
+      filename: 'image-1.png',
+      filesize: 81746,
+      url: 'https://wpvip-presidio-gov.go-vip.net/wp-content/uploads/2023/03/image-1.png',
+      link: 'https://wpvip-presidio-gov.go-vip.net/?attachment_id=362',
+      alt: '',
+      author: '12',
+      description: '',
+      caption: '',
+      name: 'image-1',
+      status: 'inherit',
+      uploaded_to: 276,
+      date: '2023-03-13 10:03:31',
+      modified: '2023-03-13 10:03:44',
+      menu_order: 0,
+      mime_type: 'image/png',
+      type: 'image',
+      subtype: 'png',
+      icon: 'https://wpvip-presidio-gov.go-vip.net/wp-includes/images/media/default.png',
+      width: 241,
+      height: 144,
+      sizes: [],
+    },
+    link: {
+      title: 'Learn More',
+      url: '#',
+      target: '0',
+    },
   },
 }
 
 export const CardWithNoMedia = Template.bind({})
 CardWithNoMedia.args = {
-  cardTitle: 'Event or Activity Card Title',
-  cardContent: 'Card content here',
-  cardAction: {
-    name: 'Learn More',
-    ariaLabel: 'Card Action Button',
-    onClick: () => {},
+  cardData: {
+    title: 'Event or Activity Card Example',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacini scelerisque',
+    link: {
+      title: 'Learn More',
+      url: '#',
+      target: '0',
+    },
   },
 }
 
 export const CardWithNoActions = Template.bind({})
 CardWithNoActions.args = {
-  cardTitle: 'Event or Activity Card Title',
-  cardContent: 'Card content here',
-  cardMedia: {
-    imgUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-    altText: 'Hat Image',
+  cardData: {
+    title: 'Event or Activity Card Example',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacini scelerisque',
+    image: {
+      ID: 362,
+      id: 362,
+      title: 'image 1',
+      filename: 'image-1.png',
+      filesize: 81746,
+      url: 'https://wpvip-presidio-gov.go-vip.net/wp-content/uploads/2023/03/image-1.png',
+      link: 'https://wpvip-presidio-gov.go-vip.net/?attachment_id=362',
+      alt: '',
+      author: '12',
+      description: '',
+      caption: '',
+      name: 'image-1',
+      status: 'inherit',
+      uploaded_to: 276,
+      date: '2023-03-13 10:03:31',
+      modified: '2023-03-13 10:03:44',
+      menu_order: 0,
+      mime_type: 'image/png',
+      type: 'image',
+      subtype: 'png',
+      icon: 'https://wpvip-presidio-gov.go-vip.net/wp-includes/images/media/default.png',
+      width: 241,
+      height: 144,
+      sizes: [],
+    },
   },
-}
-
-export const LargeCard = Template.bind({})
-LargeCard.args = {
-  cardTitle: 'Event or Activity Card Title',
-  cardContent:
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit omnis magni quisquam beatae enim impedit ipsam facilis voluptas, perspiciatis distinctio molestias ex numquamprovident ipsum dolorem adipisci ab nam voluptatem rem. id natus fugiat maiores mollitia pariatur explicabo soluta, numquam at laborum facilis animi consequunturaperiam quaerat dicta nisi voluptas accusantium illum atque. Ducimusnesciunt ipsum, nisi magnam et distinctio quisquam qui placeatvoluptas optio nam quam iusto laborum dicta, exercitationem quiapraesentium accusantium culpa possimus. Eos accusantium sapienterepellat est earum commodi laboriosam voluptate! Dignissimos, minus?Dicta aliquam cumque doloremque sit, ipsam atque.',
-  cardMedia: {
-    imgUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-    altText: 'Hat Image',
-    height: '250',
-  },
-  cardAction: {
-    name: 'Learn More',
-    ariaLabel: 'Card Action Button',
-    onClick: () => {},
-  },
-  maxWidth: '500px',
 }

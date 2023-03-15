@@ -6,68 +6,113 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  useMediaQuery,
 } from '@mui/material'
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles()((props) => ({
   card: {
     borderRadius: '4px',
   },
+  cardImage: {
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
+    borderRadius: '4px',
+  },
   cardTitle: {
     ...theme.typography.cardTitle,
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.dark,
+  },
+  cardContentContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    alignSelf: 'stretch',
+    padding: '1rem',
+    gap: '0.5rem',
+    background: theme.palette.presidio.color.NEAR_WHITE,
   },
   cardContent: {
     ...theme.typography.smallBody.default,
   },
+  cardActionContainer: {
+    background: theme.palette.presidio.color.NEAR_WHITE,
+    padding: '0 1rem 1rem',
+  },
   cardButton: {
     ...theme.typography.button,
+    color: theme.palette.primary.dark,
+    padding: '6px 0px 3px',
+  },
+  cardButtonText: {
     color: theme.palette.primary.dark,
   },
 }))
 
 function Card(props) {
-  const { cardTitle, cardContent, cardMedia, cardAction, maxWidth } = props
+  const { cardData, maxWidth } = props
+
+  console.log({ cardData })
+
+  const { title, description, image, link } = cardData || {}
+
   const { classes } = useStyles(props)
 
+  const router = useRouter()
+
+  // For card width logic
+  const lgUp = useMediaQuery(() => theme.breakpoints.up('lg'))
+
+  function cardActionClickHandler(action) {
+    if (action.target === '_blank') {
+      window.open(action.url, '_blank')
+    } else {
+      router.push(action.url)
+    }
+  }
+
   return (
-    <MuiCard className={classes.card} sx={{ maxWidth }}>
-      <CardActionArea>
-        {cardMedia?.imgUrl && (
+    <MuiCard
+      className={classes.card}
+      sx={{ maxWidth: lgUp ? '240px' : maxWidth }}
+    >
+      <CardActionArea disableRipple sx={{ cursor: 'default' }}>
+        {image && (
           <CardMedia
             component="img"
-            height={cardMedia.height || 144}
-            image={cardMedia.imgUrl}
-            alt={cardMedia.altText || 'Card Image'}
+            height={144}
+            image={image.url}
+            alt={image.alt || 'Card Image'}
+            className={classes.cardImage}
           />
         )}
-        <CardContent>
-          {cardTitle && (
-            <Typography gutterBottom className={classes.cardTitle}>
-              {cardTitle}
-            </Typography>
-          )}
-          {cardContent && (
-            <Typography
-              className={classes.cardContent}
-              sx={{ maxHeight: 90, overflow: 'scroll' }}
-            >
-              {cardContent}
-            </Typography>
-          )}
-        </CardContent>
+        {(title || description) && (
+          <CardContent className={classes.cardContentContainer}>
+            {title && (
+              <Typography gutterBottom className={classes.cardTitle}>
+                {title}
+              </Typography>
+            )}
+            {description && (
+              <Typography className={classes.cardContent} tabIndex={0}>
+                {description}
+              </Typography>
+            )}
+          </CardContent>
+        )}
       </CardActionArea>
-      {cardAction?.name && (
-        <CardActions>
+      {link && link.title && (
+        <CardActions className={classes.cardActionContainer}>
           <Button
+            disableRipple
             className={classes.cardButton}
-            aria-label={cardAction.ariaLabel || 'Card Action Button'}
-            onClick={cardAction.onClick}
+            aria-label={link.ariaLabel || 'Card Action Button'}
+            onClick={() => cardActionClickHandler(link)}
           >
-            {cardAction.name}
+            {link.title}
           </Button>
         </CardActions>
       )}
@@ -78,16 +123,17 @@ function Card(props) {
 export default Card
 
 Card.propTypes = {
-  cardTitle: PropTypes.string,
-  cardMedia: PropTypes.shape({
-    imgUrl: PropTypes.string,
-    altText: PropTypes.string,
-    height: PropTypes.string,
-  }),
-  cardContent: PropTypes.string,
-  cardAction: PropTypes.shape({
-    name: PropTypes.string,
-    ariaLabel: PropTypes.string,
-    onClick: PropTypes.func,
+  cardData: PropTypes.shape({
+    title: PropTypes.string,
+    link: PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+      target: PropTypes.string,
+    }),
+    image: PropTypes.shape({
+      alt: PropTypes.string,
+      url: PropTypes.string,
+    }),
+    description: PropTypes.string,
   }),
 }

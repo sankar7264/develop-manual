@@ -1,10 +1,10 @@
 import React from 'react'
 import { makeStyles } from 'tss-react/mui'
-import Sponsors from 'src/components/footer/sponsors'
+import Sponsors from 'src/components/footer/Sponsors'
 import theme from 'src/styles/theme'
-import NewsLetter from 'src/components/footer/newsLetter'
-import BottomMenu from 'src/components/footer/bottomMenu'
-import SocialMedia from 'src/components/footer/socialMedia'
+import NewsLetter from 'src/components/footer/NewsLetter'
+import BottomMenu from 'src/components/footer/BottomMenu'
+import SocialMedia from 'src/components/footer/SocialMedia'
 
 const useStyles = makeStyles(theme)((props) => ({
   footer: {

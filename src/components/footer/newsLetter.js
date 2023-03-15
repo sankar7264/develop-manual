@@ -1,4 +1,11 @@
-import { Grid, TextField, Button, Card, CardContent } from '@mui/material'
+import {
+  Grid,
+  TextField,
+  Button,
+  Card,
+  CardContent,
+  Typography,
+} from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
 
@@ -82,9 +89,6 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   headSection: {
     color: theme.palette.primary.dark,
-    fontWeight: 600,
-    fontSize: '32px',
-    fontFamily: 'serif',
     marginBottom: '5px',
     marginTop: '5%',
     lineHeight: 1,
@@ -126,9 +130,9 @@ function NewsLetter(props) {
           <Grid className={classes.bgImageHolder} item lg={2} />
           <Grid item md={12} sm={12} xs={12} lg={5}>
             <div className={[classes.gridItem, classes.firstGrid].join(' ')}>
-              <h3 className={classes.headSection}>
+              <Typography variant="h3" className={classes.headSection}>
                 Get Presidio News and Events
-              </h3>
+              </Typography>
               <p className={classes.paragraphSection}>
                 Sign up to receive the latest updates from the Presidio, and
                 then come visit us!

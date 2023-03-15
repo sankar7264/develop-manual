@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 import Image from 'next/image'
 import theme from 'src/styles/theme'
@@ -21,7 +21,7 @@ const Sponsors = (props) => {
   return (
     <div className={classes.root} style={{ paddingBottom: '3%' }}>
       <div>
-        <h4>Our Sponsors</h4>
+        <Typography variant="h4">Our Sponsors</Typography>
       </div>
       <div className={classes.footerLogoBlock}>
         <Grid container alignItems="center" justifyContent="space-between">

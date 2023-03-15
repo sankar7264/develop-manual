@@ -19,10 +19,18 @@ const useStyles = makeStyles(theme)((props) => ({
     [theme.breakpoints.up('md')]: {
       float: 'right',
     },
+    '& a': {
+      color: theme.palette.presidio.color.NEAR_WHITE,
+      marginLeft: '5px',
+    },
+  },
+  link: {
+    color: theme.palette.presidio.color.NEAR_WHITE,
   },
 }))
 const SocialMedia = (props) => {
   const { classes } = useStyles(props)
+  const { data } = props
   return (
     <div style={{ marginTop: '35px' }}>
       <div style={{}}>
@@ -53,7 +61,12 @@ const SocialMedia = (props) => {
         </div>
       </div>
       <div className={classes.copyRight}>
-        <p>&#169; Presidio Trust 2022 | Privacy Policy</p>
+        <span>
+          &#169; {data.footer.copy.slice(6)} |
+          <Link href={data.footer['privacy_&_policy'].url}>
+            {data.footer['privacy_&_policy'].title}
+          </Link>
+        </span>
       </div>
     </div>
   )

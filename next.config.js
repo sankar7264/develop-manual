@@ -12,7 +12,7 @@ const config = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '<ex:i.ibb.co>',
+        hostname: 'wpvip-presidio-gov.go-vip.net',
         // port: '',
         pathname: '/**/**',
       },

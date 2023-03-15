@@ -22,18 +22,7 @@ const useStyles = makeStyles(theme)((props) => ({
     margin: '0 auto',
     height: '208px',
   },
-  socialMedia: {
-    float: 'left',
-    padding: '15px',
-    width: '40%',
-  },
-  copyRight: {
-    float: 'left',
-    width: '60%',
-    [theme.breakpoints.up('xs')]: {
-      float: 'right',
-    },
-  },
+
   link: {
     color: theme.palette.presidio.color.DARK_GRAY,
     fontFamily: 'sans-serif',
@@ -48,25 +37,34 @@ const useStyles = makeStyles(theme)((props) => ({
   linkLanguage: {
     fontFamily: 'sans-serif',
     fontSize: '16px',
-    padding: '10px',
+    padding: '0px 10px',
     color: theme.palette.primary.dark,
     '& a': {
       color: theme.palette.primary.dark,
     },
   },
   icon: {
-    transform: 'translate(0px, 3px)',
+    display: 'grid',
+    float: 'left',
+    paddingTop: '2px',
   },
   gItem: {
     padding: '0 15px',
   },
   weatherWrapper: {
-    display: 'inline',
+    display: 'inline-flex',
+    float: 'left',
     paddingRight: '5px',
     borderRight: '2px solid #CD4F30',
   },
+  languageWrapper: {
+    display: 'inline-flex',
+    float: 'right',
+    paddingRight: '5px',
+  },
   visitorWrapper: {
-    display: 'inline',
+    display: 'inline-flex',
+    float: 'left',
     paddingLeft: '13px',
   },
   spanText: {
@@ -76,13 +74,15 @@ const useStyles = makeStyles(theme)((props) => ({
     marginTop: '-113px',
   },
   firstRow: {
-    marginTop: '-70px',
+    marginTop: '-50px',
+    float: 'left',
   },
 }))
 
-const header = (props) => {
+const Header = (props) => {
   const { classes } = useStyles(props)
-  const [headerData, setHeaderData] = useState(props.data)
+  const { data } = props
+  const [headerData, setHeaderData] = useState(data)
   return (
     <div className={classes.headWrapper}>
       <div>
@@ -93,13 +93,18 @@ const header = (props) => {
             md={8}
           >
             <div className={classes.weatherWrapper}>
-              <SunIcon className={classes.icon} />
-              <span className={classes.linkLanguage}>
+              <div className={classes.icon}>
+                <SunIcon />
+              </div>
+
+              <div className={classes.linkLanguage}>
                 <Link href="#">Sunny - 80°F</Link>
-              </span>
+              </div>
             </div>
             <div className={classes.visitorWrapper}>
-              <ClockIcon className={classes.icon} />
+              <div className={classes.icon}>
+                <ClockIcon className={classes.icon} />
+              </div>
               <span className={classes.linkLanguage}>
                 <Link href="#">Visitor Center</Link>
               </span>
@@ -114,8 +119,10 @@ const header = (props) => {
             item
             md={4}
           >
-            <div style={{ float: 'right' }}>
-              <GlobeIcon className={classes.icon} />
+            <div className={classes.languageWrapper}>
+              <div className={classes.icon}>
+                <GlobeIcon className={classes.icon} />
+              </div>
               <span className={classes.linkLanguage}>
                 <Link href="#">Languages</Link>
               </span>
@@ -159,4 +166,4 @@ const header = (props) => {
   )
 }
 
-export default header
+export default Header

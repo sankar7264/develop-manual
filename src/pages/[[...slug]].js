@@ -2,6 +2,7 @@ import Typography from '@mui/material/Typography'
 import Layout from 'src/components/layout/Layout'
 import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
+import { getHeader, getFooter, getMegaMenu } from 'src/common/services'
 
 const useStyles = makeStyles()((props) => ({
   test: {
@@ -12,28 +13,47 @@ const useStyles = makeStyles()((props) => ({
   },
 }))
 export async function getServerSideProps(context) {
-  const [headerApi, footerApi] = await Promise.all([
-    fetch(
-      'https://wpvip-presidio-gov.go-vip.net/wp-json/acf/v2/options/header'
-    ),
-    fetch(
-      'https://wpvip-presidio-gov.go-vip.net/wp-json/acf/v2/options/footer'
-    ),
-  ])
-  const [headerData, footerData] = await Promise.all([
-    headerApi.json(),
-    footerApi.json(),
-  ])
+  let headerData = null
+  let footerData = null
+  let megaMenuData = null
+
+  try {
+    const [getHeaderRes, getFooterRes, getMegaMenuRes] =
+      await Promise.allSettled([getHeader(), getFooter(), getMegaMenu()])
+
+    if (getHeaderRes.status === 'fulfilled') {
+      headerData = getHeaderRes.value
+    } else {
+      console.error(getHeaderRes)
+    }
+
+    if (getFooterRes.status === 'fulfilled') {
+      footerData = getFooterRes.value
+    } else {
+      console.error(getFooterRes)
+    }
+
+    if (getMegaMenuRes.status === 'fulfilled') {
+      megaMenuData = getMegaMenuRes.value
+    } else {
+      console.error(getMegaMenuRes)
+    }
+  } catch (error) {
+    console.error(error)
+  }
 
   return {
-    props: { headerData, footerData },
+    props: {
+      headerData: headerData,
+      footerData: footerData,
+      megaMenu: megaMenuData,
+    },
   }
 }
 
 const Home = (props) => {
   const { classes } = useStyles(props)
   const { headerData, footerData } = props
-  console.log(theme)
 
   return (
     <Layout headerData={headerData} footerData={footerData}>

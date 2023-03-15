@@ -26,9 +26,12 @@ function Footer(props) {
       <div className={classes.footer}>
         <div className={classes.footerContainer}>
           <BottomMenu data={data.footer.footer_menu.menu_items} />
-          <Sponsors />
+          <Sponsors
+            largeLogo={data.footer.our_sponser_large}
+            smallLogo={data.footer.our_sponser_small}
+          />
           <hr />
-          <SocialMedia />
+          <SocialMedia data={data} />
         </div>
       </div>
     </div>

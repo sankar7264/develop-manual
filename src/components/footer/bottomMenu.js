@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme)((props) => ({
     },
     '& a': {
       color: theme.palette.presidio.color.NEAR_WHITE,
+      ...theme.typography.body.inlineLink,
     },
     '& li': {
       padding: '5px 0',
@@ -40,13 +41,15 @@ const BottomMenu = (props) => {
             <Grid item xs={12} sm={4}>
               <ul>
                 <li>
-                  <Typography className={classes.typo} variant="h4">
+                  <Typography className={classes.typo} variant="h6">
                     {i.title}
                   </Typography>
                 </li>
                 {Object.values(i.menuitem).map((j) => (
                   <li>
-                    <Link href="#">{j.title}</Link>
+                    <Link className={classes.link} href="#">
+                      {j.title}
+                    </Link>
                   </li>
                 ))}
               </ul>

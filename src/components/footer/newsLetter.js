@@ -120,6 +120,7 @@ const useStyles = makeStyles(theme)((props) => ({
 
 function NewsLetter(props) {
   const { classes } = useStyles(props)
+  // props
   return (
     <Card className={classes.newsLetter}>
       <CardContent

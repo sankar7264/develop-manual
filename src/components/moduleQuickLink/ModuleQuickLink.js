@@ -1,12 +1,21 @@
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
-import theme, { FONTS } from 'src/styles/theme'
+import CardQuickLink from 'src/components/cardQuickLink/CardQuickLink'
+import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
-import CardQuickLink from '../cardQuickLink/CardQuickLink'
+
+const color = {
+  CYPRESS_GREEN: 'cypress_green',
+  BAKER_BEACH: 'baker_beach',
+}
+
+const layout = {
+  LEFT: 'left',
+  RIGHT: 'right',
+}
 
 const useStyles = makeStyles()((defaultTheme, props) => ({
   container: {
-    minHeight: '100vh',
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       padding: '40px 24px',
@@ -24,20 +33,20 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
     },
 
     backgroundColor:
-      props.version === 'cypress-green'
+      props.color === color.CYPRESS_GREEN
         ? theme.palette.secondary.dark
         : theme.palette.presidio.color.LIGHT_BACKGROUND,
   },
   title: {
     color:
-      props.version === 'cypress-green'
+      props.color === color.CYPRESS_GREEN
         ? theme.palette.presidio.color.NEAR_WHITE
         : theme.palette.primary.dark,
   },
   description: {
-    fontFamily: FONTS.TABLET_GOTHIC,
+    ...theme.typography.body.default,
     color:
-      props.version === 'cypress-green'
+      props.color === color.CYPRESS_GREEN
         ? theme.palette.presidio.color.NEAR_WHITE
         : theme.palette.primary.dark,
     padding: '8px 0 0 0',
@@ -60,10 +69,10 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
   containerText: {
     margin: '0',
     [theme.breakpoints.up('lg')]: {
-      margin: props.layoutType === 'right' ? '0 0 0 53px' : '0 53px 0 0',
+      margin: props.layout === layout.RIGHT ? '0 0 0 53px' : '0 53px 0 0',
     },
     [theme.breakpoints.up('xl')]: {
-      margin: props.layoutType === 'right' ? '0 0 0 60px' : '0 60px 0 0',
+      margin: props.layout === layout.RIGHT ? '0 0 0 60px' : '0 60px 0 0',
     },
   },
   containerLink: {
@@ -74,18 +83,30 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
       margin: '24px 0 0 0',
     },
     [theme.breakpoints.up('lg')]: {
-      margin: props.layoutType === 'right' ? '0 53px 0 0' : '0 0 0 53px',
+      margin: props.layout === layout.RIGHT ? '0 53px 0 0' : '0 0 0 53px',
     },
     [theme.breakpoints.up('xl')]: {
-      margin: props.layoutType === 'right' ? '0 60px 0 0' : '0 0 0 60px',
+      margin: props.layout === layout.RIGHT ? '0 60px 0 0' : '0 0 0 60px',
     },
     width: '100%',
   },
 }))
 
 function ModuleQuickLink(props) {
-  const { title, description, version, layoutType } = props
-  const { classes } = useStyles({ layoutType, version })
+  const { version, layoutType, data } = props
+  const {
+    block_section_title,
+    block_section_id,
+    quick_link_title,
+    quick_link_description,
+    quick_link_colour,
+    quick_link_layout,
+    quick_links,
+  } = data
+  const { classes } = useStyles({
+    layout: quick_link_layout,
+    color: quick_link_colour,
+  })
 
   return (
     <Box className={classes.container}>
@@ -97,14 +118,14 @@ function ModuleQuickLink(props) {
           md={12}
           lg={6}
           className={classes.gridItemText}
-          order={{ lg: layoutType === 'right' ? 2 : 1 }}
+          order={{ lg: quick_link_layout === layout.RIGHT ? 2 : 1 }}
         >
           <Stack className={classes.containerText}>
             <Typography variant="h2" className={classes.title}>
-              {title}
+              {quick_link_title}
             </Typography>
             <Typography variant="body" className={classes.description}>
-              {description}
+              {quick_link_description}
             </Typography>
           </Stack>
         </Grid>
@@ -114,16 +135,14 @@ function ModuleQuickLink(props) {
           sm={12}
           md={12}
           lg={6}
-          order={{ lg: layoutType === 'right' ? 1 : 2 }}
+          order={{ lg: quick_link_layout === layout.RIGHT ? 1 : 2 }}
           className={classes.gridItemLink}
         >
           <Stack spacing={2} className={classes.containerLink}>
-            {[1, 2, 3, 4, 5].map((item) => (
+            {quick_links.map((item) => (
               <CardQuickLink
-                key={item}
-                version={version}
-                link="Link"
-                description="Cras ac mauris finibus, tempus tellus ut, tempus mi."
+                key={item.quick_link_link_title}
+                data={{ ...item, quick_link_colour }}
               />
             ))}
           </Stack>
@@ -136,8 +155,23 @@ function ModuleQuickLink(props) {
 export default ModuleQuickLink
 
 ModuleQuickLink.propTypes = {
-  layoutType: PropTypes.oneOf(['left', 'right']),
-  version: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  data: PropTypes.shape({
+    block_section_title: PropTypes.string,
+    block_section_id: PropTypes.string,
+    quick_link_title: PropTypes.string,
+    quick_link_description: PropTypes.string,
+    quick_link_colour: PropTypes.oneOf([
+      color.BAKER_BEACH,
+      color.CYPRESS_GREEN,
+    ]),
+    quick_link_layout: PropTypes.oneOf([layout.LEFT, layout.RIGHT]),
+    quick_links: PropTypes.arrayOf(
+      PropTypes.shape({
+        quick_link_link_title: PropTypes.string.isRequired,
+        quick_link_url: PropTypes.string.isRequired,
+        quick_link_link_target: PropTypes.string.isRequired,
+        quick_link_link_discritpion: PropTypes.string.isRequired,
+      })
+    ),
+  }),
 }

@@ -41,7 +41,7 @@ const BottomMenu = (props) => {
             <Grid item xs={12} sm={4}>
               <ul>
                 <li>
-                  <Typography className={classes.typo} variant="h6">
+                  <Typography className={classes.typo} variant="h5">
                     {i.title}
                   </Typography>
                 </li>

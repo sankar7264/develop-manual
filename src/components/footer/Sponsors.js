@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme)((props) => ({
     marginTop: '35px',
   },
   root: {
-    '& h6': {
+    '& h5': {
       color: theme.palette.presidio.color.BAKER_BEACH_WHITE,
       paddingTop: '30px',
     },
@@ -23,7 +23,7 @@ const Sponsors = (props) => {
   return (
     <div className={classes.root} style={{ paddingBottom: '3%' }}>
       <div>
-        <Typography variant="h6">Our Sponsors</Typography>
+        <Typography variant="h5">Our Sponsors</Typography>
       </div>
       <div className={classes.footerLogoBlock}>
         <Grid

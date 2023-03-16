@@ -45,7 +45,6 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   icon: {
     display: 'grid',
-    float: 'left',
     paddingTop: '2px',
   },
   gItem: {
@@ -53,18 +52,15 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   weatherWrapper: {
     display: 'inline-flex',
-    float: 'left',
     paddingRight: '5px',
     borderRight: '2px solid #CD4F30',
   },
   languageWrapper: {
     display: 'inline-flex',
-    float: 'right',
     paddingRight: '5px',
   },
   visitorWrapper: {
     display: 'inline-flex',
-    float: 'left',
     paddingLeft: '13px',
   },
   spanText: {
@@ -75,7 +71,6 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   firstRow: {
     marginTop: '-50px',
-    float: 'left',
   },
 }))
 
@@ -86,11 +81,16 @@ const Header = (props) => {
   return (
     <div className={classes.headWrapper}>
       <div>
-        <Grid className={classes.headInner} container alignItems="center">
+        <Grid
+          className={classes.headInner}
+          container
+          justifyContent="flex-start"
+          alignItems="center"
+        >
           <Grid
             className={[classes.gItem, classes.firstRow].join(' ')}
             item
-            md={8}
+            md={10}
           >
             <div className={classes.weatherWrapper}>
               <div className={classes.icon}>
@@ -117,16 +117,25 @@ const Header = (props) => {
           <Grid
             className={[classes.gItem, classes.firstRow].join(' ')}
             item
-            md={4}
+            md={2}
           >
-            <div className={classes.languageWrapper}>
-              <div className={classes.icon}>
-                <GlobeIcon className={classes.icon} />
-              </div>
-              <span className={classes.linkLanguage}>
-                <Link href="#">Languages</Link>
-              </span>
-            </div>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-end"
+              alignItems="center"
+            >
+              <Grid item>
+                <div className={classes.languageWrapper}>
+                  <div className={classes.icon}>
+                    <GlobeIcon className={classes.icon} />
+                  </div>
+                  <span className={classes.linkLanguage}>
+                    <Link href="#">Languages</Link>
+                  </span>
+                </div>
+              </Grid>
+            </Grid>
           </Grid>
           <Grid
             className={[classes.gItem, classes.secondRow].join(' ')}
@@ -142,23 +151,30 @@ const Header = (props) => {
             item
             md={8}
           >
-            <div style={{ float: 'right' }}>
-              <span className={classes.link}>
-                <Link href={headerData.header.header_link_1.url}>
-                  {headerData.header.header_link_1.title}
-                </Link>
-              </span>
-              <span className={classes.link}>
-                <Link href={headerData.header.header_link_1.url}>
-                  {headerData.header.header_link_2.title}
-                </Link>
-              </span>
-              <span className={classes.link}>
-                <Link href={headerData.header.header_link_3.url}>
-                  {headerData.header.header_link_3.title}
-                </Link>
-              </span>
-            </div>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-end"
+              alignItems="center"
+            >
+              <Grid item>
+                <span className={classes.link}>
+                  <Link href={headerData.header.header_link_1.url}>
+                    {headerData.header.header_link_1.title}
+                  </Link>
+                </span>
+                <span className={classes.link}>
+                  <Link href={headerData.header.header_link_1.url}>
+                    {headerData.header.header_link_2.title}
+                  </Link>
+                </span>
+                <span className={classes.link}>
+                  <Link href={headerData.header.header_link_3.url}>
+                    {headerData.header.header_link_3.title}
+                  </Link>
+                </span>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </div>

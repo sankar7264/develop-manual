@@ -22,7 +22,7 @@ function Footer(props) {
   const { data } = props
   return (
     <div className={classes.footerParent}>
-      <NewsLetter />
+      <NewsLetter NewsLetterData={data.footer.news_letter} />
       <div className={classes.footer}>
         <div className={classes.footerContainer}>
           <BottomMenu data={data.footer.footer_menu.menu_items} />

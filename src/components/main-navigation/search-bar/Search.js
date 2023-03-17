@@ -17,7 +17,6 @@ const useStyles = makeStyles()((_theme, props) => ({
     justifyContent: 'center',
     alignItems: 'center',
     cursor: 'pointer',
-    // padding: '2px 0px 6px 0px', // figma override
   },
   searchbar: {
     [theme.breakpoints.up('lg')]: {
@@ -26,15 +25,10 @@ const useStyles = makeStyles()((_theme, props) => ({
       padding: '8px 8px 4px 8px', // this needs to be similar to other tabs inside tab container
       marginBottom: '2px', // because we have this margin for other tabs for active tab feature
       outline: 'none',
-      fontSize: '1.125rem !important', // figma override
-      // fontSize: '1.5rem !important', // figma
       '&:focus': {
         outline: 'none',
         border: 'none',
       },
-    },
-    [theme.breakpoints.up('xl')]: {
-      fontSize: '1.5rem !important', // figma override
     },
   },
 }))

@@ -45,6 +45,7 @@ const useStyles = makeStyles()((props) => ({
   cardButton: {
     ...theme.typography.button,
     color: theme.palette.primary.dark,
+    fontWeight: 500,
     padding: '6px 0px 3px',
   },
   cardButtonText: {

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import theme from 'src/styles/theme'
 import Card from 'src/components/card/Card'
+import { APPBAR_HEIGHT } from 'src/common/constants'
 
 const useStyles = makeStyles()((props) => ({
   menu: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles()((props) => ({
     [theme.breakpoints.up('lg')]: {
       flexDirection: 'row',
       position: 'absolute',
-      top: '4.5rem', // should be equal to the main navigation height
+      top: APPBAR_HEIGHT,
       left: 0,
     },
   },

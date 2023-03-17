@@ -53,7 +53,7 @@ const useStyles = makeStyles()((props) => ({
     cursor: 'pointer',
   },
   drawerContentContainer: {
-    padding: '1rem 2rem 3rem 2rem',
+    padding: '1rem 1.5rem 2rem 1.5rem',
     background: theme.palette.presidio.color.BAKER_BEACH_GRAY,
     color: theme.palette.primary.dark,
     display: 'flex',

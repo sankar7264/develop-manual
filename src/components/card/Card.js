@@ -55,8 +55,6 @@ const useStyles = makeStyles()((props) => ({
 function Card(props) {
   const { cardData, maxWidth } = props
 
-  console.log({ cardData })
-
   const { title, description, image, link } = cardData || {}
 
   const { classes } = useStyles(props)

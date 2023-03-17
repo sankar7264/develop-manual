@@ -23,7 +23,5 @@ export async function getMainNavigation() {
     `https://wpvip-presidio-gov.go-vip.net/wp-json/wp/v1/mega-menu`
   )
 
-  console.log(res)
-
   return res.data
 }

@@ -1,6 +1,5 @@
 import Typography from '@mui/material/Typography'
 import Layout from 'src/components/layout/Layout'
-import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
 import { getHeader, getFooter, getMainNavigation } from 'src/common/services'
 

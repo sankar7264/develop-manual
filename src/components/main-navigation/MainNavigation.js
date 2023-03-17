@@ -216,7 +216,6 @@ export default function MainNavigation(props) {
   }, [])
 
   // Determining app bar width as per device size
-  console.log({ lgUp, xlUp })
   let appBarWidth = '100%'
   if (lgUp && !xlUp) appBarWidth = '92.57%'
   // if (xlUp) appBarWidth = '78.33%' // figma

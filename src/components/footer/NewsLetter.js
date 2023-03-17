@@ -120,7 +120,7 @@ const useStyles = makeStyles(theme)((props) => ({
 
 function NewsLetter(props) {
   const { classes } = useStyles(props)
-  // props
+  const { NewsLetterData } = props
   return (
     <Card className={classes.newsLetter}>
       <CardContent
@@ -132,11 +132,10 @@ function NewsLetter(props) {
           <Grid item md={12} sm={12} xs={12} lg={5}>
             <div className={[classes.gridItem, classes.firstGrid].join(' ')}>
               <Typography variant="h3" className={classes.headSection}>
-                Get Presidio News and Events
+                {NewsLetterData.footer_news_title}
               </Typography>
               <p className={classes.paragraphSection}>
-                Sign up to receive the latest updates from the Presidio, and
-                then come visit us!
+                {NewsLetterData.footer_news_description}
               </p>
             </div>
           </Grid>

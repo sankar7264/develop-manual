@@ -69,13 +69,6 @@ export const SECONDARY_COLOR = {
 
 const theme = createTheme({
   components: {
-    MuiToolbar: {
-      styleOverrides: {
-        gutters: {
-          // padding: '1rem 1.5rem',
-        },
-      },
-    },
     MuiAccordionDetails: {
       styleOverrides: {
         root: {

@@ -107,7 +107,7 @@ const useStyles = makeStyles(theme)((props) => ({
     width: '100%',
     marginTop: '10px',
     marginLeft: '5%',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
       width: '80%',
       marginTop: '5px',
       marginLeft: '5%',

@@ -8,11 +8,12 @@ const useStyles = makeStyles(theme)((props) => ({
   footerLogoBlock: {
     marginTop: '35px',
   },
-  root: {
-    '& h5': {
-      color: theme.palette.presidio.color.BAKER_BEACH_WHITE,
-      paddingTop: '30px',
-    },
+  sponsors: {
+    color: theme.palette.presidio.color.BAKER_BEACH_WHITE,
+    paddingTop: '30px',
+  },
+  head: {
+    fontSize: '1.125rem !important',
   },
 }))
 
@@ -22,8 +23,10 @@ const Sponsors = (props) => {
   const lgUp = useMediaQuery(() => theme.breakpoints.up('md'))
   return (
     <div className={classes.root} style={{ paddingBottom: '3%' }}>
-      <div>
-        <Typography variant="h5">Our Sponsors</Typography>
+      <div className={classes.sponsors}>
+        <Typography variant="h4" className={classes.head}>
+          Our Sponsors
+        </Typography>
       </div>
       <div className={classes.footerLogoBlock}>
         <Grid

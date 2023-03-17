@@ -156,6 +156,7 @@ export default function Drawer(props) {
         </div>
         {/* Place top header, languages, visitor_center components here */}
         {/* <Header data={headerData} /> */}
+        <Header data={headerData} />
         <MuiDrawer
           open={openNestedDrawer}
           onClose={() => {

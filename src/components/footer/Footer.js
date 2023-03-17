@@ -14,7 +14,10 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   footerContainer: {
     margin: '208px auto',
-    maxWidth: '85%',
+    maxWidth: '95%',
+    [theme.breakpoints.up('xl')]: {
+      maxWidth: '1128px',
+    },
   },
 }))
 function Footer(props) {

@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   typo: {
     color: theme.palette.presidio.color.BAKER_BEACH_WHITE,
+    fontSize: '1.125rem !important',
   },
 }))
 
@@ -38,10 +39,10 @@ const BottomMenu = (props) => {
       <div className={classes.root}>
         <Grid container spacing={5}>
           {menu.map((i) => (
-            <Grid item xs={12} sm={4}>
+            <Grid item sm={12} md={4}>
               <ul>
-                <li>
-                  <Typography className={classes.typo} variant="h5">
+                <li className={classes.listHead}>
+                  <Typography className={classes.typo} variant="h4">
                     {i.title}
                   </Typography>
                 </li>

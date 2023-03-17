@@ -21,8 +21,8 @@ export const COLOR = {
 
 export const SERVICE_COLOR = {
   SUCCESS: {
-    PRIMARY: '#377158',
-    SECONDARY: '#377158',
+    PRIMARY: '#1C563D',
+    SECONDARY: '#E2EBE8',
   },
   WARNING: {
     PRIMARY: '#817400',
@@ -33,7 +33,7 @@ export const SERVICE_COLOR = {
     SECONDARY: '#F2E4E4',
   },
   INFORMATION: {
-    PRIMARY: '#817400',
+    PRIMARY: '#023C8A',
     SECONDARY: '#F5FAFF',
   },
   DISABLED: {

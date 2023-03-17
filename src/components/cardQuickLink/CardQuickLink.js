@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import theme, { FONTS } from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
-import ArrowRight from '../icons/ArrowRight'
+import ArrowRight from 'src/components/icons/ArrowRight'
 
 const color = {
   CYPRESS_GREEN: 'cypress_green',
@@ -30,6 +30,7 @@ const useStyles = makeStyles()((defaultTheme, props) => {
       padding: '16px 24px',
       width: '100%',
       backgroundColor: cardBackgroundColor,
+      cursor: 'pointer',
     },
     link: {
       color:
@@ -57,7 +58,7 @@ const useStyles = makeStyles()((defaultTheme, props) => {
 })
 
 function CardQuickLink(props) {
-  const { link, description, version, onClick, data } = props
+  const { onClick, data } = props
   const {
     quick_link_link_title,
     quick_link_url,
@@ -104,11 +105,7 @@ function CardQuickLink(props) {
     >
       <Stack direction="row">
         <Stack flex={1}>
-          <Typography
-            variant="h3"
-            href={quick_link_url}
-            className={classes.link}
-          >
+          <Typography variant="h3" className={classes.link}>
             {quick_link_link_title}
           </Typography>
           <Typography variant="body.default" className={classes.description}>

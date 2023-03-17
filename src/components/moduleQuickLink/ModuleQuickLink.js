@@ -93,7 +93,7 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
 }))
 
 function ModuleQuickLink(props) {
-  const { version, layoutType, data } = props
+  const { data } = props
   const {
     block_section_title,
     block_section_id,

@@ -78,9 +78,7 @@ const useStyles = makeStyles()((props) => ({
 }))
 
 export default function Drawer(props) {
-  const { mainNavigationData, headerData } = props || {}
-
-  console.log({ mainNavigationData })
+  const { mainNavigationData = {}, headerData = {} } = props || {}
 
   const { classes } = useStyles(props)
 

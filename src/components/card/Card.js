@@ -110,6 +110,7 @@ function Card(props) {
             className={classes.cardButton}
             aria-label={link.ariaLabel || 'Card Action Button'}
             onClick={() => cardActionClickHandler(link)}
+            data-testid="card-button"
           >
             {link.title}
           </Button>

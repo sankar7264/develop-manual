@@ -89,7 +89,7 @@ const useStyles = makeStyles()((props) => ({
 }))
 
 export default function MegaMenu(props) {
-  const { menuData } = props || {}
+  const { menuData = {} } = props || {}
 
   const { classes } = useStyles(props)
 
@@ -98,7 +98,7 @@ export default function MegaMenu(props) {
     return null
   }
 
-  const { menuItems, menuHeader, menuCard } = menuData || {}
+  const { menuItems, menuHeader, menuCard } = menuData
 
   const formattedMenuItems = menuItems ? Object.values(menuItems) : []
 

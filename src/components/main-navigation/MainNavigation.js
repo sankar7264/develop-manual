@@ -108,7 +108,7 @@ const useStyles = makeStyles()((props) => ({
 }))
 
 export default function MainNavigation(props) {
-  const { mainNavigationData, headerData } = props || {}
+  const { mainNavigationData = {}, headerData = {} } = props
 
   const { classes } = useStyles(props)
 

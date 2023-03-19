@@ -61,11 +61,14 @@ const useStyles = makeStyles()((props) => ({
     gap: '2rem',
   },
   nestedDrawerIconContainer: {
-    padding: '2rem',
+    padding: '1.5rem',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     background: theme.palette.presidio.color.LIGHT_BACKGROUND,
+    [theme.breakpoints.up('md')]: {
+      padding: '1.5rem 2.5rem',
+    },
   },
   nestedDrawerIcon: {
     display: 'flex',

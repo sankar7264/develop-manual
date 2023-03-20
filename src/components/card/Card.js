@@ -45,6 +45,7 @@ const useStyles = makeStyles()((props) => ({
   cardButton: {
     ...theme.typography.button,
     color: theme.palette.primary.dark,
+    fontWeight: 500,
     padding: '6px 0px 3px',
   },
   cardButtonText: {
@@ -109,6 +110,7 @@ function Card(props) {
             className={classes.cardButton}
             aria-label={link.ariaLabel || 'Card Action Button'}
             onClick={() => cardActionClickHandler(link)}
+            data-testid="card-button"
           >
             {link.title}
           </Button>

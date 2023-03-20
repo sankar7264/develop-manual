@@ -4,6 +4,7 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import theme from 'src/styles/theme'
 import Card from 'src/components/card/Card'
+import { APPBAR_HEIGHT } from 'src/common/constants'
 
 const useStyles = makeStyles()((props) => ({
   menu: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles()((props) => ({
     [theme.breakpoints.up('lg')]: {
       flexDirection: 'row',
       position: 'absolute',
-      top: '4.5rem', // should be equal to the main navigation height
+      top: APPBAR_HEIGHT,
       left: 0,
     },
   },
@@ -43,7 +44,10 @@ const useStyles = makeStyles()((props) => ({
   },
   menuHeroColumnHeader: {
     color: theme.palette.primary.dark,
-    padding: theme.spacing(2, 5, 4, 5),
+    padding: theme.spacing(2, 3, 4, 3),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(2, 5, 4, 5),
+    },
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(0, 3),
     },
@@ -54,6 +58,9 @@ const useStyles = makeStyles()((props) => ({
     display: 'flex',
     flexDirection: 'column',
     gap: theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(3, 5, 0),
+    },
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(8, 0, 4),
     },
@@ -79,7 +86,7 @@ const useStyles = makeStyles()((props) => ({
   menuCardColumn: {
     flex: 1,
     minWidth: '100%',
-    padding: theme.spacing(1.5),
+    padding: theme.spacing(3, 3, 4, 3),
     [theme.breakpoints.up('lg')]: {
       minWidth: 'unset',
       padding: theme.spacing(8, 0, 4),
@@ -88,7 +95,7 @@ const useStyles = makeStyles()((props) => ({
 }))
 
 export default function MegaMenu(props) {
-  const { menuData } = props || {}
+  const { menuData = {} } = props || {}
 
   const { classes } = useStyles(props)
 
@@ -97,7 +104,7 @@ export default function MegaMenu(props) {
     return null
   }
 
-  const { menuItems, menuHeader, menuCard } = menuData || {}
+  const { menuItems, menuHeader, menuCard } = menuData
 
   const formattedMenuItems = menuItems ? Object.values(menuItems) : []
 

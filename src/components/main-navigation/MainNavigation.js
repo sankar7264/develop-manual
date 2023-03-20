@@ -51,11 +51,7 @@ const useStyles = makeStyles()((props) => ({
   tabsWrapper: {
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
-      gap: '1rem', // figma override
-      // gap: '2rem', // figma
-    },
-    [theme.breakpoints.up('xl')]: {
-      gap: '2rem', // figma override
+      gap: '2rem',
     },
   },
   tabsContainer: {
@@ -63,11 +59,7 @@ const useStyles = makeStyles()((props) => ({
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: '1.125rem', // figma override
-      // gap: '2rem', // figma
-    },
-    [theme.breakpoints.up('xl')]: {
-      gap: '2rem', // figma override
+      gap: '2rem',
     },
   },
   tabContainer: {
@@ -79,11 +71,6 @@ const useStyles = makeStyles()((props) => ({
   tab: {
     [theme.breakpoints.up('lg')]: {
       cursor: 'pointer',
-      fontSize: '1.125rem !important', // figma override
-      // fontSize: '1.5rem !important', // figma
-    },
-    [theme.breakpoints.up('xl')]: {
-      fontSize: '1.5rem !important', // figma (not required if we keep fontSize to 1.5rem on lg screens)
     },
   },
   dividerLineContainer: {
@@ -116,16 +103,12 @@ const useStyles = makeStyles()((props) => ({
       color: theme.palette.presidio.color.NEAR_WHITE,
       borderRadius: '0px',
       padding: '7px 0 3px',
-      fontSize: '1rem !important', // figma override
-    },
-    [theme.breakpoints.up('xl')]: {
-      fontSize: '1.125rem !important', // figma override
     },
   },
 }))
 
 export default function MainNavigation(props) {
-  const { mainNavigationData, headerData } = props || {}
+  const { mainNavigationData = {}, headerData = {} } = props
 
   const { classes } = useStyles(props)
 
@@ -218,8 +201,7 @@ export default function MainNavigation(props) {
   // Determining app bar width as per device size
   let appBarWidth = '100%'
   if (lgUp && !xlUp) appBarWidth = '92.57%'
-  // if (xlUp) appBarWidth = '78.33%' // figma
-  if (xlUp) appBarWidth = '85%' // figma override
+  if (xlUp) appBarWidth = '78.33%'
 
   const tabs = (
     <div className={classes.tabsWrapper}>

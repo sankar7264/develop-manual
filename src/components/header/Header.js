@@ -14,11 +14,15 @@ const useStyles = makeStyles(theme)((props) => ({
     backgroundColor: theme.palette.presidio.color.LIGHT_BACKGROUND,
   },
   headInner: {
-    minWidth: '800px',
-    maxWidth: '1127px',
-    margin: '0 auto',
-    height: '208px',
-    [theme.breakpoints.up('lg')]: {},
+    [theme.breakpoints.up('md')]: {
+      width: '95%',
+    },
+    [theme.breakpoints.up('xl')]: {
+      minWidth: '800px',
+      maxWidth: '1127px',
+      margin: '0 auto',
+      height: '208px',
+    },
   },
 
   link: {
@@ -55,6 +59,12 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   gItem: {
     padding: '0 15px',
+    [theme.breakpoints.up('lg')]: {
+      padding: '0 15px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      padding: '0 0px',
+    },
   },
   weatherWrapper: {
     display: 'inline-flex',
@@ -209,7 +219,7 @@ const Header = (props) => {
                   </Link>
                 </span>
                 <span className={classes.link}>
-                  <Link href={headerData.header.header_link_1.url}>
+                  <Link href={headerData.header.header_link_2.url}>
                     {headerData.header.header_link_2.title.toUpperCase()}
                   </Link>
                 </span>

@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme)((props) => ({
     paddingTop: '30px',
   },
   head: {
-    fontSize: '1.125rem !important',
+    fontSize: '1.125rem',
   },
 }))
 
@@ -24,7 +24,7 @@ const Sponsors = (props) => {
   return (
     <div className={classes.root} style={{ paddingBottom: '3%' }}>
       <div className={classes.sponsors}>
-        <Typography variant="h4" className={classes.head}>
+        <Typography variant="h5" className={classes.head}>
           Our Sponsors
         </Typography>
       </div>

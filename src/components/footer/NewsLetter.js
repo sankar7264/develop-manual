@@ -37,8 +37,12 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   emailInput: {
     width: '100%',
+    marginTop: '16px',
     background: theme.palette.presidio.color.NEAR_WHITE,
     borderColor: theme.palette.presidio.color.DARK_GRAY,
+    [theme.breakpoints.up('md')]: {
+      marginTop: '0px',
+    },
   },
   emailButton: {
     marginTop: '15px',
@@ -46,6 +50,9 @@ const useStyles = makeStyles(theme)((props) => ({
     width: '100%',
     borderRadius: '999em',
     backgroundColor: theme.palette.primary.dark,
+    [theme.breakpoints.up('md')]: {
+      marginTop: '26px',
+    },
   },
   emailDiv: {
     margin: '0 auto',
@@ -63,51 +70,50 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   firstGrid: {
     minHeight: 'auto',
-    [theme.breakpoints.up('md')]: {
-      minHeight: 'auto',
-    },
-    [theme.breakpoints.up('lg')]: {
-      minHeight: '178px',
-    },
   },
   cardContent: {
     minHeight: 'auto',
-    [theme.breakpoints.down('md')]: {
-      minHeight: 'auto',
-    },
-    [theme.breakpoints.down('lg')]: {
-      minHeight: '178px',
-    },
   },
   bgImageHolder: {
     display: 'none',
     backgroundImage: 'url(/newsbg.png)',
     backgroundSize: '100% auto',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       display: 'block',
+      minHeight: '200px',
     },
   },
   headSection: {
     color: theme.palette.primary.dark,
     marginBottom: '5px',
-    marginTop: '5%',
     lineHeight: 1,
-    [theme.breakpoints.down(theme.breakpoints.values.xl)]: {
+    marginLeft: '5%',
+    fontSize: '24px',
+    marginTop: '2%',
+    [theme.breakpoints.up('md')]: {
       marginLeft: '5%',
+      marginTop: '20px',
     },
-    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
-      fontSize: '24px',
-      marginTop: '2%',
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '32px',
+      marginTop: '0px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      marginLeft: '0px',
     },
   },
   paragraphSection: {
     fontSize: '16px',
     color: theme.palette.presidio.color.BLACK,
     fontWeight: 400,
-    width: '100%',
-    marginTop: '10px',
+    width: '85%',
+    marginTop: '8px',
+    marginBottom: '0px',
     marginLeft: '5%',
     [theme.breakpoints.up('md')]: {
+      width: '90%',
+    },
+    [theme.breakpoints.up('lg')]: {
       width: '80%',
       marginTop: '5px',
       marginLeft: '5%',
@@ -127,7 +133,7 @@ function NewsLetter(props) {
         sx={{ p: 0, '&:last-child': { pb: 0 } }}
         className={classes.cardContent}
       >
-        <Grid container>
+        <Grid container alignItems="center">
           <Grid className={classes.bgImageHolder} item lg={2} />
           <Grid item md={12} sm={12} xs={12} lg={5}>
             <div className={[classes.gridItem, classes.firstGrid].join(' ')}>

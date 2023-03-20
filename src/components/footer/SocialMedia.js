@@ -38,7 +38,7 @@ const SocialMedia = (props) => {
   const { data } = props
   return (
     <Grid container>
-      <Grid item md={6}>
+      <Grid item md={6} sm={12}>
         <Grid container justifyContent="flex-start" alignItems="center">
           <Grid item>
             <div className={classes.socialMedia}>
@@ -69,7 +69,7 @@ const SocialMedia = (props) => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item md={6}>
+      <Grid item md={6} sm={12}>
         <Grid
           className={classes.copyRight}
           container
@@ -78,7 +78,7 @@ const SocialMedia = (props) => {
         >
           <Grid item>
             <span>
-              &#169; {data.footer.copy.slice(6)} |
+              &#169; {data.footer.copy.split(' ').slice(1).join(' ')} |
               <Link href={data.footer['privacy_&_policy'].url}>
                 {data.footer['privacy_&_policy'].title}
               </Link>

@@ -7,20 +7,19 @@ import SunIcon from 'src/components/icons/SunIcon'
 import GlobeIcon from 'src/components/icons/GlobeIcon'
 import ClockIcon from 'src/components/icons/ClockIcon'
 import Link from 'next/link'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 const useStyles = makeStyles(theme)((props) => ({
   headWrapper: {
     backgroundColor: theme.palette.presidio.color.LIGHT_BACKGROUND,
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'block',
-    },
   },
   headInner: {
     minWidth: '800px',
     maxWidth: '1124px',
     margin: '0 auto',
     height: '208px',
+    padding: '15px',
+    [theme.breakpoints.up('lg')]: {},
   },
 
   link: {
@@ -30,8 +29,13 @@ const useStyles = makeStyles(theme)((props) => ({
     textDecoration: 'none',
     padding: '10px',
     cursor: 'pointer',
+    display: 'block',
     '& a': {
       color: theme.palette.presidio.color.DARK_GRAY,
+      ...theme.typography.h4,
+    },
+    [theme.breakpoints.up('lg')]: {
+      display: 'inline',
     },
   },
   linkLanguage: {
@@ -44,8 +48,11 @@ const useStyles = makeStyles(theme)((props) => ({
     },
   },
   icon: {
-    display: 'grid',
+    display: 'inline',
     paddingTop: '2px',
+    [theme.breakpoints.up('lg')]: {
+      display: 'grid',
+    },
   },
   gItem: {
     padding: '0 15px',
@@ -53,24 +60,50 @@ const useStyles = makeStyles(theme)((props) => ({
   weatherWrapper: {
     display: 'inline-flex',
     paddingRight: '5px',
-    borderRight: '2px solid #CD4F30',
+    paddingTop: '50px',
+    paddingLeft: '10px',
+    [theme.breakpoints.up('lg')]: {
+      borderRight: '2px solid #CD4F30',
+      paddingTop: '0px',
+      paddingLeft: '0px',
+    },
   },
   languageWrapper: {
     display: 'inline-flex',
     paddingRight: '5px',
+    paddingTop: '50px',
+    paddingLeft: '10px',
+    [theme.breakpoints.up('lg')]: {
+      paddingTop: '0px',
+      paddingLeft: '0px',
+    },
   },
   visitorWrapper: {
-    display: 'inline-flex',
-    paddingLeft: '13px',
+    display: 'block',
+    paddingLeft: '10px',
+    paddingTop: '30px',
+    paddingBottom: '30px',
+    [theme.breakpoints.up('lg')]: {
+      display: 'inline-flex',
+      paddingLeft: '13px',
+      paddingTop: '0px',
+      paddingBottom: '0px',
+    },
   },
   spanText: {
     fontSize: '16px',
   },
   secondRow: {
-    marginTop: '-113px',
+    paddingTop: '18px',
+    [theme.breakpoints.up('lg')]: {
+      marginTop: '-113px',
+      paddingTop: '0px',
+    },
   },
   firstRow: {
-    marginTop: '-50px',
+    [theme.breakpoints.up('lg')]: {
+      marginTop: '-50px',
+    },
   },
 }))
 
@@ -78,6 +111,7 @@ const Header = (props) => {
   const { classes } = useStyles(props)
   const { data } = props
   const [headerData, setHeaderData] = useState(data)
+  const lgUp = useMediaQuery(() => theme.breakpoints.up('lg'))
   return (
     <div className={classes.headWrapper}>
       <div>
@@ -90,7 +124,9 @@ const Header = (props) => {
           <Grid
             className={[classes.gItem, classes.firstRow].join(' ')}
             item
-            md={10}
+            md={12}
+            lg={10}
+            order={{ lg: 1, md: 4, sm: 4, xs: 4 }}
           >
             <div className={classes.weatherWrapper}>
               <div className={classes.icon}>
@@ -110,19 +146,23 @@ const Header = (props) => {
               </span>
 
               <span className={classes.spanText}>
-                {headerData.header.open_time}
+                {headerData.header.open_time.split(' ').slice(2).join(' ')}
               </span>
             </div>
           </Grid>
           <Grid
             className={[classes.gItem, classes.firstRow].join(' ')}
             item
-            md={2}
+            md={12}
+            lg={2}
+            sm={12}
+            xs={12}
+            order={{ lg: 2, md: 3, sm: 3, xs: 3 }}
           >
             <Grid
               container
               direction="row"
-              justifyContent="flex-end"
+              justifyContent={lgUp ? 'flex-end' : 'flex-start'}
               alignItems="center"
             >
               <Grid item>
@@ -137,40 +177,46 @@ const Header = (props) => {
               </Grid>
             </Grid>
           </Grid>
+          {lgUp && (
+            <Grid
+              className={[classes.gItem, classes.secondRow].join(' ')}
+              item
+              md={0}
+              lg={4}
+              order={{ lg: 3, md: 2, sm: 2, xs: 2 }}
+            >
+              <Link href="#">
+                <PresidioLogo width="200" height="45" fill="#1F4D25" />
+              </Link>
+            </Grid>
+          )}
           <Grid
             className={[classes.gItem, classes.secondRow].join(' ')}
             item
-            md={4}
-          >
-            <Link href="#">
-              <PresidioLogo width="200" height="45" fill="#1F4D25" />
-            </Link>
-          </Grid>
-          <Grid
-            className={[classes.gItem, classes.secondRow].join(' ')}
-            item
-            md={8}
+            lg={8}
+            md={12}
+            order={{ lg: 4, md: 1, sm: 1, xs: 1 }}
           >
             <Grid
               container
               direction="row"
-              justifyContent="flex-end"
+              justifyContent={lgUp ? 'flex-end' : 'flex-start'}
               alignItems="center"
             >
               <Grid item>
                 <span className={classes.link}>
                   <Link href={headerData.header.header_link_1.url}>
-                    {headerData.header.header_link_1.title}
+                    {headerData.header.header_link_1.title.toUpperCase()}
                   </Link>
                 </span>
                 <span className={classes.link}>
                   <Link href={headerData.header.header_link_1.url}>
-                    {headerData.header.header_link_2.title}
+                    {headerData.header.header_link_2.title.toUpperCase()}
                   </Link>
                 </span>
                 <span className={classes.link}>
                   <Link href={headerData.header.header_link_3.url}>
-                    {headerData.header.header_link_3.title}
+                    {headerData.header.header_link_3.title.toUpperCase()}
                   </Link>
                 </span>
               </Grid>

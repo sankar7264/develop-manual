@@ -38,10 +38,14 @@ const BottomMenu = (props) => {
       <div className={classes.root}>
         <Grid container spacing={5}>
           {menu.map((i) => (
-            <Grid item xs={12} sm={4}>
+            <Grid item sm={12} md={4}>
               <ul>
-                <li>
-                  <Typography className={classes.typo} variant="h5">
+                <li className={classes.listHead}>
+                  <Typography
+                    style={{ fontSize: '1.125rem' }}
+                    className={classes.typo}
+                    variant="h5"
+                  >
                     {i.title}
                   </Typography>
                 </li>

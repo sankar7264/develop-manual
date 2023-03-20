@@ -8,7 +8,7 @@ const useStyles = makeStyles()((props) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '30vh',
+    height: '60vh',
   },
 }))
 

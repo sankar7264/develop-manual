@@ -17,9 +17,9 @@ import { useRouter } from 'next/router'
 const useStyles = makeStyles()((props) => ({
   card: {
     borderRadius: '4px',
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
   },
   cardImage: {
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
     borderRadius: '4px',
   },
   cardTitle: {

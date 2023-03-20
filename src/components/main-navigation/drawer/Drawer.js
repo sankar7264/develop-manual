@@ -38,6 +38,7 @@ const useStyles = makeStyles()((props) => ({
   },
   drawer: {
     width: '100%',
+    boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.24)',
   },
   drawerTopContainer: {
     padding: '2rem',
@@ -155,7 +156,6 @@ export default function Drawer(props) {
             ))}
         </div>
         {/* Place top header, languages, visitor_center components here */}
-        {/* <Header data={headerData} /> */}
         <Header data={headerData} />
         <MuiDrawer
           open={openNestedDrawer}

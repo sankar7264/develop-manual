@@ -26,6 +26,7 @@ const useStyles = makeStyles()((props) => ({
       position: 'absolute',
       top: APPBAR_HEIGHT,
       left: 0,
+      boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.24)',
     },
   },
   menuHeroColumn: {
@@ -33,13 +34,16 @@ const useStyles = makeStyles()((props) => ({
     minWidth: '100%',
     background: theme.palette.presidio.color.LIGHT_BACKGROUND,
     [theme.breakpoints.up('lg')]: {
-      minWidth: 'unset',
       padding: theme.spacing(8, 0, 0),
       background: theme.palette.presidio.color.LIGHT_BACKGROUND,
       backgroundImage: 'url("/assets/Mega-Menu-Background.png")',
       backgroundPosition: 'bottom',
       backgroundSize: '100%',
       backgroundRepeat: 'no-repeat',
+      minWidth: '217px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      minWidth: '263px',
     },
   },
   menuHeroColumnHeader: {
@@ -89,7 +93,7 @@ const useStyles = makeStyles()((props) => ({
     padding: theme.spacing(3, 3, 4, 3),
     [theme.breakpoints.up('lg')]: {
       minWidth: 'unset',
-      padding: theme.spacing(8, 0, 4),
+      padding: theme.spacing(8, 3, 4, 0),
     },
   },
 }))

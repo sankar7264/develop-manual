@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme)((props) => ({
     minWidth: '800px',
     maxWidth: '1124px',
     margin: '0 auto',
-    minHeight: '208px',
+    height: '208px',
     padding: '15px',
     [theme.breakpoints.up('lg')]: {},
   },

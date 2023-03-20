@@ -69,13 +69,6 @@ export const SECONDARY_COLOR = {
 
 const theme = createTheme({
   components: {
-    MuiToolbar: {
-      styleOverrides: {
-        gutters: {
-          // padding: '1rem 1.5rem',
-        },
-      },
-    },
     MuiAccordionDetails: {
       styleOverrides: {
         root: {
@@ -341,7 +334,6 @@ theme.typography.h5 = {
   ...theme.typography.h5,
   [theme.breakpoints.up('md')]: {
     fontSize: '1.125rem',
-    fontWeight: 600,
     lineHeight: '111%',
   },
 }

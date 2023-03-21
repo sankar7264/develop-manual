@@ -121,10 +121,18 @@ function ModuleQuickLink(props) {
           order={{ lg: quick_link_layout === layout.RIGHT ? 2 : 1 }}
         >
           <Stack className={classes.containerText}>
-            <Typography variant="h2" className={classes.title}>
+            <Typography
+              variant="h2"
+              className={classes.title}
+              data-testid="quick-link-title"
+            >
               {quick_link_title}
             </Typography>
-            <Typography variant="body" className={classes.description}>
+            <Typography
+              variant="body"
+              className={classes.description}
+              data-testid="quick-link-description"
+            >
               {quick_link_description}
             </Typography>
           </Stack>
@@ -141,6 +149,7 @@ function ModuleQuickLink(props) {
           <Stack spacing={2} className={classes.containerLink}>
             {quick_links.map((item) => (
               <CardQuickLink
+                data-testid="card-quick-link"
                 key={item.quick_link_link_title}
                 data={{ ...item, quick_link_colour }}
               />

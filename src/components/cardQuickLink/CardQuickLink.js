@@ -105,15 +105,24 @@ function CardQuickLink(props) {
     >
       <Stack direction="row">
         <Stack flex={1}>
-          <Typography variant="h3" className={classes.link}>
+          <Typography
+            variant="h3"
+            className={classes.link}
+            data-testid="card-quick-link-title"
+          >
             {quick_link_link_title}
           </Typography>
-          <Typography variant="body.default" className={classes.description}>
+          <Typography
+            variant="body.default"
+            className={classes.description}
+            data-testid="card-quick-link-description"
+          >
             {quick_link_link_discritpion}
           </Typography>
         </Stack>
 
         <ArrowRight
+          data-testid="card-quick-link-icon"
           color={
             quick_link_colour !== color.CYPRESS_GREEN
               ? theme.palette.primary.dark

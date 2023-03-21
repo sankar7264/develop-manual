@@ -14,20 +14,20 @@ const useStyles = makeStyles(theme)((props) => ({
     backgroundColor: theme.palette.presidio.color.LIGHT_BACKGROUND,
   },
   headInner: {
-    width: '95%',
-    margin: '0 auto',
-    height: '208px',
+    height: '100%',
     [theme.breakpoints.up('md')]: {
+      width: '95%',
+      height: '208px',
+    },
+    [theme.breakpoints.up('lg')]: {
       width: '95%',
     },
     [theme.breakpoints.up('xl')]: {
       minWidth: '800px',
       maxWidth: '1127px',
       margin: '0 auto',
-      height: '208px',
     },
   },
-
   link: {
     color: theme.palette.presidio.color.DARK_GRAY,
     fontFamily: 'sans-serif',
@@ -45,6 +45,16 @@ const useStyles = makeStyles(theme)((props) => ({
     },
   },
   linkLanguage: {
+    fontFamily: 'sans-serif',
+    fontSize: '16px',
+    padding: '0px 10px',
+    color: theme.palette.primary.dark,
+    '& a': {
+      color: theme.palette.primary.dark,
+      textDecoration: 'underline',
+    },
+  },
+  linkLanguage2: {
     fontFamily: 'sans-serif',
     fontSize: '16px',
     padding: '0px 10px',
@@ -145,7 +155,7 @@ const Header = (props) => {
                 <SunIcon />
               </div>
 
-              <div className={classes.linkLanguage}>
+              <div className={classes.linkLanguage2}>
                 <Link href="#">Sunny - 80°F</Link>
               </div>
             </div>
@@ -158,7 +168,7 @@ const Header = (props) => {
               </span>
 
               <span className={classes.spanText}>
-                {headerData.header.open_time.split(' ').slice(2).join(' ')}
+                {headerData.header.open_time}
               </span>
             </div>
           </Grid>

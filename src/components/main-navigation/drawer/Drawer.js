@@ -42,7 +42,7 @@ const useStyles = makeStyles()((props) => ({
   },
   drawerTopContainer: {
     padding: '2rem',
-    background: theme.palette.presidio.color.BAKER_BEACH_GRAY,
+    background: theme.palette.presidio.color.BAKER_BEACH_WHITE,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -54,8 +54,8 @@ const useStyles = makeStyles()((props) => ({
     cursor: 'pointer',
   },
   drawerContentContainer: {
-    padding: '1rem 1.5rem 2rem 1.5rem',
-    background: theme.palette.presidio.color.BAKER_BEACH_GRAY,
+    padding: '1rem 1.5rem 2rem',
+    background: theme.palette.presidio.color.BAKER_BEACH_WHITE,
     color: theme.palette.primary.dark,
     display: 'flex',
     flexDirection: 'column',
@@ -196,7 +196,11 @@ export default function Drawer(props) {
           onClick={() => setOpenDrawer(!openDrawer)}
           onKeyDown={() => setOpenDrawer(!openDrawer)}
         >
-          <MenuIcon height="14" width="20" />
+          <MenuIcon
+            height="14"
+            width="20"
+            color={theme.palette.presidio.color.DARK_GRAY}
+          />
         </div>
         <div
           className={classes.fullLogoIcon}

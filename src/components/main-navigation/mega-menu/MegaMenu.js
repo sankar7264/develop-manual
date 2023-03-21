@@ -41,9 +41,11 @@ const useStyles = makeStyles()((props) => ({
       backgroundSize: '100%',
       backgroundRepeat: 'no-repeat',
       minWidth: '217px',
+      maxWidth: '217px',
     },
     [theme.breakpoints.up('xl')]: {
       minWidth: '263px',
+      maxWidth: '263px',
     },
   },
   menuHeroColumnHeader: {
@@ -92,8 +94,13 @@ const useStyles = makeStyles()((props) => ({
     minWidth: '100%',
     padding: theme.spacing(3, 3, 4, 3),
     [theme.breakpoints.up('lg')]: {
-      minWidth: 'unset',
+      minWidth: '217px',
+      maxWidth: '217px',
       padding: theme.spacing(8, 3, 4, 0),
+    },
+    [theme.breakpoints.up('xl')]: {
+      minWidth: '264px',
+      maxWidth: '264px',
     },
   },
 }))

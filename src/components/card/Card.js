@@ -17,10 +17,10 @@ import { useRouter } from 'next/router'
 const useStyles = makeStyles()((props) => ({
   card: {
     borderRadius: '4px',
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.16)',
   },
   cardImage: {
-    borderRadius: '4px',
+    // boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
   },
   cardTitle: {
     ...theme.typography.cardTitle,
@@ -44,6 +44,7 @@ const useStyles = makeStyles()((props) => ({
   },
   cardButton: {
     ...theme.typography.button,
+    borderRadius: '0',
     color: theme.palette.primary.dark,
     fontWeight: 500,
     padding: '6px 0px 3px',
@@ -54,7 +55,7 @@ const useStyles = makeStyles()((props) => ({
 }))
 
 function Card(props) {
-  const { cardData, maxWidth } = props
+  const { cardData } = props
 
   const { title, description, image, link } = cardData || {}
 
@@ -74,12 +75,9 @@ function Card(props) {
   }
 
   return (
-    <MuiCard
-      className={classes.card}
-      sx={{ maxWidth: lgUp ? '240px' : maxWidth }}
-    >
+    <MuiCard className={classes.card} elevation={0}>
       <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-        {image && (
+        {image && image.url && (
           <CardMedia
             component="img"
             height={144}

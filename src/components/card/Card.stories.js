@@ -4,16 +4,6 @@ import Card from 'src/components/card/Card'
 export default {
   title: 'Card',
   component: Card,
-  argTypes: {
-    maxWidth: {
-      name: 'Max Width',
-      type: { name: 'string', required: false },
-      defaultValue: '240px',
-      control: {
-        type: 'text',
-      },
-    },
-  },
 }
 
 const Template = (args) => <Card {...args} />

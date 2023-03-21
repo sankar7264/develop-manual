@@ -4,16 +4,15 @@ import Toolbar from '@mui/material/Toolbar'
 import { makeStyles } from 'tss-react/mui'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
-import theme from 'src/styles/theme'
+import theme, { SECONDARY_COLOR } from 'src/styles/theme'
 import MegaMenu from 'src/components/main-navigation/mega-menu/MegaMenu'
 import Search from 'src/components/main-navigation/search-bar/Search'
 import SmallLogo from 'src/components/icons/SmallLogo'
 import Drawer from 'src/components/main-navigation/drawer/Drawer'
 import { APPBAR_HEIGHT } from 'src/common/constants'
 
-const useStyles = makeStyles()((props) => ({
+const useStyles = makeStyles()((_theme, { isSticky }) => ({
   appbar: {
-    backgroundColor: theme.palette.presidio.color.BAKER_BEACH_GRAY,
     position: 'sticky',
     top: 0,
     margin: '0 auto',
@@ -26,7 +25,7 @@ const useStyles = makeStyles()((props) => ({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    backgroundColor: theme.palette.presidio.color.BAKER_BEACH_GRAY,
+    backgroundColor: theme.palette.presidio.color.BAKER_BEACH_WHITE,
     color: theme.palette.presidio.color.DARK_GRAY,
     zIndex: 100,
     position: 'absolute',
@@ -35,7 +34,7 @@ const useStyles = makeStyles()((props) => ({
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.16)',
     [theme.breakpoints.up('lg')]: {
       boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.24)',
-      borderRadius: '5px',
+      borderRadius: isSticky ? '0px' : '5px',
     },
   },
   smallIconlogo: {
@@ -46,6 +45,7 @@ const useStyles = makeStyles()((props) => ({
       justifyContent: 'center',
       alignItems: 'center',
       color: theme.palette.primary.dark,
+      transition: 'display 600ms ease',
     },
   },
   tabsWrapper: {
@@ -71,27 +71,21 @@ const useStyles = makeStyles()((props) => ({
   tab: {
     [theme.breakpoints.up('lg')]: {
       cursor: 'pointer',
+      '&: hover': {
+        color: theme.palette.primary.dark,
+      },
     },
   },
   dividerLineContainer: {
     [theme.breakpoints.up('lg')]: {
       boxSizing: 'border-box',
-      padding: '8px 8px 4px 8px',
+      padding: '6px 8px 8px 8px',
     },
   },
   dividerLine: {
     [theme.breakpoints.up('lg')]: {
       borderRight: `2px solid ${theme.palette.primary.main}`,
-    },
-  },
-  callToActionContainer: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: '25px',
-      background: theme.palette.primary.dark,
-      padding: '5px 32px 7px',
+      borderRadius: '99px',
     },
   },
   callToAction: {
@@ -99,18 +93,30 @@ const useStyles = makeStyles()((props) => ({
       ...theme.typography.button,
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'flex-end',
+      alignItems: 'center',
+      borderRadius: '25px',
+      padding: '12px 32px 10px',
+      fontWeight: '500',
+      background: theme.palette.primary.dark,
       color: theme.palette.presidio.color.NEAR_WHITE,
-      borderRadius: '0px',
-      padding: '7px 0 3px',
+      '&: hover': {
+        background: theme.palette.presidio.color.LIGHT_BACKGROUND,
+        border: `2px solid ${SECONDARY_COLOR.DARK[80]}`,
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.16)',
+        color: SECONDARY_COLOR.DARK[80],
+      },
+      '&: active': {
+        background: SECONDARY_COLOR.DARK[80],
+        border: 'none',
+        boxShadow: '0',
+        color: theme.palette.presidio.color.NEAR_WHITE,
+      },
     },
   },
 }))
 
 export default function MainNavigation(props) {
   const { mainNavigationData = {}, headerData = {} } = props
-
-  const { classes } = useStyles(props)
 
   const router = useRouter()
 
@@ -181,13 +187,15 @@ export default function MainNavigation(props) {
   const ref = useRef()
   const [isSticky, setIsSticky] = useState(false)
 
+  const { classes } = useStyles({ isSticky })
+
   useEffect(() => {
     const cachedRef = ref.current
     const observer = new IntersectionObserver(
       ([e]) => setIsSticky(e.intersectionRatio < 1),
       {
         threshold: [1],
-        rootMargin: '-1px 0px 0px 0px', // alternatively, use this and set `top:0` in the CSS
+        rootMargin: '-1px 0px 0px 0px', // alternatively, comment this and set `top:0` in the CSS
       }
     )
 
@@ -223,9 +231,9 @@ export default function MainNavigation(props) {
                   variant="h4"
                   className={classes.tab}
                   sx={{
-                    marginBottom: '2px',
+                    marginTop: '2px', // for vertical alignment
                     color:
-                      activeTab === route.name && theme.palette.primary.dark,
+                      activeTab === route.title && theme.palette.primary.dark,
                   }}
                   onClick={(e) => handleTabClick(e, route)}
                   onKeyDown={(e) => handleTabClick(e, route)}
@@ -257,18 +265,16 @@ export default function MainNavigation(props) {
         />
       )}
       {formattedCustomLinks[1].title && (
-        <div className={classes.callToActionContainer}>
-          <Button
-            disableRipple
-            aria-label={formattedCustomLinks[1].title}
-            className={classes.callToAction}
-            onClick={() => {
-              router.push(formattedCustomLinks[1].url)
-            }}
-          >
-            {formattedCustomLinks[1].title}
-          </Button>
-        </div>
+        <Button
+          disableRipple
+          aria-label={formattedCustomLinks[1].title}
+          className={classes.callToAction}
+          onClick={() => {
+            router.push(formattedCustomLinks[1].url)
+          }}
+        >
+          {formattedCustomLinks[1].title}
+        </Button>
       )}
     </div>
   )

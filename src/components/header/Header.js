@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme)((props) => ({
     backgroundColor: theme.palette.presidio.color.LIGHT_BACKGROUND,
   },
   headInner: {
+    width: '95%',
+    margin: '0 auto',
+    height: '208px',
     [theme.breakpoints.up('md')]: {
       width: '95%',
     },

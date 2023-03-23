@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme)((props) => ({
 
 const Sponsors = (props) => {
   const { classes } = useStyles(props)
-  const { largeLogo, smallLogo } = props
+  const { largeLogo = {}, smallLogo = {} } = props || {}
   const lgUp = useMediaQuery(() => theme.breakpoints.up('md'))
   return (
     <div className={classes.root} style={{ paddingBottom: '3%' }}>
@@ -35,15 +35,16 @@ const Sponsors = (props) => {
           alignItems="center"
           justifyContent={lgUp ? 'space-between' : 'space-evenly'}
         >
-          {largeLogo.map((i) => (
-            <Grid sx={{ pb: 5 }} item xs={6} md={12 / 7} lg="auto">
-              <Image
-                src={i.logo.url}
-                width={i.logo.width}
-                height={i.logo.height}
-              />
-            </Grid>
-          ))}
+          {largeLogo &&
+            largeLogo.map((i) => (
+              <Grid sx={{ pb: 5 }} item xs={6} md={12 / 7} lg="auto">
+                <Image
+                  src={i.logo.url}
+                  width={i.logo.width}
+                  height={i.logo.height}
+                />
+              </Grid>
+            ))}
         </Grid>
         <Grid
           spacing={2}
@@ -51,15 +52,16 @@ const Sponsors = (props) => {
           alignItems="center"
           justifyContent={lgUp ? 'space-between' : 'space-evenly'}
         >
-          {smallLogo.map((i) => (
-            <Grid sx={{ pb: 3 }} item xs={6} md={12 / 7} lg="auto">
-              <Image
-                src={i.logo.url}
-                width={i.logo.width}
-                height={i.logo.height}
-              />
-            </Grid>
-          ))}
+          {smallLogo &&
+            smallLogo.map((i) => (
+              <Grid sx={{ pb: 3 }} item xs={6} md={12 / 7} lg="auto">
+                <Image
+                  src={i.logo.url}
+                  width={i.logo.width}
+                  height={i.logo.height}
+                />
+              </Grid>
+            ))}
         </Grid>
       </div>
     </div>

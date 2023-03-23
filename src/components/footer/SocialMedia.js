@@ -78,7 +78,7 @@ const SocialMedia = (props) => {
         >
           <Grid item>
             <span>
-              &#169; {data.footer.copy.split(' ').slice(1).join(' ')} |
+              &#169; {data.footer.copy} |
               <Link href={data.footer['privacy_&_policy'].url}>
                 {data.footer['privacy_&_policy'].title}
               </Link>

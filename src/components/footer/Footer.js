@@ -7,8 +7,7 @@ import BottomMenu from 'src/components/footer/BottomMenu'
 import SocialMedia from 'src/components/footer/SocialMedia'
 import Image from 'next/image'
 import { Grid } from '@mui/material'
-import { color, fontSize } from '@mui/system'
-import Link from '../Link'
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme)((props) => ({
   footer: {
@@ -48,17 +47,30 @@ const useStyles = makeStyles(theme)((props) => ({
 }))
 function Footer(props) {
   const { classes } = useStyles(props)
-  const { data } = props
+  const { data = {} } = props || {}
+
+  // guards
+  if (Object.keys(data).length === 0) {
+    console.log('null data for footer')
+    return null
+  }
+  // visibility of sponsores block
+  const SponsorsBlock =
+    data.footer.our_sponser_large && data.footer.our_sponser_small
+
   return (
     <div className={classes.footerParent}>
       <NewsLetter NewsLetterData={data.footer.news_letter} />
       <div className={classes.footer}>
         <div className={classes.footerContainer}>
           <BottomMenu data={data.footer.footer_menu.menu_items} />
-          <Sponsors
-            largeLogo={data.footer.our_sponser_large}
-            smallLogo={data.footer.our_sponser_small}
-          />
+          {SponsorsBlock && (
+            <Sponsors
+              largeLogo={data.footer.our_sponser_large}
+              smallLogo={data.footer.our_sponser_small}
+            />
+          )}
+
           <hr />
           <SocialMedia data={data} />
         </div>
@@ -77,7 +89,7 @@ function Footer(props) {
             </Grid>
             <Grid xs zeroMinWidth className={classes.gItem} item>
               <div>
-                <span className={classes.govText}>
+                <span data-testid="govText" className={classes.govText}>
                   {data.footer.usa_gov_text}
                 </span>
                 <Link href={data.footer.usa_gov_link.url}>

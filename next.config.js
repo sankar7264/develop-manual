@@ -33,6 +33,7 @@ const config = {
   i18n,
   productionBrowserSourceMaps: true, // allow source maps to be downloaded in prod
   output: 'standalone', // https://nextjs.org/docs/advanced-features/output-file-tracing
+  trailingSlash: false,
 }
 
 // below config to be used when analysing bundle. Command: npm run analyze
@@ -41,3 +42,16 @@ const config = {
 const nextConfig = config
 
 module.exports = nextConfig
+
+// Notes
+/*
+Trailing slash - 
+https://nextjs.org/docs/api-reference/next.config.js/trailing-slash
+
+Setting this value to `true` is not recommended at this time.
+
+Next.js has support for trailing slashes, but its implementation is buggy
+and makes it difficult to satisfy VIP's required health check endpoint --
+which cannot support a trailing slash. Simply changing this value to `true`
+will result in failed health checks and deploys on VIP.
+*/

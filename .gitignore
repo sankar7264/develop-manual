@@ -44,6 +44,9 @@ __backup
 .env.production
 .env.test
 
+# monitoring files
+newrelic_agent.log
+
 # Dumps
 __dump
 __note

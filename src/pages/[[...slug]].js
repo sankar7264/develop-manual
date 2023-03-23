@@ -1,3 +1,4 @@
+import newrelic from 'newrelic'
 import Typography from '@mui/material/Typography'
 import Layout from 'src/components/layout/Layout'
 import { makeStyles } from 'tss-react/mui'

@@ -32,6 +32,9 @@ const Home = (props) => {
 export default Home
 
 export async function getServerSideProps(context) {
+  // eslint-disable-next-line global-require
+  require('newrelic')
+
   let headerData = null
   let footerData = null
   let mainNavigationData = null

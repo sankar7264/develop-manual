@@ -131,9 +131,14 @@ const useStyles = makeStyles(theme)((props) => ({
 
 const Header = (props) => {
   const { classes } = useStyles(props)
-  const { data } = props
+  const { data = {} } = props || {}
   const [headerData, setHeaderData] = useState(data)
   const lgUp = useMediaQuery(() => theme.breakpoints.up('lg'))
+
+  // guards
+  if (Object.keys(headerData).length === 0) {
+    return null
+  }
   return (
     <div className={classes.headWrapper}>
       <div>
@@ -167,7 +172,7 @@ const Header = (props) => {
                 <Link href="#">Visitor Center</Link>
               </span>
 
-              <span className={classes.spanText}>
+              <span id="openTime" className={classes.spanText}>
                 {headerData.header.open_time}
               </span>
             </div>
@@ -226,21 +231,13 @@ const Header = (props) => {
               alignItems="center"
             >
               <Grid item>
-                <span className={classes.link}>
-                  <Link href={headerData.header.header_link_1.url}>
-                    {headerData.header.header_link_1.title.toUpperCase()}
-                  </Link>
-                </span>
-                <span className={classes.link}>
-                  <Link href={headerData.header.header_link_2.url}>
-                    {headerData.header.header_link_2.title.toUpperCase()}
-                  </Link>
-                </span>
-                <span className={classes.link}>
-                  <Link href={headerData.header.header_link_3.url}>
-                    {headerData.header.header_link_3.title.toUpperCase()}
-                  </Link>
-                </span>
+                {headerData.header.header_links.map((i) => (
+                  <span className={classes.link}>
+                    <Link href={i.links.url}>
+                      {i.links.title.toUpperCase()}
+                    </Link>
+                  </span>
+                ))}
               </Grid>
             </Grid>
           </Grid>

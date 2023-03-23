@@ -78,12 +78,11 @@ function Footer(props) {
             <Grid xs zeroMinWidth className={classes.gItem} item>
               <div>
                 <span className={classes.govText}>
-                  {data.footer.usa_gov_text.substring(
-                    0,
-                    data.footer.usa_gov_text.indexOf('<')
-                  )}
+                  {data.footer.usa_gov_text}
                 </span>
-                <Link href="#">USA.gov</Link>
+                <Link href={data.footer.usa_gov_link.url}>
+                  {data.footer.usa_gov_link.title}
+                </Link>
               </div>
             </Grid>
           </Grid>

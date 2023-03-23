@@ -1,4 +1,3 @@
-import newrelic from 'newrelic'
 import Typography from '@mui/material/Typography'
 import Layout from 'src/components/layout/Layout'
 import { makeStyles } from 'tss-react/mui'
@@ -33,6 +32,9 @@ const Home = (props) => {
 export default Home
 
 export async function getServerSideProps(context) {
+  // eslint-disable-next-line global-require
+  require('newrelic')
+
   let headerData = null
   let footerData = null
   let mainNavigationData = null

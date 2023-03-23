@@ -92,7 +92,7 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
   },
 }))
 
-function ModuleQuickLink(props) {
+function QuickLinks(props) {
   const { data } = props
   const {
     block_section_title,
@@ -161,9 +161,9 @@ function ModuleQuickLink(props) {
   )
 }
 
-export default ModuleQuickLink
+export default QuickLinks
 
-ModuleQuickLink.propTypes = {
+QuickLinks.propTypes = {
   data: PropTypes.shape({
     block_section_title: PropTypes.string,
     block_section_id: PropTypes.string,

@@ -1,8 +1,8 @@
-import ModuleQuickLink from 'src/components/quick-links/QuickLinks'
+import QuickLinks from 'src/components/quick-links/QuickLinks'
 
 export default {
-  title: 'ModuleQuickLink',
-  component: ModuleQuickLink,
+  title: 'Presidio/QuickLinks',
+  component: QuickLinks,
   argTypes: {
     maxWidth: {
       name: 'Max Width',
@@ -15,7 +15,7 @@ export default {
   },
 }
 
-const Template = (args) => <ModuleQuickLink {...args} />
+const Template = (args) => <QuickLinks {...args} />
 
 export const CypressGreenVersion = Template.bind({})
 CypressGreenVersion.args = {

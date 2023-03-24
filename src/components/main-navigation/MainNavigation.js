@@ -145,10 +145,7 @@ export default function MainNavigation(props) {
     customLinks = formattedMainNavigation.pop()
   }
 
-  // @TODO - Revert back following const to formattedCustomLinks and remove the very next declaration post API response fix
-  const formattedCustomLinks2 = Object.values(customLinks?.menuitem) || []
-  const formattedCustomLinks =
-    Object.values(formattedCustomLinks2[0]?.menuitem) || []
+  const formattedCustomLinks = Object.values(customLinks?.menuitem) || []
 
   const handleTabClick = (e, route) => {
     /**

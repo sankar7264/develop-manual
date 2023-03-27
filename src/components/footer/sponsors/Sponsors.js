@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme)((props) => ({
     color: theme.palette.presidio.color.BAKER_BEACH_WHITE,
     paddingTop: '30px',
   },
+  gridItem: {
+    textAlign: 'center',
+  },
 }))
 
 const Sponsors = (props) => {
@@ -32,7 +35,14 @@ const Sponsors = (props) => {
         >
           {largeLogo &&
             largeLogo.map((i) => (
-              <Grid sx={{ pb: 5 }} item xs={6} md={12 / 7} lg="auto">
+              <Grid
+                className={classes.gridItem}
+                sx={{ pb: 5 }}
+                item
+                xs={6}
+                md={12 / 7}
+                lg="auto"
+              >
                 <Image
                   src={i.logo.url}
                   width={i.logo.width}
@@ -50,7 +60,14 @@ const Sponsors = (props) => {
         >
           {smallLogo &&
             smallLogo.map((i) => (
-              <Grid sx={{ pb: 3 }} item xs={6} md={12 / 7} lg="auto">
+              <Grid
+                className={classes.gridItem}
+                sx={{ pb: 3 }}
+                item
+                xs={6}
+                md={12 / 7}
+                lg="auto"
+              >
                 <Image
                   src={i.logo.url}
                   width={i.logo.width}

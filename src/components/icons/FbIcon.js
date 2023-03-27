@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Fb(props) {
+function FbIcon(props) {
   const { color, height, width } = props
   return (
     <svg
@@ -18,4 +18,4 @@ function Fb(props) {
   )
 }
 
-export default Fb
+export default FbIcon

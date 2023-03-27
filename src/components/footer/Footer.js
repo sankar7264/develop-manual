@@ -86,7 +86,12 @@ function Footer(props) {
             spacing={2}
           >
             <Grid item>
-              <Image src="/assets/us.png" width="28px" height="21.16px" />
+              <Image
+                src="/assets/us.png"
+                alt="US flag image"
+                width="28px"
+                height="21.16px"
+              />
             </Grid>
             <Grid xs zeroMinWidth className={classes.gItem} item>
               <div>

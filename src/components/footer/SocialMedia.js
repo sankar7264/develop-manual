@@ -2,10 +2,10 @@ import Image from 'next/image'
 import { makeStyles } from 'tss-react/mui'
 import Twitter from 'src/components/icons/TwitterIcon'
 import theme from 'src/styles/theme'
-import Fb from 'src/components/icons/Fb'
-import Ig from 'src/components/icons/Ig'
-import In from 'src/components/icons/In'
-import Yt from 'src/components/icons/Yt'
+import FbIcon from 'src/components/icons/FbIcon'
+import InstagramIcon from 'src/components/icons/InstagramIcon'
+import LinkdinIcon from 'src/components/icons/LinkdinIcon'
+import YoutubeIcon from 'src/components/icons/YoutubeIcon'
 import Link from 'next/link'
 import { Grid } from '@mui/material'
 import { Link_Target } from 'src/common/constants'
@@ -39,37 +39,65 @@ const SocialMedia = (props) => {
   const { data } = props
   return (
     <Grid container>
-      <Grid item md={6} sm={12}>
-        <Grid container justifyContent="flex-start" alignItems="center">
-          <Grid item>
-            <div className={classes.socialMedia}>
-              <Link href="#">
-                <Twitter />
-              </Link>
-            </div>
-            <div className={classes.socialMedia}>
-              <Link href="#">
-                <Fb />
-              </Link>
-            </div>
-            <div className={classes.socialMedia}>
-              <Link href="#">
-                <Ig />
-              </Link>
-            </div>
-            <div className={classes.socialMedia}>
-              <Link href="#">
-                <In />
-              </Link>
-            </div>
-            <div className={classes.socialMedia}>
-              <Link href="#">
-                <Yt />
-              </Link>
-            </div>
+      {data.footer.social_menu.count > 0 ? (
+        <Grid item md={6} sm={12}>
+          <Grid container justifyContent="flex-start" alignItems="center">
+            <Grid item>
+              {Object.values(data.footer.social_menu.menu_items).map((i) => {
+                if (i.title === 'Facebook') {
+                  return (
+                    <div className={classes.socialMedia}>
+                      <Link href={i.url}>
+                        <FbIcon />
+                      </Link>
+                    </div>
+                  )
+                }
+                if (i.title === 'Youtube') {
+                  return (
+                    <div className={classes.socialMedia}>
+                      <Link href={i.url}>
+                        <YoutubeIcon />
+                      </Link>
+                    </div>
+                  )
+                }
+                if (i.title === 'Twitter') {
+                  return (
+                    <div className={classes.socialMedia}>
+                      <Link href={i.url}>
+                        <Twitter />
+                      </Link>
+                    </div>
+                  )
+                }
+                if (i.title === 'Linkdin') {
+                  return (
+                    <div className={classes.socialMedia}>
+                      <Link href={i.url}>
+                        <LinkdinIcon />
+                      </Link>
+                    </div>
+                  )
+                }
+                if (i.title === 'Instagram') {
+                  return (
+                    <div className={classes.socialMedia}>
+                      <Link href={i.url}>
+                        <InstagramIcon />
+                      </Link>
+                    </div>
+                  )
+                }
+                return ''
+              })}
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      ) : (
+        ''
+      )}
+
       <Grid item md={6} sm={12}>
         <Grid
           className={classes.copyRight}

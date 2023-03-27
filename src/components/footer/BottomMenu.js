@@ -7,19 +7,19 @@ import Link from 'next/link'
 
 const useStyles = makeStyles(theme)((props) => ({
   root: {
-    '& ul': {
-      listStyleType: 'none' /* Remove bullets */,
-      padding: 0 /* Remove padding */,
-      margin: 0,
-    },
     '& a': {
       color: theme.palette.presidio.color.NEAR_WHITE,
       ...theme.typography.body.inlineLink,
     },
-    '& li': {
-      padding: '5px 0',
-    },
     paddingTop: '48px',
+  },
+  list: {
+    padding: '5px 0',
+  },
+  unorderedList: {
+    listStyleType: 'none' /* Remove bullets */,
+    padding: 0 /* Remove padding */,
+    margin: 0,
   },
   typo: {
     color: theme.palette.presidio.color.BAKER_BEACH_WHITE,
@@ -39,7 +39,7 @@ const BottomMenu = (props) => {
         <Grid container spacing={5}>
           {menu.map((i) => (
             <Grid item sm={12} md={4}>
-              <ul>
+              <ul className={classes.unorderedList}>
                 <li className={classes.listHead}>
                   <Typography className={classes.typo} variant="h5">
                     {i.title}
@@ -48,8 +48,8 @@ const BottomMenu = (props) => {
 
                 {Object.hasOwn(i, 'menuitem')
                   ? Object.values(i.menuitem).map((j) => (
-                      <li>
-                        <Link className={classes.link} href="#">
+                      <li className={classes.list}>
+                        <Link className={classes.link} href={j.url}>
                           {j.title}
                         </Link>
                       </li>

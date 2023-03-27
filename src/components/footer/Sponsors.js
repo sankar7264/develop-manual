@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme)((props) => ({
 
 const Sponsors = (props) => {
   const { classes } = useStyles(props)
-  const { largeLogo = {}, smallLogo = {}, title = '' } = props || {}
+  const { largeLogo = {}, smallLogo = {}, title } = props || {}
   const lgUp = useMediaQuery(() => theme.breakpoints.up('md'))
   return (
     <div className={classes.root} style={{ paddingBottom: '3%' }}>
@@ -37,6 +37,7 @@ const Sponsors = (props) => {
                   src={i.logo.url}
                   width={i.logo.width}
                   height={i.logo.height}
+                  alt={i.logo.alt.length > 0 ? i.logo.alt : 'sponsor logo'}
                 />
               </Grid>
             ))}
@@ -54,6 +55,7 @@ const Sponsors = (props) => {
                   src={i.logo.url}
                   width={i.logo.width}
                   height={i.logo.height}
+                  alt={i.logo.alt.length > 0 ? i.logo.alt : 'sponsor logo'}
                 />
               </Grid>
             ))}

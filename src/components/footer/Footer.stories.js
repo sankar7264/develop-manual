@@ -343,6 +343,7 @@ FooterDefault.args = {
           },
         },
       },
+      our_sponsors_title: 'Our Sponsors',
       our_sponser_large: [
         {
           logo: {

@@ -8,6 +8,7 @@ import SocialMedia from 'src/components/footer/SocialMedia'
 import Image from 'next/image'
 import { Grid } from '@mui/material'
 import Link from 'next/link'
+import { Link_Target } from 'src/common/constants'
 
 const useStyles = makeStyles(theme)((props) => ({
   footer: {
@@ -22,10 +23,10 @@ const useStyles = makeStyles(theme)((props) => ({
       maxWidth: '1128px',
     },
   },
-  govContainer: {
+  govSiteContainer: {
     backgroundColor: theme.palette.presidio.color.BAKER_BEACH_WHITE,
   },
-  gov: {
+  govSite: {
     margin: '0px auto',
     padding: '16px 0px',
     maxWidth: '95%',
@@ -33,7 +34,7 @@ const useStyles = makeStyles(theme)((props) => ({
       maxWidth: '1128px',
     },
   },
-  govText: {
+  govSiteText: {
     fontSize: '12px',
   },
   gItem: {
@@ -51,7 +52,6 @@ function Footer(props) {
 
   // guards
   if (Object.keys(data).length === 0) {
-    console.log('null data for footer')
     return null
   }
   // visibility of sponsores block
@@ -68,6 +68,7 @@ function Footer(props) {
             <Sponsors
               largeLogo={data.footer.our_sponser_large}
               smallLogo={data.footer.our_sponser_small}
+              title={data.footer.our_sponsors_title}
             />
           )}
 
@@ -75,8 +76,8 @@ function Footer(props) {
           <SocialMedia data={data} />
         </div>
       </div>
-      <div className={classes.govContainer}>
-        <div className={classes.gov}>
+      <div className={classes.govSiteContainer}>
+        <div className={classes.govSite}>
           <Grid
             container
             direction="row"
@@ -89,10 +90,13 @@ function Footer(props) {
             </Grid>
             <Grid xs zeroMinWidth className={classes.gItem} item>
               <div>
-                <span data-testid="govText" className={classes.govText}>
+                <span data-testid="govText" className={classes.govSiteText}>
                   {data.footer.usa_gov_text}
                 </span>
-                <Link href={data.footer.usa_gov_link.url}>
+                <Link
+                  target={Link_Target[data.footer.usa_gov_link.target]}
+                  href={data.footer.usa_gov_link.url}
+                >
                   {data.footer.usa_gov_link.title}
                 </Link>
               </div>

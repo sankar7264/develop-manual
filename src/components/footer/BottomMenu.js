@@ -41,21 +41,20 @@ const BottomMenu = (props) => {
             <Grid item sm={12} md={4}>
               <ul>
                 <li className={classes.listHead}>
-                  <Typography
-                    style={{ fontSize: '1.125rem' }}
-                    className={classes.typo}
-                    variant="h5"
-                  >
+                  <Typography className={classes.typo} variant="h5">
                     {i.title}
                   </Typography>
                 </li>
-                {Object.values(i.menuitem).map((j) => (
-                  <li>
-                    <Link className={classes.link} href="#">
-                      {j.title}
-                    </Link>
-                  </li>
-                ))}
+
+                {Object.hasOwn(i, 'menuitem')
+                  ? Object.values(i.menuitem).map((j) => (
+                      <li>
+                        <Link className={classes.link} href="#">
+                          {j.title}
+                        </Link>
+                      </li>
+                    ))
+                  : ''}
               </ul>
             </Grid>
           ))}

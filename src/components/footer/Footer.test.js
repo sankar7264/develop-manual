@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import Footer from './Footer'
+import Footer from 'src/components/footer/Footer'
 import '@testing-library/jest-dom'
 
 const data = {
@@ -814,7 +814,7 @@ describe('Footer', () => {
   test('renders Footer without crashing if no data is passed', () => {
     render(<Footer />)
   })
-  test('renders header with data', () => {
+  test('renders footer with data', () => {
     render(<Footer data={data} />)
     expect(screen.queryByTestId('govText')?.textContent).toContain(
       data.footer.usa_gov_text

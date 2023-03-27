@@ -1,15 +1,15 @@
 import React from 'react'
-import Header from './Header'
+import Header from 'src/components/header/Header'
 
 export default {
-  title: 'Presidio/Header',
+  title: 'Header',
   component: Header,
 }
 
 const Template = (args) => <Header {...args} />
-export const header = Template.bind({})
+export const HeaderCompnent = Template.bind({})
 
-header.args = {
+HeaderCompnent.args = {
   data: {
     header: {
       weather_latitude: '222.7041° N',

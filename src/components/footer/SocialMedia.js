@@ -8,6 +8,7 @@ import In from 'src/components/icons/In'
 import Yt from 'src/components/icons/Yt'
 import Link from 'next/link'
 import { Grid } from '@mui/material'
+import { Link_Target } from 'src/common/constants'
 
 const useStyles = makeStyles(theme)((props) => ({
   socialMedia: {
@@ -79,7 +80,10 @@ const SocialMedia = (props) => {
           <Grid item>
             <span>
               &#169; {data.footer.copy} |
-              <Link href={data.footer['privacy_&_policy'].url}>
+              <Link
+                target={Link_Target[data.footer['privacy_&_policy'].url.target]}
+                href={data.footer['privacy_&_policy'].url}
+              >
                 {data.footer['privacy_&_policy'].title}
               </Link>
             </span>

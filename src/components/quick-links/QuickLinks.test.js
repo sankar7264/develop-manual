@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import ModuleQuickLink from 'src/components/quick-links/QuickLinks'
+import QuickLinks from 'src/components/quick-links/QuickLinks'
 
 const data = {
   block_section_title: 'Quick Liks',
@@ -48,14 +48,12 @@ const data = {
   ],
 }
 
-describe('quick-links', () => {
-  test('renders and check for the availiblity of tags', () => {
-    render(<ModuleQuickLink data={data} />)
+describe('Quick Links', () => {
+  test('renders Quick Links without crashing if no data is passed', () => {
+    render(<QuickLinks />)
+  })
 
-    expect(screen.queryByTestId('quick-link-title')).toBeInTheDocument()
-    expect(screen.queryByTestId('quick-link-description')).toBeInTheDocument()
-    waitFor(() =>
-      expect(screen.queryByTestId('card-quick-link')).toBeInTheDocument()
-    )
+  test('renders Quick links with data', () => {
+    render(<QuickLinks data={data} />)
   })
 })

@@ -1,6 +1,6 @@
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
-import CardQuickLink from 'src/components/cardQuickLink/CardQuickLink'
+import CardQuickLink from 'src/components/quick-links/CardQuickLink'
 import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
 
@@ -17,9 +17,7 @@ const layout = {
 const useStyles = makeStyles()((defaultTheme, props) => ({
   container: {
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      padding: '40px 24px',
-    },
+    padding: '40px 24px',
     [theme.breakpoints.up('md')]: {
       padding: '40px',
     },
@@ -76,9 +74,7 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
     },
   },
   containerLink: {
-    [theme.breakpoints.up('sm')]: {
-      margin: '32px 0 0 0',
-    },
+    margin: '32px 0 0 0',
     [theme.breakpoints.up('md')]: {
       margin: '24px 0 0 0',
     },
@@ -94,6 +90,9 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
 
 function QuickLinks(props) {
   const { data } = props
+
+  if (!data) return null
+
   const {
     block_section_title,
     block_section_id,
@@ -103,6 +102,9 @@ function QuickLinks(props) {
     quick_link_layout,
     quick_links,
   } = data
+
+  if (quick_links.length === 0) return null
+
   const { classes } = useStyles({
     layout: quick_link_layout,
     color: quick_link_colour,

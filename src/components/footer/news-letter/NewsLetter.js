@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
+import { styled } from '@mui/material/styles'
 
 const useStyles = makeStyles(theme)((props) => ({
   newsLetter: {
@@ -124,6 +125,23 @@ const useStyles = makeStyles(theme)((props) => ({
   },
 }))
 
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: '#517843',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: '#3D3B38',
+    },
+    '&:hover fieldset': {
+      borderColor: '#517843',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#517843',
+    },
+  },
+})
+
 function NewsLetter(props) {
   const { classes } = useStyles(props)
   const { NewsLetterData } = props
@@ -147,7 +165,7 @@ function NewsLetter(props) {
           </Grid>
           <Grid item md={12} sm={12} xs={12} lg={5}>
             <div className={[classes.emailDiv, classes.gridItem].join(' ')}>
-              <TextField
+              <CssTextField
                 className={classes.emailInput}
                 id="outlined-basic"
                 label="Email Address"

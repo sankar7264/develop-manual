@@ -103,7 +103,8 @@ function QuickLinks(props) {
     quick_links,
   } = data
 
-  if (quick_links.length === 0) return null
+  if (!quick_links || quick_links.length === 0) return null
+  if (quick_links.filter((o) => !o.quick_link_url).length !== 0) return null
 
   const { classes } = useStyles({
     layout: quick_link_layout,
@@ -186,11 +187,11 @@ QuickLinks.propTypes = {
     quick_link_layout: PropTypes.oneOf([layout.LEFT, layout.RIGHT]),
     quick_links: PropTypes.arrayOf(
       PropTypes.shape({
-        quick_link_link_title: PropTypes.string.isRequired,
+        quick_link_link_title: PropTypes.string,
         quick_link_url: PropTypes.string.isRequired,
-        quick_link_link_target: PropTypes.string.isRequired,
-        quick_link_link_discritpion: PropTypes.string.isRequired,
-      })
-    ),
+        quick_link_link_target: PropTypes.string,
+        quick_link_link_discritpion: PropTypes.string,
+      }).isRequired
+    ).isRequired,
   }),
 }

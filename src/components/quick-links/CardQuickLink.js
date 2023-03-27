@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
 import React from 'react'
 import ArrowRight from 'src/components/icons/ArrowRight'
-import theme, { FONTS } from 'src/styles/theme'
+import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
 
 const color = {
@@ -33,17 +33,14 @@ const useStyles = makeStyles()((defaultTheme, props) => {
       cursor: 'pointer',
     },
     link: {
+      ...theme.typography.h3,
       color:
         props.color === color.CYPRESS_GREEN
           ? theme.palette.presidio.color.NEAR_WHITE
           : theme.palette.primary.dark,
-      fontFamily: FONTS.MANDREL,
       textDecoration: props.events.isHovering ? 'underline' : 'none',
-      [theme.breakpoints.up('sm')]: {
+      [theme.breakpoints.down('lg')]: {
         fontSize: '24px',
-      },
-      [theme.breakpoints.up('lg')]: {
-        fontSize: '32px',
       },
     },
     description: {
@@ -66,6 +63,9 @@ function CardQuickLink(props) {
     quick_link_link_discritpion,
     quick_link_colour,
   } = data
+
+  if (!quick_link_url) return null
+
   const [isHovering, setIsHovering] = React.useState(false)
   const [isMouseDown, setIsMouseDown] = React.useState(false)
 
@@ -135,10 +135,10 @@ export default CardQuickLink
 
 CardQuickLink.propTypes = {
   data: PropTypes.shape({
-    quick_link_link_title: PropTypes.string.isRequired,
+    quick_link_link_title: PropTypes.string,
     quick_link_url: PropTypes.string.isRequired,
-    quick_link_link_target: PropTypes.string.isRequired,
-    quick_link_link_discritpion: PropTypes.string.isRequired,
-    quick_link_colour: PropTypes.string.isRequired,
+    quick_link_link_target: PropTypes.string,
+    quick_link_link_discritpion: PropTypes.string,
+    quick_link_colour: PropTypes.string,
   }).isRequired,
 }

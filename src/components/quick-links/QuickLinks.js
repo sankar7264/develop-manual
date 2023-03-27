@@ -110,6 +110,8 @@ function QuickLinks(props) {
     color: quick_link_colour,
   })
 
+  const handleClickItem = (url, target) => {}
+
   return (
     <Box className={classes.container}>
       <Grid container>
@@ -154,6 +156,12 @@ function QuickLinks(props) {
                 data-testid="card-quick-link"
                 key={item.quick_link_link_title}
                 data={{ ...item, quick_link_colour }}
+                onClick={(e) =>
+                  handleClickItem(
+                    item.quick_link_url,
+                    item.quick_link_link_target
+                  )
+                }
               />
             ))}
           </Stack>

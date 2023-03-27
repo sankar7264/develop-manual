@@ -127,17 +127,17 @@ const useStyles = makeStyles(theme)((props) => ({
 
 const CssTextField = styled(TextField)({
   '& label.Mui-focused': {
-    color: '#517843',
+    color: theme.palette.secondary.dark,
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: '#3D3B38',
+      borderColor: theme.palette.presidio.color.DARK_GRAY,
     },
     '&:hover fieldset': {
-      borderColor: '#517843',
+      borderColor: theme.palette.secondary.dark,
     },
     '&.Mui-focused fieldset': {
-      borderColor: '#517843',
+      borderColor: theme.palette.secondary.dark,
     },
   },
 })

@@ -16,11 +16,9 @@ import { useRouter } from 'next/router'
 
 const useStyles = makeStyles()((props) => ({
   card: {
+    background: theme.palette.presidio.color.NEAR_WHITE,
     borderRadius: '4px',
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.16)',
-  },
-  cardImage: {
-    // boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
   },
   cardTitle: {
     ...theme.typography.cardTitle,
@@ -33,13 +31,11 @@ const useStyles = makeStyles()((props) => ({
     alignSelf: 'stretch',
     padding: '1rem',
     gap: '0.5rem',
-    background: theme.palette.presidio.color.NEAR_WHITE,
   },
   cardContent: {
     ...theme.typography.smallBody.default,
   },
   cardActionContainer: {
-    background: theme.palette.presidio.color.NEAR_WHITE,
     padding: '0 1rem 1rem',
   },
   cardButton: {
@@ -62,9 +58,6 @@ function Card(props) {
   const { classes } = useStyles(props)
 
   const router = useRouter()
-
-  // For card width logic
-  const lgUp = useMediaQuery(() => theme.breakpoints.up('lg'))
 
   function cardActionClickHandler(action) {
     if (action.target === '_blank') {
@@ -89,12 +82,10 @@ function Card(props) {
         {(title || description) && (
           <CardContent className={classes.cardContentContainer}>
             {title && (
-              <Typography gutterBottom className={classes.cardTitle}>
-                {title}
-              </Typography>
+              <Typography className={classes.cardTitle}>{title}</Typography>
             )}
             {description && (
-              <Typography className={classes.cardContent} tabIndex={0}>
+              <Typography className={classes.cardContent}>
                 {description}
               </Typography>
             )}
@@ -102,7 +93,7 @@ function Card(props) {
         )}
       </CardActionArea>
       {link && link.title && (
-        <CardActions className={classes.cardActionContainer}>
+        <CardActions className={classes.cardActionContainer} tabIndex={0}>
           <Button
             disableRipple
             className={classes.cardButton}

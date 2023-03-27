@@ -45,7 +45,6 @@ const useStyles = makeStyles()((_theme, { isSticky }) => ({
       justifyContent: 'center',
       alignItems: 'center',
       color: theme.palette.primary.dark,
-      transition: 'display 600ms ease',
     },
   },
   tabsWrapper: {

@@ -4,12 +4,12 @@ import CardQuickLink from 'src/components/quick-links/CardQuickLink'
 import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
 
-const color = {
+const colorType = {
   CYPRESS_GREEN: 'cypress_green',
   BAKER_BEACH: 'baker_beach',
 }
 
-const layout = {
+const layoutType = {
   LEFT: 'left',
   RIGHT: 'right',
 }
@@ -31,20 +31,20 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
     },
 
     backgroundColor:
-      props.color === color.CYPRESS_GREEN
+      props.color === colorType.CYPRESS_GREEN
         ? theme.palette.secondary.dark
         : theme.palette.presidio.color.LIGHT_BACKGROUND,
   },
   title: {
     color:
-      props.color === color.CYPRESS_GREEN
+      props.color === colorType.CYPRESS_GREEN
         ? theme.palette.presidio.color.NEAR_WHITE
         : theme.palette.primary.dark,
   },
   description: {
     ...theme.typography.body.default,
     color:
-      props.color === color.CYPRESS_GREEN
+      props.color === colorType.CYPRESS_GREEN
         ? theme.palette.presidio.color.NEAR_WHITE
         : theme.palette.primary.dark,
     padding: '8px 0 0 0',
@@ -67,10 +67,10 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
   containerText: {
     margin: '0',
     [theme.breakpoints.up('lg')]: {
-      margin: props.layout === layout.RIGHT ? '0 0 0 53px' : '0 53px 0 0',
+      margin: props.layout === layoutType.RIGHT ? '0 0 0 53px' : '0 53px 0 0',
     },
     [theme.breakpoints.up('xl')]: {
-      margin: props.layout === layout.RIGHT ? '0 0 0 60px' : '0 60px 0 0',
+      margin: props.layout === layoutType.RIGHT ? '0 0 0 60px' : '0 60px 0 0',
     },
   },
   containerLink: {
@@ -79,10 +79,10 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
       margin: '24px 0 0 0',
     },
     [theme.breakpoints.up('lg')]: {
-      margin: props.layout === layout.RIGHT ? '0 53px 0 0' : '0 0 0 53px',
+      margin: props.layout === layoutType.RIGHT ? '0 53px 0 0' : '0 0 0 53px',
     },
     [theme.breakpoints.up('xl')]: {
-      margin: props.layout === layout.RIGHT ? '0 60px 0 0' : '0 0 0 60px',
+      margin: props.layout === layoutType.RIGHT ? '0 60px 0 0' : '0 0 0 60px',
     },
     width: '100%',
   },
@@ -90,28 +90,24 @@ const useStyles = makeStyles()((defaultTheme, props) => ({
 
 function QuickLinks(props) {
   const { data } = props
-
   if (!data) return null
 
-  const {
-    block_section_title,
-    block_section_id,
-    quick_link_title,
-    quick_link_description,
-    quick_link_colour,
-    quick_link_layout,
-    quick_links,
-  } = data
+  const { quick_links } = data
+  if (!quick_links) return null
 
-  if (!quick_links || quick_links.length === 0) return null
-  if (quick_links.filter((o) => !o.quick_link_url).length !== 0) return null
+  const { layout, title, description, background_color, links } = quick_links
+  if (
+    !links ||
+    !Array.isArray(links) ||
+    links.length === 0 ||
+    links.filter((o) => !o?.link?.url).length !== 0
+  )
+    return null
 
   const { classes } = useStyles({
-    layout: quick_link_layout,
-    color: quick_link_colour,
+    layout: layout,
+    color: background_color,
   })
-
-  const handleClickItem = (url, target) => {}
 
   return (
     <Box className={classes.container}>
@@ -123,7 +119,7 @@ function QuickLinks(props) {
           md={12}
           lg={6}
           className={classes.gridItemText}
-          order={{ lg: quick_link_layout === layout.RIGHT ? 2 : 1 }}
+          order={{ lg: layout === layoutType.RIGHT ? 2 : 1 }}
         >
           <Stack className={classes.containerText}>
             <Typography
@@ -131,14 +127,14 @@ function QuickLinks(props) {
               className={classes.title}
               data-testid="quick-link-title"
             >
-              {quick_link_title}
+              {title}
             </Typography>
             <Typography
               variant="body"
               className={classes.description}
               data-testid="quick-link-description"
             >
-              {quick_link_description}
+              {description}
             </Typography>
           </Stack>
         </Grid>
@@ -148,22 +144,12 @@ function QuickLinks(props) {
           sm={12}
           md={12}
           lg={6}
-          order={{ lg: quick_link_layout === layout.RIGHT ? 1 : 2 }}
+          order={{ lg: layout === layoutType.RIGHT ? 1 : 2 }}
           className={classes.gridItemLink}
         >
           <Stack spacing={2} className={classes.containerLink}>
-            {quick_links.map((item) => (
-              <CardQuickLink
-                data-testid="card-quick-link"
-                key={item.quick_link_link_title}
-                data={{ ...item, quick_link_colour }}
-                onClick={(e) =>
-                  handleClickItem(
-                    item.quick_link_url,
-                    item.quick_link_link_target
-                  )
-                }
-              />
+            {links.map((item, index) => (
+              <CardQuickLink key={index} data={{ ...item, background_color }} />
             ))}
           </Stack>
         </Grid>
@@ -176,22 +162,24 @@ export default QuickLinks
 
 QuickLinks.propTypes = {
   data: PropTypes.shape({
-    block_section_title: PropTypes.string,
-    block_section_id: PropTypes.string,
-    quick_link_title: PropTypes.string,
-    quick_link_description: PropTypes.string,
-    quick_link_colour: PropTypes.oneOf([
-      color.BAKER_BEACH,
-      color.CYPRESS_GREEN,
-    ]),
-    quick_link_layout: PropTypes.oneOf([layout.LEFT, layout.RIGHT]),
-    quick_links: PropTypes.arrayOf(
-      PropTypes.shape({
-        quick_link_link_title: PropTypes.string,
-        quick_link_url: PropTypes.string.isRequired,
-        quick_link_link_target: PropTypes.string,
-        quick_link_link_discritpion: PropTypes.string,
-      }).isRequired
-    ).isRequired,
-  }),
+    quick_links: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      background_color: PropTypes.oneOf([
+        colorType.BAKER_BEACH,
+        colorType.CYPRESS_GREEN,
+      ]),
+      layout: PropTypes.oneOf([layoutType.LEFT, layoutType.RIGHT]),
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          link: PropTypes.shape({
+            title: PropTypes.string,
+            url: PropTypes.string.isRequired,
+            target: PropTypes.string,
+          }).isRequired,
+          description: PropTypes.string,
+        }).isRequired
+      ).isRequired,
+    }).isRequired,
+  }).isRequired,
 }

@@ -57,9 +57,10 @@ const useStyles = makeStyles(theme)((props) => ({
   },
   emailDiv: {
     margin: '0 auto',
-    width: '95%',
+    width: '279px',
     [theme.breakpoints.up('md')]: {
       margin: '0 auto',
+      width: '592px',
     },
     [theme.breakpoints.up('lg')]: {
       margin: '5% auto',
@@ -76,31 +77,50 @@ const useStyles = makeStyles(theme)((props) => ({
     minHeight: 'auto',
   },
   bgImageHolder: {
-    display: 'none',
-    backgroundImage: 'url(/newsbg.png)',
-    backgroundSize: '100% auto',
+    backgroundImage: 'none',
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       display: 'block',
       minHeight: '200px',
+      backgroundImage: 'url(/newsbg.png)',
+      backgroundPosition: 'initial',
+      backgroundSize: '30% auto',
+      backgroundRepeat: 'no-repeat',
+    },
+    [theme.breakpoints.up('xl')]: {
+      backgroundSize: '25% auto',
+    },
+  },
+  newsLetterTextContainer: {
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: '160px',
+      position: 'absolute',
+      top: '50%',
+      transform: 'translateY(-50%)',
+    },
+    [theme.breakpoints.up('xl')]: {
+      marginLeft: '192px',
+      top: '50%',
+      transform: 'translateY(-50%)',
     },
   },
   headSection: {
     color: theme.palette.primary.dark,
     marginBottom: '5px',
     lineHeight: 1,
-    marginLeft: '5%',
+    marginLeft: '24px',
     fontSize: '24px',
-    marginTop: '2%',
+    marginTop: '24px',
     [theme.breakpoints.up('md')]: {
-      marginLeft: '5%',
       marginTop: '20px',
     },
     [theme.breakpoints.up('lg')]: {
       fontSize: '32px',
       marginTop: '0px',
+      marginLeft: '0px',
+      width: '300px',
     },
     [theme.breakpoints.up('xl')]: {
-      marginLeft: '0px',
+      width: '360px',
     },
   },
   paragraphSection: {
@@ -110,17 +130,18 @@ const useStyles = makeStyles(theme)((props) => ({
     width: '85%',
     marginTop: '8px',
     marginBottom: '0px',
-    marginLeft: '5%',
+    marginLeft: '24px',
     [theme.breakpoints.up('md')]: {
       width: '90%',
     },
     [theme.breakpoints.up('lg')]: {
-      width: '80%',
+      width: '55%',
       marginTop: '5px',
-      marginLeft: '5%',
+      marginLeft: '0%',
     },
     [theme.breakpoints.up('xl')]: {
       marginLeft: '0%',
+      width: '60%',
     },
   },
 }))
@@ -152,15 +173,18 @@ function NewsLetter(props) {
         className={classes.cardContent}
       >
         <Grid container alignItems="center">
-          <Grid className={classes.bgImageHolder} item lg={2} />
-          <Grid item md={12} sm={12} xs={12} lg={5}>
-            <div className={[classes.gridItem, classes.firstGrid].join(' ')}>
-              <Typography variant="h3" className={classes.headSection}>
-                {NewsLetterData.footer_news_title}
-              </Typography>
-              <p className={classes.paragraphSection}>
-                {NewsLetterData.footer_news_description}
-              </p>
+          <Grid item md={12} sm={12} xs={12} lg={7}>
+            <div
+              className={[classes.firstGrid, classes.bgImageHolder].join(' ')}
+            >
+              <div className={classes.newsLetterTextContainer}>
+                <Typography variant="h3" className={classes.headSection}>
+                  {NewsLetterData.footer_news_title}
+                </Typography>
+                <p className={classes.paragraphSection}>
+                  {NewsLetterData.footer_news_description}
+                </p>
+              </div>
             </div>
           </Grid>
           <Grid item md={12} sm={12} xs={12} lg={5}>

@@ -1,14 +1,8 @@
-import {
-  Grid,
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  Typography,
-} from '@mui/material'
+import { Grid, TextField, Card, CardContent, Typography } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
 import { styled } from '@mui/material/styles'
+import Button from 'src/common/button/Button'
 
 const useStyles = makeStyles(theme)((props) => ({
   newsLetter: {
@@ -36,6 +30,133 @@ const useStyles = makeStyles(theme)((props) => ({
       marginBottom: '-91px',
     },
   },
+  newsLetterCon: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '327px',
+    height: '274px',
+    padding: '0px',
+    [theme.breakpoints.up('md')]: {
+      width: '640px',
+      height: '248px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '32px 96px 24px',
+      width: '782px',
+      height: '174px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      width: '1128px',
+      height: '200px',
+    },
+  },
+  newsLetterHead: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    padding: '0px',
+    gap: '8px',
+    width: '279px',
+    height: '96px',
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
+    [theme.breakpoints.up('md')]: {
+      padding: '0px',
+      width: '592px',
+      height: '54px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '300px',
+      height: '126px',
+      gap: '16px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      width: '456px',
+      height: '84px',
+      padding: '0px 0px 0px 96px',
+    },
+  },
+  newsLetterInnerContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    padding: '24px',
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
+    width: '100%',
+    height: '100%',
+    [theme.breakpoints.up('md')]: {
+      padding: '24px',
+      gap: '24px',
+      width: '100%',
+      height: '100%',
+    },
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: '0px',
+      gap: '24px',
+      width: '442px',
+      height: '122px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      gap: '120px',
+      width: '936px',
+      height: '122px',
+    },
+  },
+  newsLetterInput: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    padding: '0px',
+    gap: '4px',
+    width: '279px',
+    height: '122px',
+    flex: 'none',
+    order: '1',
+    flexGrow: '1',
+    [theme.breakpoints.up('md')]: {
+      width: '592px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      gap: '4px',
+      width: '218px',
+      height: '118px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      gap: '4px',
+      width: '360px',
+      height: '122px',
+    },
+  },
+  textField: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    padding: '0px',
+    width: '279px',
+    height: '92px',
+    flex: 'none',
+    order: '0',
+    aligSelf: 'stretch',
+    flexGrow: '0',
+    [theme.breakpoints.up('md')]: {
+      width: '592px',
+      height: '78px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '218px',
+      height: '78px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      width: '360px',
+      height: '78px',
+    },
+  },
   emailInput: {
     width: '100%',
     marginTop: '16px',
@@ -46,103 +167,53 @@ const useStyles = makeStyles(theme)((props) => ({
     },
   },
   emailButton: {
-    marginTop: '15px',
-    marginBottom: '15px',
-    width: '100%',
-    borderRadius: '999em',
-    backgroundColor: theme.palette.primary.dark,
-    [theme.breakpoints.up('md')]: {
-      marginTop: '26px',
-    },
-  },
-  emailDiv: {
-    margin: '0 auto',
-    width: '279px',
-    [theme.breakpoints.up('md')]: {
-      margin: '0 auto',
-      width: '592px',
-    },
-    [theme.breakpoints.up('lg')]: {
-      margin: '5% auto',
-      width: '80%',
-    },
-  },
-  gridItem: {
-    transform: 'translate(0, 12%)',
-  },
-  firstGrid: {
-    minHeight: 'auto',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '5px 32px 7px',
+    gap: '8px',
+    flex: 'none',
+    order: '1',
+    alignSelf: 'stretch',
+    flexGrow: '0',
   },
   cardContent: {
     minHeight: 'auto',
-  },
-  bgImageHolder: {
-    backgroundImage: 'none',
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       display: 'block',
       minHeight: '200px',
-      backgroundImage: 'url(/newsbg.png)',
+      backgroundImage: 'url(/assets/newsbg.png)',
       backgroundPosition: 'initial',
-      backgroundSize: '30% auto',
+      backgroundSize: '22% auto',
       backgroundRepeat: 'no-repeat',
     },
     [theme.breakpoints.up('xl')]: {
-      backgroundSize: '25% auto',
-    },
-  },
-  newsLetterTextContainer: {
-    [theme.breakpoints.up('lg')]: {
-      marginLeft: '160px',
-      position: 'absolute',
-      top: '50%',
-      transform: 'translateY(-50%)',
-    },
-    [theme.breakpoints.up('xl')]: {
-      marginLeft: '192px',
-      top: '50%',
-      transform: 'translateY(-50%)',
+      backgroundSize: '17% auto',
     },
   },
   headSection: {
     color: theme.palette.primary.dark,
-    marginBottom: '5px',
-    lineHeight: 1,
-    marginLeft: '24px',
-    fontSize: '24px',
-    marginTop: '24px',
-    [theme.breakpoints.up('md')]: {
-      marginTop: '20px',
-    },
-    [theme.breakpoints.up('lg')]: {
-      fontSize: '32px',
-      marginTop: '0px',
-      marginLeft: '0px',
-      width: '300px',
-    },
-    [theme.breakpoints.up('xl')]: {
-      width: '360px',
-    },
+    display: 'flex',
+    alignItems: 'center',
+    letterSpacing: '-0.02em',
+    flex: 'none',
+    order: '0',
+    alignSelf: 'stretch',
+    flexGrow: '0',
   },
   paragraphSection: {
-    fontSize: '16px',
+    ...theme.typography.body.default,
     color: theme.palette.presidio.color.BLACK,
-    fontWeight: 400,
-    width: '85%',
-    marginTop: '8px',
-    marginBottom: '0px',
-    marginLeft: '24px',
-    [theme.breakpoints.up('md')]: {
-      width: '90%',
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: '55%',
-      marginTop: '5px',
-      marginLeft: '0%',
-    },
-    [theme.breakpoints.up('xl')]: {
-      marginLeft: '0%',
-      width: '60%',
-    },
+    display: 'flex',
+    alignItems: 'center',
+    flex: 'none',
+    order: '1',
+    alignSelf: 'stretch',
+    flexGrow: '0',
+    [theme.breakpoints.up('md')]: {},
+    [theme.breakpoints.up('lg')]: {},
+    [theme.breakpoints.up('xl')]: {},
   },
 }))
 
@@ -172,35 +243,29 @@ function NewsLetter(props) {
         sx={{ p: 0, '&:last-child': { pb: 0 } }}
         className={classes.cardContent}
       >
-        <Grid container alignItems="center">
-          <Grid item md={12} sm={12} xs={12} lg={7}>
-            <div
-              className={[classes.firstGrid, classes.bgImageHolder].join(' ')}
-            >
-              <div className={classes.newsLetterTextContainer}>
-                <Typography variant="h3" className={classes.headSection}>
-                  {NewsLetterData.footer_news_title}
-                </Typography>
-                <p className={classes.paragraphSection}>
-                  {NewsLetterData.footer_news_description}
-                </p>
+        <div className={classes.newsLetterCon}>
+          <div className={classes.newsLetterInnerContainer}>
+            <div className={classes.newsLetterHead}>
+              <Typography variant="h3" className={classes.headSection}>
+                {NewsLetterData.footer_news_title}
+              </Typography>
+              <div className={classes.paragraphSection}>
+                {NewsLetterData.footer_news_description}
               </div>
             </div>
-          </Grid>
-          <Grid item md={12} sm={12} xs={12} lg={5}>
-            <div className={[classes.emailDiv, classes.gridItem].join(' ')}>
-              <CssTextField
-                className={classes.emailInput}
-                id="outlined-basic"
-                label="Email Address"
-                variant="outlined"
-              />
-              <Button className={classes.emailButton} variant="contained">
-                Sign Up
-              </Button>
+            <div className={classes.newsLetterInput}>
+              <div className={classes.textField}>
+                <CssTextField
+                  className={classes.emailInput}
+                  id="outlined-basic"
+                  label="Email Address"
+                  variant="outlined"
+                />
+              </div>
+              <Button className={classes.emailButton}>Sign Up</Button>
             </div>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </CardContent>
     </Card>
   )

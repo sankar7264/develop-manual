@@ -11,7 +11,42 @@ const useStyles = makeStyles(theme)((props) => ({
       color: theme.palette.presidio.color.NEAR_WHITE,
       ...theme.typography.body.inlineLink,
     },
+    display: 'flex',
+    'flex-direction': 'column',
+    alignItems: 'flex-start',
+    gap: '32px',
+    flex: 'none',
+    order: '0',
+    alignSelf: 'stretch',
+    flexGrow: '0',
+  },
+  topRow: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    flex: 'none',
+    order: '0',
+    alignSelf: 'stretch',
+    flexGrow: '0',
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      paddingLeft: '0',
+    },
+  },
+  menuItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
     paddingTop: '48px',
+    gap: '16px',
+    flex: 'none',
+    order: '0',
+    alignSelf: 'stretch',
+    flexGrow: '0',
+    [theme.breakpoints.up('md')]: {
+      flex: '0 0 33.333333%',
+    },
   },
   list: {
     padding: '5px 0',
@@ -36,9 +71,9 @@ const BottomMenu = (props) => {
         <PresidioLogo color={theme.palette.presidio.color.NEAR_WHITE} />
       </div>
       <div className={classes.root}>
-        <Grid container spacing={5}>
+        <div className={classes.topRow}>
           {menu.map((i) => (
-            <Grid item sm={12} md={4}>
+            <div className={classes.menuItem}>
               <ul className={classes.unorderedList}>
                 <li className={classes.listHead}>
                   <Typography className={classes.typo} variant="h5">
@@ -56,9 +91,9 @@ const BottomMenu = (props) => {
                     ))
                   : ''}
               </ul>
-            </Grid>
+            </div>
           ))}
-        </Grid>
+        </div>
       </div>
     </>
   )

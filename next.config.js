@@ -47,6 +47,14 @@ const config = {
   productionBrowserSourceMaps: true, // allow source maps to be downloaded in prod
   output: 'standalone', // https://nextjs.org/docs/advanced-features/output-file-tracing
   trailingSlash: false,
+  async rewrites() {
+    return [
+      {
+        source: '/cache-healthcheck',
+        destination: '/api/healthcheck',
+      },
+    ]
+  },
 }
 
 // below config to be used when analysing bundle. Command: npm run analyze

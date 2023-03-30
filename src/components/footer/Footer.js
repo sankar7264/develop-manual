@@ -1,14 +1,13 @@
 import React from 'react'
 import { makeStyles } from 'tss-react/mui'
-import Sponsors from 'src/components/footer/Sponsors'
+import Sponsors from 'src/components/footer/sponsors/Sponsors'
 import theme from 'src/styles/theme'
-import NewsLetter from 'src/components/footer/NewsLetter'
-import BottomMenu from 'src/components/footer/BottomMenu'
-import SocialMedia from 'src/components/footer/SocialMedia'
+import NewsLetter from 'src/components/footer/news-letter/NewsLetter'
+import BottomMenu from 'src/components/footer/bottom-menu/BottomMenu'
+import SocialMedia from 'src/components/footer/social-media/SocialMedia'
 import Image from 'next/image'
-import { Grid } from '@mui/material'
-import { color, fontSize } from '@mui/system'
-import Link from '../Link'
+import Link from 'next/link'
+import { Link_Target } from 'src/common/constants'
 
 const useStyles = makeStyles(theme)((props) => ({
   footer: {
@@ -23,24 +22,31 @@ const useStyles = makeStyles(theme)((props) => ({
       maxWidth: '1128px',
     },
   },
-  govContainer: {
+  govSiteContainer: {
     backgroundColor: theme.palette.presidio.color.BAKER_BEACH_WHITE,
   },
-  gov: {
+  govSite: {
     margin: '0px auto',
     padding: '16px 0px',
     maxWidth: '95%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '16px',
+    flex: 'none',
+    alignSelf: 'stretch',
+    flexGrow: '0',
     [theme.breakpoints.up('xl')]: {
       maxWidth: '1128px',
     },
   },
-  govText: {
-    fontSize: '12px',
+  govSiteText: {
+    ...theme.typography.helperText,
   },
-  gItem: {
+  govSiteLink: {
     marginTop: '-7px',
     '& a': {
-      fontSize: '12px',
+      ...theme.typography.helperText,
       color: 'black',
       textDecoration: 'underline',
     },
@@ -48,44 +54,53 @@ const useStyles = makeStyles(theme)((props) => ({
 }))
 function Footer(props) {
   const { classes } = useStyles(props)
-  const { data } = props
+  const { data = {} } = props || {}
+
+  // guards
+  if (Object.keys(data).length === 0) {
+    return null
+  }
+  // visibility of sponsores block
+  const SponsorsBlock =
+    data.footer.our_sponser_large && data.footer.our_sponser_small
+
   return (
     <div className={classes.footerParent}>
       <NewsLetter NewsLetterData={data.footer.news_letter} />
       <div className={classes.footer}>
         <div className={classes.footerContainer}>
           <BottomMenu data={data.footer.footer_menu.menu_items} />
-          <Sponsors
-            largeLogo={data.footer.our_sponser_large}
-            smallLogo={data.footer.our_sponser_small}
-          />
+          {SponsorsBlock && (
+            <Sponsors
+              largeLogo={data.footer.our_sponser_large}
+              smallLogo={data.footer.our_sponser_small}
+              title={data.footer.our_sponsors_title}
+            />
+          )}
+
           <hr />
           <SocialMedia data={data} />
         </div>
       </div>
-      <div className={classes.govContainer}>
-        <div className={classes.gov}>
-          <Grid
-            container
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            spacing={2}
-          >
-            <Grid item>
-              <Image src="/assets/us.png" width="28px" height="21.16px" />
-            </Grid>
-            <Grid xs zeroMinWidth className={classes.gItem} item>
-              <div>
-                <span className={classes.govText}>
-                  {data.footer.usa_gov_text}
-                </span>
-                <Link href={data.footer.usa_gov_link.url}>
-                  {data.footer.usa_gov_link.title}
-                </Link>
-              </div>
-            </Grid>
-          </Grid>
+      <div className={classes.govSiteContainer}>
+        <div className={classes.govSite}>
+          <Image
+            src="/assets/us.png"
+            alt="US flag image"
+            width="28px"
+            height="21.16px"
+          />
+          <div className={classes.govSiteLink}>
+            <span data-testid="govText" className={classes.govSiteText}>
+              {data.footer.usa_gov_text}
+            </span>
+            <Link
+              target={Link_Target[data.footer.usa_gov_link.target]}
+              href={data.footer.usa_gov_link.url}
+            >
+              {data.footer.usa_gov_link.title}
+            </Link>
+          </div>
         </div>
       </div>
     </div>

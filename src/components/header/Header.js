@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from 'tss-react/mui'
-import { Grid } from '@mui/material'
+import { Typography } from '@mui/material'
 import PresidioLogo from 'src/components/icons/FullLogo'
 import theme from 'src/styles/theme'
 import SunIcon from 'src/components/icons/SunIcon'
@@ -10,121 +10,218 @@ import Link from 'next/link'
 import useMediaQuery from '@mui/material/useMediaQuery'
 
 const useStyles = makeStyles(theme)((props) => ({
-  headWrapper: {
-    backgroundColor: theme.palette.presidio.color.LIGHT_BACKGROUND,
-  },
-  headInner: {
+  topHeader: {
+    ...theme.typography.body.default,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '24px 0px 32px 0px',
+    gap: '12px',
     height: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '95%',
+    background: theme.palette.presidio.color.LIGHT_BACKGROUND,
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
+    [theme.breakpoints.up('lg')]: {
+      padding: '24px 156px 60px',
       height: '208px',
     },
+  },
+  utilityBar: {
+    display: 'flex',
+    width: '100%',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    padding: '0px 24px 0px 24px',
+    gap: '10px',
+    flex: 'none',
+    order: '1',
+    flexGrow: '0',
     [theme.breakpoints.up('lg')]: {
-      width: '95%',
+      padding: '0px',
+      width: '948px',
+      flexDirection: 'row',
+      height: '27px',
+      order: '0',
     },
     [theme.breakpoints.up('xl')]: {
-      minWidth: '800px',
-      maxWidth: '1127px',
-      margin: '0 auto',
+      height: '27px',
+      width: '1127px',
     },
   },
-  link: {
-    color: theme.palette.presidio.color.DARK_GRAY,
-    fontFamily: 'sans-serif',
-    fontSize: '24px',
-    textDecoration: 'none',
-    padding: '10px',
-    cursor: 'pointer',
-    display: 'block',
-    '& a': {
-      color: theme.palette.presidio.color.DARK_GRAY,
-      ...theme.typography.h4,
-    },
+  logoAndLinks: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '0px 24px 0px 24px',
+    width: '100%',
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
     [theme.breakpoints.up('lg')]: {
-      display: 'inline',
+      padding: '24px 0px 16px',
+      width: '948px',
+      order: '1',
+    },
+    [theme.breakpoints.up('xl')]: {
+      width: '1127px',
     },
   },
-  linkLanguage: {
-    fontFamily: 'sans-serif',
-    fontSize: '16px',
-    padding: '0px 10px',
+  weatherAndVisitorCenter: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    width: '438px',
+    height: '27px',
+    flex: 'none',
+    order: '1',
+    flexGrow: '0',
+    padding: '0px',
+    gap: '32px',
+    [theme.breakpoints.up('lg')]: {
+      order: '0',
+      flexDirection: 'row',
+      gap: '16px',
+      padding: '0px 0px 0px 2px',
+    },
+  },
+  languageToggle: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    padding: '50px 0px',
+    gap: '8px',
+    height: '27px',
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
+    [theme.breakpoints.up('lg')]: {
+      order: '1',
+      padding: '0px',
+    },
+  },
+  gloabIcon: {
+    width: '18px',
+    height: '18px',
+    position: 'relative',
+    top: '-2px',
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
+  },
+  sunIcon: {
+    width: '18px',
+    height: '18px',
+    marginTop: '2px',
+    position: 'relative',
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
+  },
+  language: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    flex: 'none',
+    order: '1',
+    padding: '4px 0px 2px',
+    flexGrow: '0',
     color: theme.palette.primary.dark,
     '& a': {
       color: theme.palette.primary.dark,
       textDecoration: 'underline',
     },
   },
-  linkLanguage2: {
-    fontFamily: 'sans-serif',
-    fontSize: '16px',
-    padding: '0px 10px',
+  linkLanguage: {
     color: theme.palette.primary.dark,
     '& a': {
       color: theme.palette.primary.dark,
+      textDecoration: 'underline',
+    },
+  },
+  weather: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: '0px',
+    gap: '8px',
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
+    '& a': {
+      color: theme.palette.primary.dark,
+      textDecoration: 'none',
+    },
+  },
+  line: {
+    width: '19px',
+    height: '0px',
+    border: `2px solid ${theme.palette.primary.main}`,
+    marginTop: '16px',
+    transform: 'rotate(90deg)',
+    flex: 'none',
+    order: '1',
+    flexGrow: '0',
+  },
+  visitorCenterWrap: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: '0px',
+    gap: '8px',
+    flex: 'none',
+    order: '2',
+    flexGrow: '0',
+  },
+  spanText: {
+    paddingLeft: '5px',
+  },
+  visitorCenterTextWrap: {
+    marginTop: '4px',
+  },
+  links: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: '8px',
+    flex: 'none',
+    order: '1',
+    flexGrow: '0',
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: 'row',
+      padding: '0px',
+    },
+  },
+  linksText: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: '8px 0px 4px',
+    flex: 'none',
+    order: '0',
+    flexGrow: '0',
+    '&: hover': {
+      borderBottom: `2px solid ${theme.palette.primary.main}`,
+    },
+    '& a': {
+      color: theme.palette.presidio.color.DARK_GRAY,
+      textDecoration: 'none',
+      padding: '8px 8px 4px 0px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      '& a': {
+        padding: '8px 8px 4px 8px',
+      },
     },
   },
   icon: {
+    marginTop: '5px',
     display: 'inline',
     paddingTop: '2px',
     [theme.breakpoints.up('lg')]: {
       display: 'grid',
-    },
-  },
-  gItem: {
-    padding: '0 15px',
-    [theme.breakpoints.up('lg')]: {
-      padding: '0 15px',
-    },
-    [theme.breakpoints.up('xl')]: {
-      padding: '0 0px',
-    },
-  },
-  weatherWrapper: {
-    display: 'inline-flex',
-    paddingRight: '5px',
-    paddingTop: '50px',
-    paddingLeft: '10px',
-    [theme.breakpoints.up('lg')]: {
-      borderRight: '2px solid #CD4F30',
-      paddingTop: '0px',
-      paddingLeft: '0px',
-    },
-  },
-  languageWrapper: {
-    display: 'inline-flex',
-    paddingRight: '5px',
-    paddingTop: '50px',
-    paddingLeft: '10px',
-    [theme.breakpoints.up('lg')]: {
-      paddingTop: '0px',
-      paddingLeft: '0px',
-    },
-  },
-  visitorWrapper: {
-    display: 'block',
-    paddingLeft: '10px',
-    paddingTop: '30px',
-    paddingBottom: '30px',
-    [theme.breakpoints.up('lg')]: {
-      display: 'inline-flex',
-      paddingLeft: '13px',
-      paddingTop: '0px',
-      paddingBottom: '0px',
-    },
-  },
-  spanText: {
-    fontSize: '16px',
-  },
-  secondRow: {
-    paddingTop: '18px',
-    [theme.breakpoints.up('lg')]: {
-      marginTop: '-113px',
-      paddingTop: '0px',
-    },
-  },
-  firstRow: {
-    [theme.breakpoints.up('lg')]: {
-      marginTop: '-50px',
     },
   },
 }))
@@ -140,108 +237,64 @@ const Header = (props) => {
     return null
   }
   return (
-    <div className={classes.headWrapper}>
-      <div>
-        <Grid
-          className={classes.headInner}
-          container
-          justifyContent="flex-start"
-          alignItems="center"
-        >
-          <Grid
-            className={[classes.gItem, classes.firstRow].join(' ')}
-            item
-            md={12}
-            lg={10}
-            order={{ lg: 1, md: 4, sm: 4, xs: 4 }}
-          >
-            <div className={classes.weatherWrapper}>
-              <div className={classes.icon}>
-                <SunIcon />
-              </div>
-
-              <div className={classes.linkLanguage2}>
-                <Link href="#">Sunny - 80°F</Link>
-              </div>
+    <div className={classes.topHeader}>
+      <div className={classes.utilityBar}>
+        <div className={classes.weatherAndVisitorCenter}>
+          <div className={classes.weather}>
+            <div className={classes.sunIcon}>
+              <SunIcon className={classes.icon} />
             </div>
-            <div className={classes.visitorWrapper}>
-              <div className={classes.icon}>
-                <ClockIcon className={classes.icon} />
-              </div>
+            <div className={classes.language}>
+              <Link href="#">Sunny - 80°F</Link>
+            </div>
+          </div>
+          {lgUp && <div className={classes.line} />}
+          <div className={classes.visitorCenterWrap}>
+            <div className={classes.icon}>
+              <ClockIcon />
+            </div>
+            <div className={classes.visitorCenterTextWrap}>
               <span className={classes.linkLanguage}>
-                <Link href="#">Visitor Center</Link>
+                <Link href={headerData.header.visitor_center.url}>
+                  {headerData.header.visitor_center.title}
+                </Link>
               </span>
-
               <span id="openTime" className={classes.spanText}>
                 {headerData.header.open_time}
               </span>
             </div>
-          </Grid>
-          <Grid
-            className={[classes.gItem, classes.firstRow].join(' ')}
-            item
-            md={12}
-            lg={2}
-            sm={12}
-            xs={12}
-            order={{ lg: 2, md: 3, sm: 3, xs: 3 }}
-          >
-            <Grid
-              container
-              direction="row"
-              justifyContent={lgUp ? 'flex-end' : 'flex-start'}
-              alignItems="center"
-            >
-              <Grid item>
-                <div className={classes.languageWrapper}>
-                  <div className={classes.icon}>
-                    <GlobeIcon className={classes.icon} />
-                  </div>
-                  <span className={classes.linkLanguage}>
-                    <Link href="#">Languages</Link>
-                  </span>
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
-          {lgUp && (
-            <Grid
-              className={[classes.gItem, classes.secondRow].join(' ')}
-              item
-              md={0}
-              lg={4}
-              order={{ lg: 3, md: 2, sm: 2, xs: 2 }}
-            >
-              <Link href="#">
-                <PresidioLogo width="200" height="45" fill="#1F4D25" />
-              </Link>
-            </Grid>
-          )}
-          <Grid
-            className={[classes.gItem, classes.secondRow].join(' ')}
-            item
-            lg={8}
-            md={12}
-            order={{ lg: 4, md: 1, sm: 1, xs: 1 }}
-          >
-            <Grid
-              container
-              direction="row"
-              justifyContent={lgUp ? 'flex-end' : 'flex-start'}
-              alignItems="center"
-            >
-              <Grid item>
-                {headerData.header.header_links.map((i) => (
-                  <span className={classes.link}>
-                    <Link href={i.links.url}>
-                      {i.links.title.toUpperCase()}
-                    </Link>
-                  </span>
-                ))}
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
+        <div className={classes.languageToggle}>
+          <div className={classes.gloabIcon}>
+            <GlobeIcon className={classes.icon} />
+          </div>
+          <div className={classes.language}>
+            <Link href="#">Languages</Link>
+          </div>
+        </div>
+      </div>
+      <div className={classes.logoAndLinks}>
+        {lgUp && (
+          <a href="/">
+            <PresidioLogo
+              width="200"
+              height="45"
+              fill={theme.palette.primary.dark}
+            />
+          </a>
+        )}
+        <div className={classes.links}>
+          {headerData.header.header_links.map((i) => (
+            <div className={classes.linksText}>
+              <a href={i.links.url}>
+                <Typography variant="h4">
+                  {i.links.title.toUpperCase()}
+                </Typography>
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

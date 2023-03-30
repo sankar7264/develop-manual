@@ -1,6 +1,6 @@
 import React from 'react'
 
-function In(props) {
+function LinkdinIcon(props) {
   const { color, height, width } = props
   return (
     <svg
@@ -20,4 +20,4 @@ function In(props) {
   )
 }
 
-export default In
+export default LinkdinIcon

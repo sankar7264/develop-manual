@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Ig(props) {
+function InstagramIcon(props) {
   const { color, height, width } = props
   return (
     <svg
@@ -18,4 +18,4 @@ function Ig(props) {
   )
 }
 
-export default Ig
+export default InstagramIcon

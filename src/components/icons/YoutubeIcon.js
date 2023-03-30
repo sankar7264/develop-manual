@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Yt(props) {
+function YoutubeIcon(props) {
   const { color, height, width } = props
   return (
     <svg
@@ -18,4 +18,4 @@ function Yt(props) {
   )
 }
 
-export default Yt
+export default YoutubeIcon

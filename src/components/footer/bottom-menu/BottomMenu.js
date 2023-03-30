@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme)((props) => ({
       ...theme.typography.body.inlineLink,
     },
     display: 'flex',
-    'flex-direction': 'column',
+    flexDirection: 'column',
     alignItems: 'flex-start',
     gap: '32px',
     flex: 'none',
@@ -72,8 +72,8 @@ const BottomMenu = (props) => {
       </div>
       <div className={classes.root}>
         <div className={classes.topRow}>
-          {menu.map((i) => (
-            <div className={classes.menuItem}>
+          {menu.map((i, iIndex) => (
+            <div key={iIndex} className={classes.menuItem}>
               <ul className={classes.unorderedList}>
                 <li className={classes.listHead}>
                   <Typography className={classes.typo} variant="h5">
@@ -82,8 +82,8 @@ const BottomMenu = (props) => {
                 </li>
 
                 {Object.hasOwn(i, 'menuitem')
-                  ? Object.values(i.menuitem).map((j) => (
-                      <li className={classes.list}>
+                  ? Object.values(i.menuitem).map((j, jIndex) => (
+                      <li key={jIndex} className={classes.list}>
                         <Link className={classes.link} href={j.url}>
                           {j.title}
                         </Link>

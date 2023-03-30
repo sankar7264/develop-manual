@@ -158,7 +158,7 @@ const useStyles = makeStyles(theme)((props) => ({
   line: {
     width: '19px',
     height: '0px',
-    border: `2px solid ${theme.palette.primary.main}`,
+    border: `1px solid ${theme.palette.primary.main}`,
     marginTop: '16px',
     transform: 'rotate(90deg)',
     flex: 'none',
@@ -285,8 +285,8 @@ const Header = (props) => {
           </a>
         )}
         <div className={classes.links}>
-          {headerData.header.header_links.map((i) => (
-            <div className={classes.linksText}>
+          {headerData.header.header_links.map((i, index) => (
+            <div key={index} className={classes.linksText}>
               <a href={i.links.url}>
                 <Typography variant="h4">
                   {i.links.title.toUpperCase()}

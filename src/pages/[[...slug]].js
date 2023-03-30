@@ -109,6 +109,8 @@ export async function getServerSideProps(context) {
     console.error(error)
   }
 
+  console.log({ headerData, footerData, mainNavigationData, pageData })
+
   return {
     props: {
       headerData: headerData,

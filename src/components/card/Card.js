@@ -11,7 +11,7 @@ import {
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from 'tss-react/mui'
-import theme from 'src/styles/theme'
+import theme, { SECONDARY_COLOR } from 'src/styles/theme'
 import { useRouter } from 'next/router'
 
 const useStyles = makeStyles()((props) => ({
@@ -37,6 +37,16 @@ const useStyles = makeStyles()((props) => ({
   },
   cardActionContainer: {
     padding: '0 1rem 1rem',
+    '& :hover': {
+      background: 'transparent',
+      textDecoration: 'underline',
+      color: SECONDARY_COLOR.DARK[80],
+    },
+    '& :active': {
+      background: 'transparent',
+      textDecoration: 'none',
+      color: SECONDARY_COLOR.DARK[80],
+    },
   },
   cardButton: {
     ...theme.typography.button,
@@ -44,9 +54,6 @@ const useStyles = makeStyles()((props) => ({
     color: theme.palette.primary.dark,
     fontWeight: 500,
     padding: '6px 0px 3px',
-  },
-  cardButtonText: {
-    color: theme.palette.primary.dark,
   },
 }))
 

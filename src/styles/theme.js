@@ -101,7 +101,7 @@ const theme = createTheme({
       fontStyle: 'normal',
       fontWeight: 600,
       lineHeight: '105%',
-      fontSize: '2rem',
+      fontSize: '1.5rem',
       letterSpacing: '-0.02em',
     },
     h4: {

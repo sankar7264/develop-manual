@@ -96,13 +96,8 @@ function QuickLinks(props) {
   if (!quick_links) return null
 
   const { layout, title, description, background_color, links } = quick_links
-  if (
-    !links ||
-    !Array.isArray(links) ||
-    links.length === 0 ||
-    links.filter((o) => !o?.link?.url).length !== 0
-  )
-    return null
+
+  if (!links || !Array.isArray(links) || links.length === 0) return null
 
   const { classes } = useStyles({
     layout: layout,

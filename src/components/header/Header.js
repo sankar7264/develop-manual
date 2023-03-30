@@ -255,7 +255,9 @@ const Header = (props) => {
             </div>
             <div className={classes.visitorCenterTextWrap}>
               <span className={classes.linkLanguage}>
-                <Link href="#">{headerData.header.visitor_center.title}</Link>
+                <Link href={headerData.header.visitor_center.url}>
+                  {headerData.header.visitor_center.title}
+                </Link>
               </span>
               <span id="openTime" className={classes.spanText}>
                 {headerData.header.open_time}
@@ -274,7 +276,7 @@ const Header = (props) => {
       </div>
       <div className={classes.logoAndLinks}>
         {lgUp && (
-          <a href="#">
+          <a href="/">
             <PresidioLogo
               width="200"
               height="45"

@@ -254,18 +254,20 @@ export default function MainNavigation(props) {
           )}
         {openMenu && menuItems && <MegaMenu menuData={menuItems} />}
       </div>
-      <div className={classes.dividerLineContainer}>
-        <span className={classes.dividerLine} />
-      </div>
       {formattedCustomLinks[0].title && (
-        <Search
-          iconColor={theme.palette.presidio.color.DARK_GRAY}
-          iconHeight="22"
-          iconWidth="22"
-          label={formattedCustomLinks[0].title}
-        />
+        <>
+          <div className={classes.dividerLineContainer}>
+            <span className={classes.dividerLine} />
+          </div>
+          <Search
+            iconColor={theme.palette.presidio.color.DARK_GRAY}
+            iconHeight="22"
+            iconWidth="22"
+            label={formattedCustomLinks[0].title}
+          />
+        </>
       )}
-      {formattedCustomLinks[1].title && (
+      {formattedCustomLinks[1]?.title && (
         <Button
           disableRipple
           aria-label={formattedCustomLinks[1].title}

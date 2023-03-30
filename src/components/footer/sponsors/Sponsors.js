@@ -15,6 +15,9 @@ const useStyles = makeStyles(theme)((props) => ({
   gridItem: {
     textAlign: 'center',
   },
+  root: {
+    paddingBottom: '5px',
+  },
 }))
 
 const Sponsors = (props) => {
@@ -22,7 +25,7 @@ const Sponsors = (props) => {
   const { largeLogo = {}, smallLogo = {}, title } = props || {}
   const lgUp = useMediaQuery(() => theme.breakpoints.up('md'))
   return (
-    <div className={classes.root} style={{ paddingBottom: '3%' }}>
+    <div className={classes.root}>
       <div className={classes.sponsors}>
         <Typography variant="h5">{title}</Typography>
       </div>

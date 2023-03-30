@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from 'tss-react/mui'
-import { Grid, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import PresidioLogo from 'src/components/icons/FullLogo'
 import theme from 'src/styles/theme'
 import SunIcon from 'src/components/icons/SunIcon'
@@ -158,7 +158,7 @@ const useStyles = makeStyles(theme)((props) => ({
   line: {
     width: '19px',
     height: '0px',
-    border: '2px solid #CD4F30',
+    border: `2px solid ${theme.palette.primary.main}`,
     marginTop: '16px',
     transform: 'rotate(90deg)',
     flex: 'none',
@@ -202,6 +202,9 @@ const useStyles = makeStyles(theme)((props) => ({
     flex: 'none',
     order: '0',
     flexGrow: '0',
+    '&: hover': {
+      borderBottom: `2px solid ${theme.palette.primary.main}`,
+    },
     '& a': {
       color: theme.palette.presidio.color.DARK_GRAY,
       textDecoration: 'none',

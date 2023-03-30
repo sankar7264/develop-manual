@@ -6,7 +6,6 @@ import NewsLetter from 'src/components/footer/news-letter/NewsLetter'
 import BottomMenu from 'src/components/footer/bottom-menu/BottomMenu'
 import SocialMedia from 'src/components/footer/social-media/SocialMedia'
 import Image from 'next/image'
-import { Grid } from '@mui/material'
 import Link from 'next/link'
 import { Link_Target } from 'src/common/constants'
 
@@ -30,17 +29,24 @@ const useStyles = makeStyles(theme)((props) => ({
     margin: '0px auto',
     padding: '16px 0px',
     maxWidth: '95%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '16px',
+    flex: 'none',
+    alignSelf: 'stretch',
+    flexGrow: '0',
     [theme.breakpoints.up('xl')]: {
       maxWidth: '1128px',
     },
   },
   govSiteText: {
-    fontSize: '12px',
+    ...theme.typography.helperText,
   },
-  gItem: {
+  govSiteLink: {
     marginTop: '-7px',
     '& a': {
-      fontSize: '12px',
+      ...theme.typography.helperText,
       color: 'black',
       textDecoration: 'underline',
     },
@@ -78,35 +84,23 @@ function Footer(props) {
       </div>
       <div className={classes.govSiteContainer}>
         <div className={classes.govSite}>
-          <Grid
-            container
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            spacing={2}
-          >
-            <Grid item>
-              <Image
-                src="/assets/us.png"
-                alt="US flag image"
-                width="28px"
-                height="21.16px"
-              />
-            </Grid>
-            <Grid xs zeroMinWidth className={classes.gItem} item>
-              <div>
-                <span data-testid="govText" className={classes.govSiteText}>
-                  {data.footer.usa_gov_text}
-                </span>
-                <Link
-                  target={Link_Target[data.footer.usa_gov_link.target]}
-                  href={data.footer.usa_gov_link.url}
-                >
-                  {data.footer.usa_gov_link.title}
-                </Link>
-              </div>
-            </Grid>
-          </Grid>
+          <Image
+            src="/assets/us.png"
+            alt="US flag image"
+            width="28px"
+            height="21.16px"
+          />
+          <div className={classes.govSiteLink}>
+            <span data-testid="govText" className={classes.govSiteText}>
+              {data.footer.usa_gov_text}
+            </span>
+            <Link
+              target={Link_Target[data.footer.usa_gov_link.target]}
+              href={data.footer.usa_gov_link.url}
+            >
+              {data.footer.usa_gov_link.title}
+            </Link>
+          </div>
         </div>
       </div>
     </div>

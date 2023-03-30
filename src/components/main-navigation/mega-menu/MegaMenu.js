@@ -106,18 +106,18 @@ const useStyles = makeStyles()((props) => ({
 }))
 
 export default function MegaMenu(props) {
-  const { menuData = {} } = props || {}
+  const { menuData } = props
 
   const { classes } = useStyles(props)
 
   // guards
-  if (Object.keys(menuData).length === 0) {
+  if (!menuData || Object.keys(menuData).length === 0) {
     return null
   }
 
   const { menuItems, menuHeader, menuCard } = menuData
 
-  const formattedMenuItems = menuItems ? Object.values(menuItems) : []
+  const formattedMenuItems = Object.values(menuItems) || []
 
   // For menu column header logic
   const lgUp = useMediaQuery(() => theme.breakpoints.up('lg'))

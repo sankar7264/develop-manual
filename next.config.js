@@ -6,13 +6,17 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const { i18n } = require('./i18n.config')
 
+const PROTOCOL = 'https'
+const WORDDPRESS_ENDPOINT =
+  process.env.NEXT_PUBLIC_WORDPRESS_ENDPOINT.split('://')[1]
+
 const config = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'wpvip-presidio-gov.go-vip.net',
+        protocol: PROTOCOL,
+        hostname: WORDDPRESS_ENDPOINT,
         // port: '',
         pathname: '/**/**',
       },
@@ -30,6 +34,15 @@ const config = {
   compiler: {
     // removeConsole: true,
   },
+  // Note that experiemental features can cause expected and app breaking changes. Enable only if really required
+  /*
+  experimental: {
+    // Disable writing to disk in ISR mode. VIP file system is read only, so this
+    // avoids generating lots of noisy errors in the logs. ISR artifacts are
+    // still cached in-memory.
+    isrFlushToDisk: false,
+  },
+  */
   i18n,
   productionBrowserSourceMaps: true, // allow source maps to be downloaded in prod
   output: 'standalone', // https://nextjs.org/docs/advanced-features/output-file-tracing
@@ -45,7 +58,7 @@ module.exports = nextConfig
 
 // Notes
 /*
-Trailing slash - 
+1. Trailing slash - 
 https://nextjs.org/docs/api-reference/next.config.js/trailing-slash
 
 Setting this value to `true` is not recommended at this time.

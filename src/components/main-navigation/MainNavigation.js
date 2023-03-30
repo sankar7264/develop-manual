@@ -125,7 +125,7 @@ export default function MainNavigation(props) {
   const [menuItems, setMenuItems] = useState(null)
 
   // guards
-  if (Object.keys(mainNavigationData).length === 0) {
+  if (!mainNavigationData || Object.keys(mainNavigationData).length === 0) {
     return null
   }
 

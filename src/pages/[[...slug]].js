@@ -24,13 +24,15 @@ const Home = (props) => {
 
   const components = []
 
-  for (const i of pageData) {
-    const { acf_fc_layout: componentName, data } = i
+  if (pageData && pageData.length !== 0) {
+    for (const i of pageData) {
+      const { acf_fc_layout: componentName, data } = i
 
-    if (componentName) {
-      const component = getComponent(componentName)
-      if (component) {
-        components.push(component({ data } || null))
+      if (componentName) {
+        const component = getComponent(componentName)
+        if (component) {
+          components.push(component({ data } || null))
+        }
       }
     }
   }
@@ -59,7 +61,7 @@ export async function getServerSideProps(context) {
   let headerData = null
   let footerData = null
   let mainNavigationData = null
-  let pageData = null
+  let pageData = []
 
   const { params } = context
 
@@ -106,7 +108,7 @@ export async function getServerSideProps(context) {
       headerData: headerData,
       footerData: footerData,
       mainNavigationData: mainNavigationData,
-      pageData: pageData[0].block || null,
+      pageData: pageData[0]?.block || [],
     },
   }
 }

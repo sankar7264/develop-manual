@@ -67,6 +67,7 @@ export async function getServerSideProps(context) {
 
   const path = params?.slug?.join('/') || 'home'
 
+  // @TODO - Remove debugging logs
   console.log({ path })
 
   try {

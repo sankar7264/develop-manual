@@ -1,7 +1,13 @@
 import Typography from '@mui/material/Typography'
 import Layout from 'src/components/layout/Layout'
 import { makeStyles } from 'tss-react/mui'
-import { getHeader, getFooter, getMainNavigation } from 'src/common/services'
+import {
+  getHeader,
+  getFooter,
+  getMainNavigation,
+  getPageData,
+} from 'src/common/services'
+import { getComponent } from 'src/common/utils/getComponent'
 
 const useStyles = makeStyles()((props) => ({
   test: {
@@ -14,7 +20,20 @@ const useStyles = makeStyles()((props) => ({
 
 const Home = (props) => {
   const { classes } = useStyles(props)
-  const { headerData, footerData, mainNavigationData } = props
+  const { headerData, footerData, mainNavigationData, pageData } = props
+
+  const components = []
+
+  for (const i of pageData) {
+    const { acf_fc_layout: componentName, data } = i
+
+    if (componentName) {
+      const component = getComponent(componentName)
+      if (component) {
+        components.push(component({ data } || null))
+      }
+    }
+  }
 
   return (
     <Layout
@@ -25,6 +44,8 @@ const Home = (props) => {
       <Typography variant="h1" className={classes.test}>
         Hello World!
       </Typography>
+
+      {components}
     </Layout>
   )
 }
@@ -38,10 +59,20 @@ export async function getServerSideProps(context) {
   let headerData = null
   let footerData = null
   let mainNavigationData = null
+  let pageData = null
+
+  const { params } = context
+
+  const path = params?.slug?.join('/') || 'home'
 
   try {
-    const [getHeaderRes, getFooterRes, getMainNavigationRes] =
-      await Promise.allSettled([getHeader(), getFooter(), getMainNavigation()])
+    const [getHeaderRes, getFooterRes, getMainNavigationRes, getPageDataRes] =
+      await Promise.allSettled([
+        getHeader(),
+        getFooter(),
+        getMainNavigation(),
+        getPageData(path),
+      ])
 
     if (getHeaderRes.status === 'fulfilled') {
       headerData = getHeaderRes.value
@@ -60,6 +91,12 @@ export async function getServerSideProps(context) {
     } else {
       console.error(getMainNavigationRes)
     }
+
+    if (getPageDataRes.status === 'fulfilled') {
+      pageData = getPageDataRes.value
+    } else {
+      console.error(getPageDataRes)
+    }
   } catch (error) {
     console.error(error)
   }
@@ -69,6 +106,7 @@ export async function getServerSideProps(context) {
       headerData: headerData,
       footerData: footerData,
       mainNavigationData: mainNavigationData,
+      pageData: pageData[0].block || null,
     },
   }
 }

@@ -22,6 +22,9 @@ const Home = (props) => {
   const { classes } = useStyles(props)
   const { headerData, footerData, mainNavigationData, pageData } = props
 
+  // @TODO - remove debugging logs
+  console.log({ headerData, footerData, mainNavigationData, pageData })
+
   const components = []
 
   if (pageData && pageData.length !== 0) {

@@ -223,33 +223,35 @@ export default function MainNavigation(props) {
           </div>
         )}
         {routesArr &&
-          routesArr.map((route) => (
-            <div key={route.menuid}>
-              <div className={classes.tabContainer}>
-                <Typography
-                  variant="h4"
-                  className={classes.tab}
-                  sx={{
-                    marginTop: '2px', // for vertical alignment
-                    color:
-                      activeTab === route.title && theme.palette.primary.dark,
-                  }}
-                  onClick={(e) => handleTabClick(e, route)}
-                  onKeyDown={(e) => handleTabClick(e, route)}
-                >
-                  {route.title}
-                </Typography>
-                <div
-                  style={{
-                    borderBottom:
-                      activeTab === route.title
-                        ? `2px solid ${theme.palette.primary.main}`
-                        : `2px solid transparent`, // prevents layout shift
-                  }}
-                />
+          routesArr.map((route) =>
+            !route.title ? null : (
+              <div key={route.menuid}>
+                <div className={classes.tabContainer}>
+                  <Typography
+                    variant="h4"
+                    className={classes.tab}
+                    sx={{
+                      marginTop: '2px', // for vertical alignment
+                      color:
+                        activeTab === route.title && theme.palette.primary.dark,
+                    }}
+                    onClick={(e) => handleTabClick(e, route)}
+                    onKeyDown={(e) => handleTabClick(e, route)}
+                  >
+                    {route.title}
+                  </Typography>
+                  <div
+                    style={{
+                      borderBottom:
+                        activeTab === route.title
+                          ? `2px solid ${theme.palette.primary.main}`
+                          : `2px solid transparent`, // prevents layout shift
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         {openMenu && menuItems && <MegaMenu menuData={menuItems} />}
       </div>
       <div className={classes.dividerLineContainer}>

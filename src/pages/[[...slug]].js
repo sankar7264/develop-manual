@@ -65,7 +65,9 @@ export async function getServerSideProps(context) {
 
   const { params } = context
 
-  const path = params?.slug?.join('/') || 'home'
+  const path = params?.slug?.join('/')
+
+  console.log({ path })
 
   try {
     const [getHeaderRes, getFooterRes, getMainNavigationRes, getPageDataRes] =

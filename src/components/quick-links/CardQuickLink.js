@@ -10,6 +10,11 @@ const color = {
   BAKER_BEACH: 'baker_beach',
 }
 
+const LinkTarget = {
+  0: '_self',
+  _blank: '_blank',
+}
+
 const useStyles = makeStyles()((defaultTheme, props) => {
   let cardBackgroundColor
 
@@ -55,23 +60,21 @@ const useStyles = makeStyles()((defaultTheme, props) => {
 })
 
 function CardQuickLink(props) {
-  const { onClick, data } = props
-  const {
-    quick_link_link_title,
-    quick_link_url,
-    quick_link_link_target,
-    quick_link_link_discritpion,
-    quick_link_colour,
-  } = data
+  const { data } = props
+  if (!data) return null
 
-  if (!quick_link_url) return null
+  const { link, description, background_color } = data
+  if (!link) return null
+
+  const { title, url, target } = link
+  if (!url) return null
 
   const [isHovering, setIsHovering] = React.useState(false)
   const [isMouseDown, setIsMouseDown] = React.useState(false)
 
   const { classes } = useStyles({
     events: { isHovering, isMouseDown },
-    color: quick_link_colour,
+    color: background_color,
   })
 
   const handleMouseEnter = (e) => {
@@ -91,7 +94,7 @@ function CardQuickLink(props) {
   }
 
   return (
-    <a href={quick_link_url} target={quick_link_link_target}>
+    <a href={url} target={LinkTarget[target]}>
       <Box
         className={classes.card}
         onMouseEnter={handleMouseEnter}
@@ -106,21 +109,21 @@ function CardQuickLink(props) {
               className={classes.link}
               data-testid="card-quick-link-title"
             >
-              {quick_link_link_title}
+              {title}
             </Typography>
             <Typography
               variant="body.default"
               className={classes.description}
               data-testid="card-quick-link-description"
             >
-              {quick_link_link_discritpion}
+              {description}
             </Typography>
           </Stack>
 
           <ArrowRight
             data-testid="card-quick-link-icon"
             color={
-              quick_link_colour !== color.CYPRESS_GREEN
+              background_color !== color.CYPRESS_GREEN
                 ? theme.palette.primary.dark
                 : undefined
             }
@@ -135,10 +138,12 @@ export default CardQuickLink
 
 CardQuickLink.propTypes = {
   data: PropTypes.shape({
-    quick_link_link_title: PropTypes.string,
-    quick_link_url: PropTypes.string.isRequired,
-    quick_link_link_target: PropTypes.string,
-    quick_link_link_discritpion: PropTypes.string,
-    quick_link_colour: PropTypes.string,
+    link: PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string.isRequired,
+      target: PropTypes.string,
+    }).isRequired,
+    description: PropTypes.string,
+    background_color: PropTypes.string,
   }).isRequired,
 }

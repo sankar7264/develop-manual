@@ -37,8 +37,9 @@ const Sponsors = (props) => {
           justifyContent={lgUp ? 'space-between' : 'space-evenly'}
         >
           {largeLogo &&
-            largeLogo.map((i) => (
+            largeLogo.map((i, index) => (
               <Grid
+                key={index}
                 className={classes.gridItem}
                 sx={{ pb: 5 }}
                 item
@@ -62,8 +63,9 @@ const Sponsors = (props) => {
           justifyContent={lgUp ? 'space-between' : 'space-evenly'}
         >
           {smallLogo &&
-            smallLogo.map((i) => (
+            smallLogo.map((i, index) => (
               <Grid
+                key={index}
                 className={classes.gridItem}
                 sx={{ pb: 3 }}
                 item

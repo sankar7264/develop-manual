@@ -74,49 +74,49 @@ const SocialMedia = (props) => {
     <div className={classes.socialMediaBlock}>
       {data.footer.social_menu.count > 0 ? (
         <div className={classes.socialLinks}>
-          {Object.values(data.footer.social_menu.menu_items).map((i) => {
+          {Object.values(data.footer.social_menu.menu_items).map((i, index) => {
             if (i.title === 'Facebook') {
               return (
-                <div className={classes.socialMedia}>
-                  <Link href={i.url}>
+                <div key={index} className={classes.socialMedia}>
+                  <a href={i.url}>
                     <FbIcon />
-                  </Link>
+                  </a>
                 </div>
               )
             }
             if (i.title === 'Youtube') {
               return (
-                <div className={classes.socialMedia}>
-                  <Link href={i.url}>
+                <div key={index} className={classes.socialMedia}>
+                  <a href={i.url}>
                     <YoutubeIcon />
-                  </Link>
+                  </a>
                 </div>
               )
             }
             if (i.title === 'Twitter') {
               return (
-                <div className={classes.socialMedia}>
-                  <Link href={i.url}>
+                <div key={index} className={classes.socialMedia}>
+                  <a href={i.url}>
                     <Twitter />
-                  </Link>
+                  </a>
                 </div>
               )
             }
             if (i.title === 'Linkdin') {
               return (
-                <div className={classes.socialMedia}>
-                  <Link href={i.url}>
+                <div key={index} className={classes.socialMedia}>
+                  <a href={i.url}>
                     <LinkdinIcon />
-                  </Link>
+                  </a>
                 </div>
               )
             }
             if (i.title === 'Instagram') {
               return (
-                <div className={classes.socialMedia}>
-                  <Link href={i.url}>
+                <div key={index} className={classes.socialMedia}>
+                  <a href={i.url}>
                     <InstagramIcon />
-                  </Link>
+                  </a>
                 </div>
               )
             }

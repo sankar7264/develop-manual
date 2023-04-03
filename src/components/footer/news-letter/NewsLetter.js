@@ -9,27 +9,24 @@ const useStyles = makeStyles(theme)((props) => ({
   newsLetter: {
     maxWidth: '327px',
     minHeight: '275px',
-    marginBottom: '-137px',
+    margin: '-138px auto',
     backgroundColor: theme.palette.presidio.color.BAKER_BEACH_WHITE,
     zIndex: 1,
     position: 'relative',
-    marginLeft: 'auto',
-    marginRight: 'auto',
     boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.24)',
     [theme.breakpoints.up('md')]: {
       maxWidth: '640px',
       minHeight: '248px',
-      marginBottom: '-124px',
+      margin: '-124px auto',
     },
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       maxWidth: '782px',
       minHeight: '174px',
-      marginBottom: '-87px',
+      margin: '-100px auto',
     },
     [theme.breakpoints.up('xl')]: {
       maxWidth: '1128px',
       minHeight: '178px',
-      marginBottom: '-91px',
     },
   },
   newsLetterCon: {

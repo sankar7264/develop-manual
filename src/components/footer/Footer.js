@@ -52,18 +52,6 @@ const useStyles = makeStyles(theme)((props) => ({
       textDecoration: 'underline',
     },
   },
-  footer_block: {
-    marginTop: '-138px',
-    [theme.breakpoints.up('md')]: {
-      marginTop: '-124px',
-    },
-    [theme.breakpoints.up('lg')]: {
-      marginTop: '-113px',
-    },
-    [theme.breakpoints.up('xl')]: {
-      marginTop: '-109px',
-    },
-  },
 }))
 function Footer(props) {
   const { classes } = useStyles(props)
@@ -78,7 +66,7 @@ function Footer(props) {
     data.footer.our_sponser_large && data.footer.our_sponser_small
 
   return (
-    <div className={classes.footer_block}>
+    <div>
       <NewsLetter NewsLetterData={data.footer.news_letter} />
       <div className={classes.footer}>
         <div className={classes.footerContainer}>

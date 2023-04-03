@@ -204,6 +204,7 @@ const useStyles = makeStyles(theme)((props) => ({
     flex: 'none',
     order: '0',
     flexGrow: '0',
+    borderBottom: `2px solid transparent`,
     '&: hover': {
       borderBottom: `2px solid ${theme.palette.primary.main}`,
     },
@@ -211,6 +212,9 @@ const useStyles = makeStyles(theme)((props) => ({
       color: theme.palette.presidio.color.DARK_GRAY,
       textDecoration: 'none',
       padding: '8px 8px 4px 0px',
+      '&: hover': {
+        color: theme.palette.primary.dark,
+      },
     },
     [theme.breakpoints.up('lg')]: {
       '& a': {

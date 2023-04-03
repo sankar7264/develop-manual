@@ -6,7 +6,6 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  useMediaQuery,
 } from '@mui/material'
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -37,6 +36,7 @@ const useStyles = makeStyles()((props) => ({
   },
   cardActionContainer: {
     padding: '0 1rem 1rem',
+    background: 'transparent',
     '& :hover': {
       background: 'transparent',
       textDecoration: 'underline',

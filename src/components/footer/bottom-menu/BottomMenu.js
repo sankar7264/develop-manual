@@ -4,6 +4,7 @@ import theme from 'src/styles/theme'
 import { useState } from 'react'
 import PresidioLogo from 'src/components/icons/FullLogo'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme)((props) => ({
   root: {
@@ -100,3 +101,13 @@ const BottomMenu = (props) => {
 }
 
 export default BottomMenu
+
+BottomMenu.propTypes = {
+  data: PropTypes.shape({
+    1: PropTypes.shape({
+      menuitem: PropTypes.object,
+      title: PropTypes.string,
+      url: PropTypes.string,
+    }),
+  }),
+}

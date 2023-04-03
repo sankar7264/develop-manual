@@ -3,6 +3,7 @@ import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
 import { styled } from '@mui/material/styles'
 import Button from 'src/common/button/Button'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme)((props) => ({
   newsLetter: {
@@ -273,3 +274,13 @@ function NewsLetter(props) {
 }
 
 export default NewsLetter
+
+NewsLetter.propTypes = {
+  NewsLetterData: PropTypes.shape({
+    footer_news_title: PropTypes.string,
+    footer_news_description: PropTypes.string,
+    footer_newsletter_thankyoutext: PropTypes.string,
+    footer_newsletter_errortext: PropTypes.string,
+    api: PropTypes.string,
+  }),
+}

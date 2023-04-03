@@ -8,6 +8,7 @@ import SocialMedia from 'src/components/footer/social-media/SocialMedia'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Link_Target } from 'src/common/constants'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme)((props) => ({
   footer: {
@@ -51,6 +52,18 @@ const useStyles = makeStyles(theme)((props) => ({
       textDecoration: 'underline',
     },
   },
+  footer_block: {
+    marginTop: '-138px',
+    [theme.breakpoints.up('md')]: {
+      marginTop: '-124px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      marginTop: '-113px',
+    },
+    [theme.breakpoints.up('xl')]: {
+      marginTop: '-109px',
+    },
+  },
 }))
 function Footer(props) {
   const { classes } = useStyles(props)
@@ -65,7 +78,7 @@ function Footer(props) {
     data.footer.our_sponser_large && data.footer.our_sponser_small
 
   return (
-    <div className={classes.footerParent}>
+    <div className={classes.footer_block}>
       <NewsLetter NewsLetterData={data.footer.news_letter} />
       <div className={classes.footer}>
         <div className={classes.footerContainer}>
@@ -108,3 +121,21 @@ function Footer(props) {
 }
 
 export default Footer
+
+Footer.propTypes = {
+  data: PropTypes.shape({
+    footer: PropTypes.shape({
+      our_sponsors_title: PropTypes.string,
+      our_sponser_large: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+      our_sponser_small: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+      social_menu: PropTypes.object,
+      copy: PropTypes.string,
+      news_letter: PropTypes.object,
+      usa_gov_text: PropTypes.string,
+      usa_gov_link: PropTypes.shape({
+        title: PropTypes.string,
+        url: PropTypes.string,
+      }),
+    }),
+  }),
+}

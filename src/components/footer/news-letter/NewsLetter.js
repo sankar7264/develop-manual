@@ -170,7 +170,7 @@ const useStyles = makeStyles(theme)((props) => ({
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       display: 'block',
       minHeight: '200px',
-      backgroundImage: 'url(/assets/newsbg.png)',
+      backgroundImage: 'url(/assets/News-Letter-Background.webp)',
       backgroundPosition: 'initial',
       backgroundSize: '17% auto',
       backgroundRepeat: 'no-repeat',

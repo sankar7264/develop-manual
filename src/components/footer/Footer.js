@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme)((props) => ({
     ...theme.typography.helperText,
   },
   govSiteLink: {
-    marginTop: '-7px',
+    marginTop: '-3px',
     '& a': {
       ...theme.typography.helperText,
       color: 'black',
@@ -86,7 +86,7 @@ function Footer(props) {
       <div className={classes.govSiteContainer}>
         <div className={classes.govSite}>
           <Image
-            src="/assets/us.png"
+            src="/assets/Us-Flag.webp"
             alt="US flag image"
             width="28px"
             height="21.16px"

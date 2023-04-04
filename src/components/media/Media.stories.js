@@ -1,19 +1,19 @@
 import React from 'react'
-import FinalMedia, { MediaType, Size } from './Media'
+import Media, { MediaType, Size } from 'src/components/media/Media'
 
 export default {
   title: 'Media',
-  component: FinalMedia,
+  component: Media,
 }
 
-const Template = (args) => <FinalMedia {...args} />
+const Template = (args) => <Media {...args} />
 
 export const NormalVideo = Template.bind({})
 NormalVideo.args = {
   mediaType: MediaType.VIDEO,
   size: Size.SMALL,
   video: {
-    videoId: 'snYu2JUqSWs',
+    videoId: 'UCL5w4xbInQ',
     videoControls: {
       autoPlay: true,
       controls: true,
@@ -41,7 +41,7 @@ BannerVideo.args = {
   width: '600px',
   height: '400px',
   video: {
-    videoId: 'snYu2JUqSWs',
+    videoId: 'UCL5w4xbInQ',
     videoControls: {
       autoPlay: true,
       controls: true,

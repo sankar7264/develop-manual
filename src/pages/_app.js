@@ -24,12 +24,14 @@ function MyApp({
     }
   }, [])
 
-  if (process.env.NODE_ENV !== 'development') {
-    console.log = () => {}
-    console.debug = () => {}
-    console.info = () => {}
-    console.warn = () => {}
-  }
+  // @TODO - Uncomment the following to disable logs in prod
+
+  // if (process.env.NODE_ENV !== 'development') {
+  //   console.log = () => {}
+  //   console.debug = () => {}
+  //   console.info = () => {}
+  //   console.warn = () => {}
+  // }
 
   return (
     <CacheProvider value={emotionCache}>

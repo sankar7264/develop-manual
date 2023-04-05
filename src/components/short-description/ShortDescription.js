@@ -84,7 +84,9 @@ export default function ShortDescription(props) {
       </Typography>
       {cta_button && (
         <a href={cta_button.url} target={Link_Target[cta_button.target]}>
-          <Button className={classes.button}>CALL TO ACTION</Button>
+          <Button className={classes.button} variant={cta_button.variant}>
+            CALL TO ACTION
+          </Button>
         </a>
       )}
     </div>
@@ -99,6 +101,7 @@ ShortDescription.propTypes = {
       title: PropTypes.string,
       url: PropTypes.string.isRequired,
       target: PropTypes.string,
+      variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
     }),
     indent: PropTypes.bool,
     background_color: PropTypes.oneOf([

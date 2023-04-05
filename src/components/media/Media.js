@@ -115,8 +115,8 @@ function Media(props) {
     >
       {isVideo && (
         <YouTube
-          className={isHero && classes.videoBox}
-          iframeClassName={isHero && classes.bannerVideoFrame}
+          className={isHero ? classes.videoBox : undefined}
+          iframeClassName={isHero ? classes.bannerVideoFrame : undefined}
           videoId={video.videoId}
           opts={{
             width: finalWidth,

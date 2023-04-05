@@ -4,12 +4,13 @@ import theme from 'src/styles/theme'
 import { styled } from '@mui/material/styles'
 import Button from 'src/common/button/Button'
 import PropTypes from 'prop-types'
+import rem from 'src/common/utils/css/index'
 
 const useStyles = makeStyles(theme)((props) => ({
   newsLetter: {
     maxWidth: '85.20%',
     minHeight: '275px',
-    margin: '-138px auto',
+    margin: `${rem('-138px')} auto`,
     backgroundColor: theme.palette.presidio.color.BAKER_BEACH_WHITE,
     zIndex: 1,
     position: 'relative',
@@ -17,12 +18,12 @@ const useStyles = makeStyles(theme)((props) => ({
     [theme.breakpoints.up('md')]: {
       maxWidth: '88.88%',
       minHeight: '248px',
-      margin: '-124px auto',
+      margin: `${rem('-124px')} auto`,
     },
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       maxWidth: '76.36%',
       minHeight: '174px',
-      margin: '-100px auto',
+      margin: `${rem('-100px')} auto`,
     },
     [theme.breakpoints.up('xl')]: {
       maxWidth: '78.33%',

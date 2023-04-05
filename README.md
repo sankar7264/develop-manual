@@ -165,17 +165,3 @@ For more details follow the instructions/guidelines provided by WordPress VIP
        
        
        
-
-## Support
-
-If you need help with anything, VIP's support team is [just a ticket away](https://wpvip.com/accessing-vip-support/).
-
-## Your documentation here
-
-Feel free to add to or replace this README.md content with content unique to your project, for example:
-
-* Project-specific notes; like a list of VIP environments and branches,
-* Workflow documentation; so everyone working in this repo can follow a defined process, or
-* Instructions for testing new features.
-
-This can be detailed in the `docs/` directory.

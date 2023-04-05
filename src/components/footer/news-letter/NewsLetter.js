@@ -23,11 +23,12 @@ const useStyles = makeStyles(theme)((props) => ({
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       maxWidth: '76.36%',
       minHeight: '174px',
-      margin: `${rem('-100px')} auto`,
+      margin: `${rem('-87px')} auto`,
     },
     [theme.breakpoints.up('xl')]: {
       maxWidth: '78.33%',
       minHeight: '178px',
+      margin: `${rem('-100px')} auto`,
     },
   },
   newsLetterCon: {
@@ -41,14 +42,14 @@ const useStyles = makeStyles(theme)((props) => ({
       height: '248px',
     },
     [theme.breakpoints.up('lg')]: {
-      padding: '3.06% 10.23% 3.06% 20.46%',
+      padding: '24px 80px 24px 160px',
       width: '100%',
       height: '174px',
     },
     [theme.breakpoints.up('xl')]: {
-      padding: '32px 9.37% 24px',
       width: '100%',
       height: '200px',
+      padding: '32px 96px 24px',
     },
   },
   newsLetterHead: {
@@ -73,7 +74,7 @@ const useStyles = makeStyles(theme)((props) => ({
     [theme.breakpoints.up('xl')]: {
       width: '48.71%',
       height: '84px',
-      padding: '0px 0px 0px 10.25%',
+      padding: '0px 0px 0px 96px',
     },
   },
   newsLetterInnerContainer: {
@@ -170,7 +171,7 @@ const useStyles = makeStyles(theme)((props) => ({
     minHeight: 'auto',
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       display: 'block',
-      minHeight: '200px',
+      minHeight: '174px',
       backgroundImage: 'url(/assets/News-Letter-Background.webp)',
       backgroundPosition: 'initial',
       backgroundSize: '17% auto',
@@ -178,6 +179,7 @@ const useStyles = makeStyles(theme)((props) => ({
     },
     [theme.breakpoints.up('xl')]: {
       backgroundSize: '17% auto',
+      minHeight: '200px',
     },
   },
   headSection: {
@@ -268,5 +270,5 @@ NewsLetter.propTypes = {
     footer_newsletter_thankyoutext: PropTypes.string,
     footer_newsletter_errortext: PropTypes.string,
     api: PropTypes.string,
-  }),
+  }).isRequired,
 }

@@ -125,5 +125,5 @@ Footer.propTypes = {
         url: PropTypes.string,
       }),
     }),
-  }),
+  }).isRequired,
 }

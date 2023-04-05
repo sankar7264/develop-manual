@@ -318,5 +318,5 @@ Header.propTypes = {
       open_time: PropTypes.string,
       header_links: PropTypes.array,
     }),
-  }),
+  }).isRequired,
 }

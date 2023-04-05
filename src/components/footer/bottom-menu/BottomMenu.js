@@ -109,5 +109,5 @@ BottomMenu.propTypes = {
       title: PropTypes.string,
       url: PropTypes.string,
     }),
-  }),
+  }).isRequired,
 }

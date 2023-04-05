@@ -1,7 +1,9 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
-import theme from 'src/styles/theme'
 import * as NextImage from 'next/image'
+import theme from 'src/styles/theme'
+
+import 'src/styles/globals.css'
 
 // De-optimise next/image to avoid image not found / blur palceholder errors
 const OriginalNextImage = NextImage.default

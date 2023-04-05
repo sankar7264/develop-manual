@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import PropTypes from 'prop-types'
 import Button from 'src/common/button/Button'
-import { Color_Theme, Link_Target } from 'src/common/constants'
+import { COLOR_THEME, Link_Target } from 'src/common/constants'
 import rem from 'src/common/utils/css'
 import theme, { SECONDARY_COLOR } from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
@@ -10,7 +10,7 @@ const useStyles = makeStyles()((defaultTheme, props) => {
   const { indent, background_color } = props
 
   const background =
-    background_color === Color_Theme.CHRISSY_FIELD
+    background_color === COLOR_THEME.CHRISSY_FIELD
       ? SECONDARY_COLOR.LIGHT[40]
       : theme.palette.presidio.color.LIGHT_BACKGROUND
 
@@ -94,8 +94,8 @@ ShortDescription.propTypes = {
     }),
     indent: PropTypes.oneOf(['yes', 'no']),
     background_color: PropTypes.oneOf([
-      Color_Theme.THE_BAKER_BEACH,
-      Color_Theme.CHRISSY_FIELD,
+      COLOR_THEME.THE_BAKER_BEACH,
+      COLOR_THEME.CHRISSY_FIELD,
     ]),
   }).isRequired,
 }

@@ -17,28 +17,30 @@ const data = {
     links: [
       {
         link: {
-          title: 'Link',
-          url: '#',
+          title: 'Link 1',
+          url: 'https://node-presidio-gov-develop.go-vip.net/#',
+          target: '_blank',
+        },
+        description:
+          'THIS WILL OPEN PAGE IN NEW TAB. Cras ac mauris finibus, tempus tellus ut, tempus mi.utututCras ac mauris finibus, tempus tellus ut, tempus mi.utututCras ac mauris finibus, tempus tel',
+      },
+      {
+        link: {
+          title: 'Link 2',
+          url: 'https://node-presidio-gov-develop.go-vip.net/#',
           target: '0',
         },
         description:
-          'Cras ac mauris finibus, tempus tellus ut, tempus mi.utututCras ac mauris finibus, tempus tellus ut, tempus mi.utututCras ac mauris finibus, tempus tel',
+          'THIS WILL OPEN PAGE IN SAME TAB. Cras ac mauris finibus, tempus tellus ut, tempus mi.utututCras ac mauris finibus, tempus tellus ut, tempus mi.utututCras ac mauris finibus, tempus tel',
       },
       {
         link: {
-          title: '',
-          url: '#',
-          target: '0',
+          title: 'Link 3',
+          url: 'https://node-presidio-gov-develop.go-vip.net/#',
+          target: '_blank',
         },
-        description: '',
-      },
-      {
-        link: {
-          title: '',
-          url: '#',
-          target: '0',
-        },
-        description: '',
+        description:
+          'THIS WILL OPEN PAGE IN NEW TAB. Cras ac mauris finibus, tempus tellus ut, tempus mi.utututCras ac mauris finibus, tempus tellus ut, tempus mi.utututCras ac mauris finibus, tempus tel',
       },
     ],
   },

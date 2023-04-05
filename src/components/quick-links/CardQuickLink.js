@@ -5,59 +5,49 @@ import ArrowRight from 'src/components/icons/ArrowRight'
 import theme from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
 
+import { Link_Target } from 'src/common/constants'
+
 const color = {
   CYPRESS_GREEN: 'cypress_green',
-  BAKER_BEACH: 'baker_beach',
+  BAKER_BEACH: 'the_baker_beach',
 }
 
-const LinkTarget = {
-  0: '_self',
-  _blank: '_blank',
-}
-
-const useStyles = makeStyles()((defaultTheme, props) => {
-  let cardBackgroundColor
-
-  if (props.color === color.CYPRESS_GREEN) {
-    if (props.events.isMouseDown) {
-      cardBackgroundColor = theme.palette.secondary.dark
-    } else {
-      cardBackgroundColor = theme.palette.primary.dark
-    }
-  } else if (props.events.isMouseDown) {
-    cardBackgroundColor = theme.palette.presidio.color.LIGHT_BACKGROUND
-  } else {
-    cardBackgroundColor = theme.palette.presidio.color.BAKER_BEACH_WHITE
-  }
-
-  return {
-    card: {
-      padding: '16px 24px',
-      width: '100%',
-      backgroundColor: cardBackgroundColor,
-      cursor: 'pointer',
-    },
-    link: {
-      ...theme.typography.h3,
-      color:
+const useStyles = makeStyles()((defaultTheme, props) => ({
+  card: {
+    padding: '16px 24px',
+    width: '100%',
+    backgroundColor:
+      props.color === color.CYPRESS_GREEN
+        ? theme.palette.primary.dark
+        : theme.palette.presidio.color.BAKER_BEACH_WHITE,
+    cursor: 'pointer',
+    '&: active': {
+      backgroundColor:
         props.color === color.CYPRESS_GREEN
-          ? theme.palette.presidio.color.NEAR_WHITE
-          : theme.palette.primary.dark,
-      textDecoration: props.events.isHovering ? 'underline' : 'none',
-      [theme.breakpoints.down('lg')]: {
-        fontSize: '24px',
-      },
+          ? theme.palette.secondary.dark
+          : theme.palette.presidio.color.LIGHT_BACKGROUND,
     },
-    description: {
-      ...theme.typography.body.default,
-      marginTop: '8px',
-      color:
-        props.color === color.CYPRESS_GREEN
-          ? theme.palette.presidio.color.NEAR_WHITE
-          : theme.palette.primary.dark,
+  },
+  link: {
+    ...theme.typography.h3,
+    color:
+      props.color === color.CYPRESS_GREEN
+        ? theme.palette.presidio.color.NEAR_WHITE
+        : theme.palette.primary.dark,
+    textDecoration: props.events.isHovering ? 'underline' : 'none',
+    [theme.breakpoints.down('lg')]: {
+      fontSize: '24px',
     },
-  }
-})
+  },
+  description: {
+    ...theme.typography.body.default,
+    marginTop: '8px',
+    color:
+      props.color === color.CYPRESS_GREEN
+        ? theme.palette.presidio.color.NEAR_WHITE
+        : theme.palette.primary.dark,
+  },
+}))
 
 function CardQuickLink(props) {
   const { data } = props
@@ -70,10 +60,9 @@ function CardQuickLink(props) {
   if (!url) return null
 
   const [isHovering, setIsHovering] = React.useState(false)
-  const [isMouseDown, setIsMouseDown] = React.useState(false)
 
   const { classes } = useStyles({
-    events: { isHovering, isMouseDown },
+    events: { isHovering },
     color: background_color,
   })
 
@@ -85,22 +74,12 @@ function CardQuickLink(props) {
     setIsHovering(false)
   }
 
-  const handleMouseDown = (e) => {
-    setIsMouseDown(true)
-  }
-
-  const handleMouseUp = (e) => {
-    setIsMouseDown(false)
-  }
-
   return (
-    <a href={url} target={LinkTarget[target]}>
+    <a href={url} target={Link_Target[target]} aria-label="quick-link">
       <Box
         className={classes.card}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
       >
         <Stack direction="row">
           <Stack flex={1}>

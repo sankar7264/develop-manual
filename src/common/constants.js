@@ -7,6 +7,6 @@ export const Link_Target = {
 
 export const COLOR_THEME = {
   THE_BAKER_BEACH: 'the_baker_beach',
-  CHRISSY_FIELD: 'chrissy_field',
+  CRISSY_FIELD: 'crissy_field',
   CYPRESS_GREEN: 'cypress_green',
 }

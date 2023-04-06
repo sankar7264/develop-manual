@@ -1,3 +1,4 @@
+import { COLOR_THEME } from 'src/common/constants'
 import ShortDescription from 'src/components/short-description/ShortDescription'
 
 export default {
@@ -7,16 +8,19 @@ export default {
 
 const Template = (args) => <ShortDescription {...args} />
 
-export const ChrissyFieldVersion = Template.bind({})
-ChrissyFieldVersion.args = {
+export const CrissyFieldVersion = Template.bind({})
+CrissyFieldVersion.args = {
   data: {
     section_title: 'short description',
-    background_color: 'chrissy_field',
-    title:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
-    indent: 'no',
-    short_desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n',
+    section_id: 'shortdescription_1680664946348',
+    short_description: {
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
+      short_desc:
+        '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a href="https://wpvip-presidio-gov.go-vip.net/short-description">Lorem Ipsum</a> has been the industry&#8217;s standard dummy text ever since the 1500. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>\n',
+      background_color: COLOR_THEME.CRISSY_FIELD,
+      indent: false,
+    },
   },
 }
 
@@ -24,12 +28,15 @@ export const BakerBeachVersion = Template.bind({})
 BakerBeachVersion.args = {
   data: {
     section_title: 'short description',
-    background_color: 'baker_beach',
-    title:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
-    indent: 'no',
-    short_desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n',
+    section_id: 'shortdescription_1680664946348',
+    short_description: {
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
+      short_desc:
+        '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a href="https://wpvip-presidio-gov.go-vip.net/short-description">Lorem Ipsum</a> has been the industry&#8217;s standard dummy text ever since the 1500. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>\n',
+      background_color: COLOR_THEME.THE_BAKER_BEACH,
+      indent: false,
+    },
   },
 }
 
@@ -37,12 +44,15 @@ export const WithIndentation = Template.bind({})
 WithIndentation.args = {
   data: {
     section_title: 'short description',
-    background_color: 'chrissy_field',
-    title:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
-    indent: 'yes',
-    short_desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n',
+    section_id: 'shortdescription_1680664946348',
+    short_description: {
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
+      short_desc:
+        '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a href="https://wpvip-presidio-gov.go-vip.net/short-description">Lorem Ipsum</a> has been the industry&#8217;s standard dummy text ever since the 1500. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>\n',
+      background_color: COLOR_THEME.CRISSY_FIELD,
+      indent: true,
+    },
   },
 }
 
@@ -50,12 +60,15 @@ export const WithoutIndentation = Template.bind({})
 WithoutIndentation.args = {
   data: {
     section_title: 'short description',
-    background_color: 'chrissy_field',
-    title:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
-    indent: 'no',
-    short_desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n',
+    section_id: 'shortdescription_1680664946348',
+    short_description: {
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
+      short_desc:
+        '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a href="https://wpvip-presidio-gov.go-vip.net/short-description">Lorem Ipsum</a> has been the industry&#8217;s standard dummy text ever since the 1500. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>\n',
+      background_color: COLOR_THEME.CRISSY_FIELD,
+      indent: false,
+    },
   },
 }
 
@@ -63,17 +76,20 @@ export const WithCTA = Template.bind({})
 WithCTA.args = {
   data: {
     section_title: 'short description',
-    background_color: 'chrissy_field',
-    title:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
-    cta_button: {
-      title: 'Learn more',
-      url: 'https://google.com',
-      target: '_blank',
+    section_id: 'shortdescription_1680664946348',
+    short_description: {
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
+      short_desc:
+        '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a href="https://wpvip-presidio-gov.go-vip.net/short-description">Lorem Ipsum</a> has been the industry&#8217;s standard dummy text ever since the 1500. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>\n',
+      cta_button: {
+        title: 'learn morelearn morelearn morelearn',
+        url: 'https://wpvip-presidio-gov.go-vip.net/wp-admin/post.php?post=441&action=edit',
+        target: '0',
+      },
+      background_color: COLOR_THEME.CRISSY_FIELD,
+      indent: false,
     },
-    indent: 'no',
-    short_desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n',
   },
 }
 
@@ -81,11 +97,14 @@ export const WithoutCTA = Template.bind({})
 WithoutCTA.args = {
   data: {
     section_title: 'short description',
-    background_color: 'chrissy_field',
-    title:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
-    indent: 'no',
-    short_desc:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n',
+    section_id: 'shortdescription_1680664946348',
+    short_description: {
+      title:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
+      short_desc:
+        '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a href="https://wpvip-presidio-gov.go-vip.net/short-description">Lorem Ipsum</a> has been the industry&#8217;s standard dummy text ever since the 1500. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#8217;s standard dummy text ever since the 1500Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting.</p>\n',
+      background_color: COLOR_THEME.CRISSY_FIELD,
+      indent: false,
+    },
   },
 }

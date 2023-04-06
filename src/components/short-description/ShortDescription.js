@@ -10,7 +10,7 @@ const useStyles = makeStyles()((defaultTheme, props) => {
   const { indent, background_color } = props
 
   const background =
-    background_color === COLOR_THEME.CHRISSY_FIELD
+    background_color === COLOR_THEME.CRISSY_FIELD
       ? SECONDARY_COLOR.LIGHT[40]
       : theme.palette.presidio.color.LIGHT_BACKGROUND
 
@@ -23,14 +23,14 @@ const useStyles = makeStyles()((defaultTheme, props) => {
       },
       [theme.breakpoints.up('lg')]: {
         padding: `${rem('64')} ${
-          indent === 'yes'
+          indent
             ? `${rem('258')} ${rem('64')} ${rem('120')}`
             : `${rem('258')} ${rem('64')} ${rem('40')}`
         }`,
       },
       [theme.breakpoints.up('xl')]: {
         padding: `${rem('64')} ${
-          indent === 'yes'
+          indent
             ? `${rem('448')} ${rem('64')} ${rem('252')}`
             : `${rem('544')} ${rem('64')} ${rem('156')}`
         }`,
@@ -62,7 +62,11 @@ export default function ShortDescription(props) {
   const { data } = props
   if (!data) return null
 
-  const { title, short_desc, cta_button, indent, background_color } = data
+  const { short_description } = data
+  if (!short_description) return null
+
+  const { title, short_desc, cta_button, indent, background_color } =
+    short_description
   if (!title && !short_desc) return null
 
   const { classes } = useStyles({ indent, background_color })
@@ -74,7 +78,7 @@ export default function ShortDescription(props) {
       {cta_button && (
         <a href={cta_button.url} target={Link_Target[cta_button.target]}>
           <Button className={classes.button} variant={cta_button.variant}>
-            CALL TO ACTION
+            {cta_button.title}
           </Button>
         </a>
       )}
@@ -84,18 +88,20 @@ export default function ShortDescription(props) {
 
 ShortDescription.propTypes = {
   data: PropTypes.shape({
-    title: PropTypes.string,
-    short_desc: PropTypes.string,
-    cta_button: PropTypes.shape({
+    short_description: PropTypes.shape({
       title: PropTypes.string,
-      url: PropTypes.string.isRequired,
-      target: PropTypes.string,
-      variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
-    }),
-    indent: PropTypes.oneOf(['yes', 'no']),
-    background_color: PropTypes.oneOf([
-      COLOR_THEME.THE_BAKER_BEACH,
-      COLOR_THEME.CHRISSY_FIELD,
-    ]),
+      short_desc: PropTypes.string,
+      cta_button: PropTypes.shape({
+        title: PropTypes.string,
+        url: PropTypes.string.isRequired,
+        target: PropTypes.string,
+        variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+      }),
+      indent: PropTypes.bool,
+      background_color: PropTypes.oneOf([
+        COLOR_THEME.THE_BAKER_BEACH,
+        COLOR_THEME.CRISSY_FIELD,
+      ]),
+    }).isRequired,
   }).isRequired,
 }

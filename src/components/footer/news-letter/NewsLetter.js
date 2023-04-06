@@ -3,53 +3,53 @@ import { makeStyles } from 'tss-react/mui'
 import theme from 'src/styles/theme'
 import { styled } from '@mui/material/styles'
 import Button from 'src/common/button/Button'
+import PropTypes from 'prop-types'
+import rem from 'src/common/utils/css/index'
 
 const useStyles = makeStyles(theme)((props) => ({
   newsLetter: {
-    maxWidth: '327px',
+    maxWidth: '85.20%',
     minHeight: '275px',
-    marginBottom: '-137px',
+    margin: `${rem('-138px')} auto`,
     backgroundColor: theme.palette.presidio.color.BAKER_BEACH_WHITE,
     zIndex: 1,
     position: 'relative',
-    marginLeft: 'auto',
-    marginRight: 'auto',
     boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.24)',
     [theme.breakpoints.up('md')]: {
-      maxWidth: '640px',
+      maxWidth: '88.88%',
       minHeight: '248px',
-      marginBottom: '-124px',
+      margin: `${rem('-124px')} auto`,
     },
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      maxWidth: '782px',
+      maxWidth: '76.36%',
       minHeight: '174px',
-      marginBottom: '-87px',
+      margin: `${rem('-87px')} auto`,
     },
     [theme.breakpoints.up('xl')]: {
-      maxWidth: '1128px',
+      maxWidth: '78.33%',
       minHeight: '178px',
-      marginBottom: '-91px',
+      margin: `${rem('-100px')} auto`,
     },
   },
   newsLetterCon: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '327px',
-    height: '274px',
+    width: '100%',
     padding: '0px',
     [theme.breakpoints.up('md')]: {
-      width: '640px',
+      width: '100%',
       height: '248px',
     },
     [theme.breakpoints.up('lg')]: {
-      padding: '32px 96px 24px',
-      width: '782px',
+      padding: '24px 80px 24px 160px',
+      width: '100%',
       height: '174px',
     },
     [theme.breakpoints.up('xl')]: {
-      width: '1128px',
+      width: '100%',
       height: '200px',
+      padding: '32px 96px 24px',
     },
   },
   newsLetterHead: {
@@ -58,23 +58,21 @@ const useStyles = makeStyles(theme)((props) => ({
     alignItems: 'flex-start',
     padding: '0px',
     gap: '8px',
-    width: '279px',
-    height: '96px',
+    width: '100%',
     flex: 'none',
     order: '0',
     flexGrow: '0',
     [theme.breakpoints.up('md')]: {
       padding: '0px',
-      width: '592px',
-      height: '54px',
+      width: '92.5%',
     },
     [theme.breakpoints.up('lg')]: {
-      width: '300px',
+      width: '55.35%',
       height: '126px',
       gap: '16px',
     },
     [theme.breakpoints.up('xl')]: {
-      width: '456px',
+      width: '48.71%',
       height: '84px',
       padding: '0px 0px 0px 96px',
     },
@@ -100,12 +98,10 @@ const useStyles = makeStyles(theme)((props) => ({
       alignItems: 'center',
       padding: '0px',
       gap: '24px',
-      width: '442px',
       height: '122px',
     },
     [theme.breakpoints.up('xl')]: {
       gap: '120px',
-      width: '936px',
       height: '122px',
     },
   },
@@ -115,22 +111,22 @@ const useStyles = makeStyles(theme)((props) => ({
     alignItems: 'flex-end',
     padding: '0px',
     gap: '4px',
-    width: '279px',
+    width: '100%',
     height: '122px',
     flex: 'none',
     order: '1',
     flexGrow: '1',
     [theme.breakpoints.up('md')]: {
-      width: '592px',
+      width: '100%',
     },
     [theme.breakpoints.up('lg')]: {
       gap: '4px',
-      width: '218px',
+      width: '40.22%',
       height: '118px',
     },
     [theme.breakpoints.up('xl')]: {
       gap: '4px',
-      width: '360px',
+      width: '38.46%',
       height: '122px',
     },
   },
@@ -139,22 +135,14 @@ const useStyles = makeStyles(theme)((props) => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     padding: '0px',
-    width: '279px',
+    width: '100%',
     height: '92px',
     flex: 'none',
     order: '0',
     aligSelf: 'stretch',
     flexGrow: '0',
     [theme.breakpoints.up('md')]: {
-      width: '592px',
-      height: '78px',
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: '218px',
-      height: '78px',
-    },
-    [theme.breakpoints.up('xl')]: {
-      width: '360px',
+      width: '100%',
       height: '78px',
     },
   },
@@ -183,14 +171,15 @@ const useStyles = makeStyles(theme)((props) => ({
     minHeight: 'auto',
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       display: 'block',
-      minHeight: '200px',
-      backgroundImage: 'url(/assets/newsbg.png)',
+      minHeight: '174px',
+      backgroundImage: 'url(/assets/News-Letter-Background.webp)',
       backgroundPosition: 'initial',
-      backgroundSize: '22% auto',
+      backgroundSize: '17% auto',
       backgroundRepeat: 'no-repeat',
     },
     [theme.breakpoints.up('xl')]: {
       backgroundSize: '17% auto',
+      minHeight: '200px',
     },
   },
   headSection: {
@@ -273,3 +262,13 @@ function NewsLetter(props) {
 }
 
 export default NewsLetter
+
+NewsLetter.propTypes = {
+  NewsLetterData: PropTypes.shape({
+    footer_news_title: PropTypes.string,
+    footer_news_description: PropTypes.string,
+    footer_newsletter_thankyoutext: PropTypes.string,
+    footer_newsletter_errortext: PropTypes.string,
+    api: PropTypes.string,
+  }).isRequired,
+}

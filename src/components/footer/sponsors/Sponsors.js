@@ -3,6 +3,7 @@ import { makeStyles } from 'tss-react/mui'
 import Image from 'next/image'
 import theme from 'src/styles/theme'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme)((props) => ({
   footerLogoBlock: {
@@ -88,3 +89,12 @@ const Sponsors = (props) => {
 }
 
 export default Sponsors
+
+Sponsors.propTypes = {
+  // eslint-disable-next-line react/no-unused-prop-types
+  largeLogo: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+  // eslint-disable-next-line react/no-unused-prop-types
+  smallLogo: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+  // eslint-disable-next-line react/no-unused-prop-types
+  title: PropTypes.string,
+}

@@ -8,6 +8,7 @@ import GlobeIcon from 'src/components/icons/GlobeIcon'
 import ClockIcon from 'src/components/icons/ClockIcon'
 import Link from 'next/link'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme)((props) => ({
   topHeader: {
@@ -73,7 +74,7 @@ const useStyles = makeStyles(theme)((props) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    width: '438px',
+    width: '100%',
     height: '27px',
     flex: 'none',
     order: '1',
@@ -81,6 +82,7 @@ const useStyles = makeStyles(theme)((props) => ({
     padding: '0px',
     gap: '32px',
     [theme.breakpoints.up('lg')]: {
+      width: '438px',
       order: '0',
       flexDirection: 'row',
       gap: '16px',
@@ -202,6 +204,7 @@ const useStyles = makeStyles(theme)((props) => ({
     flex: 'none',
     order: '0',
     flexGrow: '0',
+    borderBottom: `2px solid transparent`,
     '&: hover': {
       borderBottom: `2px solid ${theme.palette.primary.main}`,
     },
@@ -209,6 +212,9 @@ const useStyles = makeStyles(theme)((props) => ({
       color: theme.palette.presidio.color.DARK_GRAY,
       textDecoration: 'none',
       padding: '8px 8px 4px 0px',
+      '&: hover': {
+        color: theme.palette.primary.dark,
+      },
     },
     [theme.breakpoints.up('lg')]: {
       '& a': {
@@ -301,3 +307,16 @@ const Header = (props) => {
 }
 
 export default Header
+
+Header.propTypes = {
+  data: PropTypes.shape({
+    header: PropTypes.shape({
+      visitor_center: PropTypes.shape({
+        title: PropTypes.string,
+        url: PropTypes.string,
+      }),
+      open_time: PropTypes.string,
+      header_links: PropTypes.array,
+    }),
+  }).isRequired,
+}

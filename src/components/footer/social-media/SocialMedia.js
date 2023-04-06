@@ -8,6 +8,7 @@ import LinkdinIcon from 'src/components/icons/LinkdinIcon'
 import YoutubeIcon from 'src/components/icons/YoutubeIcon'
 import Link from 'next/link'
 import { Link_Target } from 'src/common/constants'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme)((props) => ({
   socialMediaBlock: {
@@ -142,3 +143,15 @@ const SocialMedia = (props) => {
 }
 
 export default SocialMedia
+
+SocialMedia.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    menu_items: PropTypes.shape({
+      0: PropTypes.shape({
+        url: PropTypes.string,
+        title: PropTypes.string,
+      }),
+    }),
+  }),
+}

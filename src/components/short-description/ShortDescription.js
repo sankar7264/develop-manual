@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import PropTypes from 'prop-types'
 import Button from 'src/common/button/Button'
 import { COLOR_THEME, Link_Target } from 'src/common/constants'
-import rem from 'src/common/utils/css'
+import { rem } from 'src/common/utils/css'
 import theme, { SECONDARY_COLOR } from 'src/styles/theme'
 import { makeStyles } from 'tss-react/mui'
 
@@ -17,31 +17,31 @@ const useStyles = makeStyles()((defaultTheme, props) => {
   return {
     container: {
       background: background,
-      padding: `${rem('40')} ${rem('24')}`,
+      padding: `${rem(40)} ${rem(24)}`,
       [theme.breakpoints.up('md')]: {
-        padding: rem('40'),
+        padding: rem(40),
       },
       [theme.breakpoints.up('lg')]: {
-        padding: `${rem('64')} ${
+        padding: `${rem(64)} ${
           indent
-            ? `${rem('258')} ${rem('64')} ${rem('120')}`
-            : `${rem('258')} ${rem('64')} ${rem('40')}`
+            ? `${rem(258)} ${rem(64)} ${rem(120)}`
+            : `${rem(258)} ${rem(64)} ${rem(40)}`
         }`,
       },
       [theme.breakpoints.up('xl')]: {
-        padding: `${rem('64')} ${
+        padding: `${rem(64)} ${
           indent
-            ? `${rem('448')} ${rem('64')} ${rem('252')}`
-            : `${rem('544')} ${rem('64')} ${rem('156')}`
+            ? `${rem(448)} ${rem(64)} ${rem(252)}`
+            : `${rem(544)} ${rem(64)} ${rem(156)}`
         }`,
       },
     },
     title: {
       ...theme.typography.h3,
-      marginBottom: rem('40'),
+      marginBottom: rem(40),
       color: theme.palette.primary.dark,
       [theme.breakpoints.down('md')]: {
-        fontSize: rem('24'),
+        fontSize: rem(24),
       },
     },
     description: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles()((defaultTheme, props) => {
       color: theme.palette.presidio.color.DARK_GRAY,
     },
     button: {
-      marginTop: rem('40'),
+      marginTop: rem(40),
       width: '100%',
       [theme.breakpoints.up('md')]: {
         width: 'auto',
@@ -72,7 +72,7 @@ export default function ShortDescription(props) {
   const { classes } = useStyles({ indent, background_color })
 
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container} module`}>
       <Typography className={classes.title}>{title}</Typography>
       <Typography className={classes.description}>{short_desc}</Typography>
       {cta_button && (

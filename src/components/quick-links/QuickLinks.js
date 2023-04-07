@@ -105,7 +105,7 @@ function QuickLinks(props) {
   })
 
   return (
-    <Box className={classes.container}>
+    <Box className={`${classes.container} module`}>
       <Grid container>
         <Grid
           item

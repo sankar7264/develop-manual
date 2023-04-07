@@ -1,11 +1,10 @@
-/* eslint-disable no-nested-ternary */
 import React from 'react'
 import { makeStyles } from 'tss-react/mui'
 import YouTube from 'react-youtube'
 import Image from 'next/image'
 import { Box } from '@mui/material'
 import PropTypes from 'prop-types'
-import rem from 'src/common/utils/css/'
+import { rem } from 'src/common/utils/css/'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import theme from 'src/styles/theme'
 

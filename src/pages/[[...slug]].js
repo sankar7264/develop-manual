@@ -8,6 +8,7 @@ import {
   getPageData,
 } from 'src/common/services'
 import { getComponent } from 'src/common/utils/getComponent'
+import theme from 'src/styles/theme'
 
 const useStyles = makeStyles()((props) => ({
   test: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles()((props) => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: '60vh',
+    background: theme.palette.presidio.color.NEAR_WHITE,
   },
 }))
 
@@ -46,11 +48,13 @@ const Home = (props) => {
       footerData={footerData}
       mainNavigationData={mainNavigationData}
     >
-      <Typography variant="h1" className={classes.test}>
-        Hello World!
-      </Typography>
-
-      {components}
+      <div className="wrapper">
+        {/* @TODO - Remove following typography block when hero module is available */}
+        <Typography variant="h1" className={`${classes.test} module`}>
+          Hello World!
+        </Typography>
+        {components}
+      </div>
     </Layout>
   )
 }

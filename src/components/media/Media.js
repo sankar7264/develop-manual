@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react'
 import { makeStyles } from 'tss-react/mui'
 import YouTube from 'react-youtube'
@@ -48,38 +49,38 @@ function Media(props) {
   const sizes = {
     small: {
       sm: {
-        width: '327px',
-        height: '237px',
+        width: '327',
+        height: '237',
       },
       md: {
-        width: '419px',
-        height: '319px',
+        width: '419',
+        height: '319',
       },
       lg: {
-        width: '462px',
-        height: '354px',
+        width: '462',
+        height: '354',
       },
       xl: {
-        width: '361px',
-        height: '271px',
+        width: '361',
+        height: '271',
       },
     },
     large: {
       sm: {
-        width: '327px',
-        height: '237px',
+        width: '327',
+        height: '237',
       },
       md: {
-        width: '640px',
-        height: '483px',
+        width: '640',
+        height: '483',
       },
       lg: {
-        width: '705px',
-        height: '483px',
+        width: '705',
+        height: '483',
       },
       xl: {
-        width: '744px',
-        height: '581px',
+        width: '744',
+        height: '581',
       },
     },
   }

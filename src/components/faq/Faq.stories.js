@@ -2,7 +2,7 @@ import React from 'react'
 import Faq from 'src/components/faq/Faq'
 
 export default {
-  title: 'Faq',
+  title: 'PRESIDIO/Faq',
   component: Faq,
 }
 

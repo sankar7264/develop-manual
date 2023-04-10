@@ -2,7 +2,7 @@ import React from 'react'
 import Header from 'src/components/header/Header'
 
 export default {
-  title: 'Header',
+  title: 'PRESIDIO/Header',
   component: Header,
 }
 

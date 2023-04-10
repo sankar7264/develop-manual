@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Card from 'src/components/card/Card'
+import Card from 'src/common/components/card/Card'
 
 const dataWithoutButton = {
   title: 'Event or Activity Card Example',

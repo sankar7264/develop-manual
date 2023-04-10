@@ -3,7 +3,7 @@ import { makeStyles } from 'tss-react/mui'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import theme from 'src/styles/theme'
-import Card from 'src/components/card/Card'
+import Card from 'src/common/components/card/Card'
 import { APPBAR_HEIGHT } from 'src/common/constants'
 
 const useStyles = makeStyles()((props) => ({

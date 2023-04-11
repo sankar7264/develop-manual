@@ -2,7 +2,7 @@ import React from 'react'
 import MegaMenu from 'src/components/main-navigation/mega-menu/MegaMenu'
 
 export default {
-  title: 'Mega Menu',
+  title: 'PRESIDIO/Mega Menu',
   component: MegaMenu,
 }
 

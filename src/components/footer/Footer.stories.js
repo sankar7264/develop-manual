@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from 'src/components/footer/Footer'
 
 export default {
-  title: 'Footer',
+  title: 'PRESIDIO/Footer',
   component: Footer,
 }
 

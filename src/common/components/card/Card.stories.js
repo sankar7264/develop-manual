@@ -1,8 +1,8 @@
 import React from 'react'
-import Card from 'src/components/card/Card'
+import Card from 'src/common/components/card/Card'
 
 export default {
-  title: 'Card',
+  title: 'Common/Card',
   component: Card,
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Media, { MediaType, Size } from 'src/components/media/Media'
 
 export default {
-  title: 'Media',
+  title: 'PRESIDIO/Media',
   component: Media,
 }
 
